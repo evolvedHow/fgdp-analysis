@@ -1,0 +1,784 @@
+# Fair Districts GA — Analyst & User Guide
+
+**Audience:** Data analysts, researchers, and advocates who want to understand
+what the ensemble benchmark measures, how each metric is calculated, and how to
+interpret the results.
+
+No programming knowledge is required to follow this guide.
+
+---
+
+## Table of Contents
+
+1. [What Is an Ensemble Benchmark?](#1-what-is-an-ensemble-benchmark)
+2. [Input Data](#2-input-data)
+3. [How the Ensemble Is Built](#3-how-the-ensemble-is-built)
+4. [Metrics — Partisan Fairness](#4-metrics--partisan-fairness)
+   - 4.1 [Democratic Seat Count](#41-democratic-seat-count)
+   - 4.2 [Efficiency Gap](#42-efficiency-gap)
+   - 4.3 [Mean-Median Difference](#43-mean-median-difference)
+   - 4.4 [Competitive Districts](#44-competitive-districts)
+5. [Metrics — Demographics](#5-metrics--demographics)
+   - 5.1 [Majority-Black Districts](#51-majority-black-districts)
+   - 5.2 [Majority-White Districts](#52-majority-white-districts)
+   - 5.3 [Majority-Minority Coalition](#53-majority-minority-coalition)
+6. [Metrics — Proportionality & Geography](#6-metrics--proportionality--geography)
+   - 6.1 [Proportionality Gap](#61-proportionality-gap)
+   - 6.2 [Municipal Splits (Urban Cracking)](#62-municipal-splits-urban-cracking)
+7. [The Princeton Grading System](#7-the-princeton-grading-system)
+8. [Key Findings — Georgia Congress 2026](#8-key-findings--georgia-congress-2026)
+9. [Interpreting the Charts](#9-interpreting-the-charts)
+10. [Data Quality & Limitations](#10-data-quality--limitations)
+11. [Glossary](#11-glossary)
+
+---
+
+## 1. What Is an Ensemble Benchmark?
+
+### The core idea
+
+When someone draws a district map, they face millions of possible choices. Some
+of those choices are neutral — the result of geography, following county lines,
+keeping communities together. Other choices are strategic — deliberately drawing
+lines to help one party win more seats.
+
+The ensemble benchmark answers: **"Is the enacted map a typical outcome, or an
+extreme outlier?"**
+
+We generate **100,000 randomly drawn maps** that satisfy every legal constraint:
+- Equal population (within ±1–5% depending on chamber)
+- Geographic contiguity (every district is connected)
+- Reasonable compactness
+
+If the enacted map happens to give Republicans 9 seats when 99,950 out of 100,000
+random maps gave Democrats 5 or more, that's not a coincidence — it's a sign of
+intentional design.
+
+### Analogy
+
+Imagine a coin that comes up heads 95% of the time. One flip of heads is not
+evidence of cheating. But if a neutral coin-flipping algorithm produces heads
+only 5% of the time, and the actual coin lands heads every time, something
+is clearly wrong.
+
+The ensemble is the neutral coin-flipping algorithm. The enacted map is the
+actual flip.
+
+---
+
+## 2. Input Data
+
+### The two roles of input data
+
+> **Key concept:** The two data sources play completely separate roles — this is
+> what makes the benchmark rigorous.
+>
+> | Data source | Role | What it's used for |
+> |---|---|---|
+> | **2020 Census** | Drawing the maps | Population balancing, demographics |
+> | **Election results** | Scoring the maps | Partisan outcomes after the fact |
+>
+> **The drawing algorithm sees no election data.** GerryChain and ALARM draw maps
+> using only geography and population — they have no knowledge of how anyone voted.
+> Election results are applied *after* 100,000 maps have already been drawn, to
+> measure what partisan outcome each neutral map would have produced.
+>
+> This separation is what makes the comparison meaningful: the ensemble represents
+> what redistricting looks like when partisanship is genuinely absent, not just
+> claimed to be absent.
+
+### 2020 Census (PL 94-171) — used to DRAW maps
+
+The Census provides two things the drawing algorithm needs:
+
+- **Total population per VTD** — ensures each randomly drawn district has equal
+  population (within the constitutional tolerance for that chamber).
+- **Racial/ethnic breakdown per VTD** (TOTPOP, Black VAP, Hispanic VAP, etc.) —
+  used after drawing to score each map's demographic composition. Also used to
+  apply the prison population adjustment (see below).
+
+### Election results (7 elections) — used to SCORE maps
+
+All elections are from official Georgia Secretary of State certified results,
+processed through the Redistricting Data Hub (RDH) block-disaggregation pipeline.
+Block-level vote counts are aggregated to VTD level using VAP_MOD weights.
+
+For each VTD and each election, we compute the **two-party Democratic vote
+share**: `dem_votes ÷ (dem_votes + rep_votes)`. Third-party candidates are
+excluded from the denominator so the score reflects the underlying Dem/Rep
+partisan balance independently of minor-party vote splitting.
+
+These seven per-VTD partisan lean numbers are then **averaged** into a single
+composite score per VTD — a stable picture of the structural partisan geography
+of Georgia that is not driven by any one election or candidate.
+
+| Label | Election | Candidates | Source |
+|---|---|---|---|
+| `gov_2018` | 2018 General — Governor | Kemp (R) / Abrams (D) | ALARM RDS |
+| `pre_2020` | 2020 General — President | Trump (R) / Biden (D) | RDH block file |
+| `uss_2021_war` | 2021 Jan 5 Runoff — US Senate | Loeffler (R) / Warnock (D) | RDH block file |
+| `gov_2022` | 2022 General — Governor | Kemp (R) / Abrams (D) | RDH block file |
+| `uss_2022` | 2022 General — US Senate | Walker (R) / Warnock (D) | RDH block file |
+| `uss_r22` | 2022 Dec 6 Runoff — US Senate | Walker (R) / Warnock (D) | RDH block file |
+| `pre_2024` | 2024 General — President | Trump (R) / Harris (D) | RDH block file |
+
+**Why these seven?** They span three election cycles and two offices (president
+and governor/senate), which reduces the risk that any single unusual election
+drives the findings. Including both the November general and the December runoff
+for the 2022 Senate race captures the full competitive cycle of that contest.
+
+**Why not state legislative elections?** Down-ballot state legislature races
+are frequently uncontested (no opponent runs), which makes them unsuitable for
+measuring partisan voting patterns across all districts.
+
+### CVAP (Citizen Voting Age Population)
+
+Demographic data comes from the **2024 ACS 5-year estimates** (covering
+2020–2024), disaggregated to 2020 Census blocks by RDH.
+
+CVAP measures the number of citizens of voting age — the legally relevant
+population for assessing Voting Rights Act compliance. It differs from total
+population and from total voting age population (VAP) in that it excludes
+non-citizens who cannot legally vote.
+
+| Column | What it counts |
+|---|---|
+| `CVAP_TOT` | Total citizen voting age population |
+| `CVAP_BLK` | Black or African American alone or in combination |
+| `CVAP_HSP` | Hispanic or Latino (any race) |
+| `CVAP_WHT` | White, non-Hispanic alone |
+| `CVAP_ASN` | Asian alone or in combination |
+
+### Prison population adjustment
+
+The raw Census counts for some rural Georgia counties (Telfair, Stewart, Wheeler,
+etc.) include large prison populations that inflate those counties' official
+numbers. We subtract the group quarters corrections (`P0050003` in PL 94-171)
+to compute `VAP_MOD`, which is used as the disaggregation weight when
+proportioning block-level data to VTD boundaries.
+
+### Geography: 2020 Census VTDs
+
+All analysis uses the **2020 Census Voting Tabulation Districts (VTDs)** —
+Georgia's 2,698 officially designated precinct-equivalent units. These are the
+smallest geographic units for which Census demographic data is published.
+
+The VTDs are the "atoms" of the redistricting simulation: the algorithm can move
+whole VTDs between districts but cannot split them.
+
+> **Limitation:** VTDs can be larger than legislative districts in rural areas.
+> This is why the enacted State House map shows population deviations up to 33%
+> at VTD level — not because the actual enacted map is that unequal, but because
+> assigning large VTDs whole to one side of a boundary introduces rounding error.
+> The ensemble simulation stays within ±5% at VTD resolution.
+
+---
+
+## 3. How the Ensemble Is Built
+
+### Step 1 — Build the dual graph
+
+Each VTD becomes a **node**. Two nodes are connected by an **edge** if the
+corresponding VTDs share a geographic border (rook adjacency — shared boundary
+length > 0). This gives us a graph with 2,698 nodes and ~7,705 edges.
+
+Each node carries attributes used during sampling:
+- `TOTPOP` — total population (from 2020 Census PL 94-171)
+- `GEOID20` — unique 11-character VTD identifier
+- `CDIST` / `SDIST` / `HDIST` — the enacted district assignment
+
+### Step 2 — Run the ReCom algorithm
+
+**ReCom** (short for ReCombination) is a Markov Chain Monte Carlo algorithm
+developed by the Princeton Gerrymandering Project (GerryChain library).
+
+At each step:
+1. Pick two **adjacent districts** at random
+2. Build a **random spanning tree** across all the VTDs in those two districts
+3. Find an edge in the tree that divides the VTDs into two groups with
+   roughly equal population (within ±ε of the ideal)
+4. Assign one group to district A and the other to district B
+5. Accept the new map (we use "always accept" — this is a uniform random walk)
+
+After enough steps to produce **100,000 samples** (with an initial warm-up
+period discarded), we have 100,000 distinct maps, each one a legal redistricting
+plan. All six benchmarks (GerryChain and ALARM for Congress, State Senate, and
+State House) use the same 100,000-draw standard so results are directly
+comparable across chambers and algorithms.
+
+**Population tolerance (ε):**
+- Congress: ±1.0% (federal constitutional standard)
+- State Senate: ±5.0% (state constitutional standard, Reynolds v. Sims)
+- State House: ±5.0%
+
+**Draw 1 always = the enacted plan.** It is stored as the first row so it can be
+directly compared against the simulated draws (2 through N).
+
+### Step 3 — Score each map
+
+This is where the election data is applied for the first time. For each of the
+100,000 drawn maps, we overlay the per-VTD partisan lean from the seven elections
+and ask: *"If this district map had existed, how would Georgia have voted?"*
+
+For each simulated map × each election × each district, we compute:
+- Total Democratic votes and total Republican votes (sum of VTD-level vote
+  counts for all VTDs assigned to that district)
+- **Two-party vote share (dem_2pv)**: Democratic votes ÷ (Democratic + Republican votes)
+- Winner: `dem` if dem_2pv > 0.5, `rep` if dem_2pv < 0.5
+
+We also compute a **composite score** — the average dem_2pv across all seven
+elections — which smooths out election-specific swings and reflects the
+underlying structural partisan lean of each district.
+
+We then aggregate to the draw level to compute the metrics described in the
+next section.
+
+---
+
+## 4. Metrics — Partisan Fairness
+
+All metrics are computed separately for each of the seven benchmark elections,
+plus a composite. This produces eight distributions — one per election plus
+the composite — which can be compared to
+see how the enacted map performs across different political environments.
+
+### 4.1 Democratic Seat Count
+
+**What it measures:** How many of the 14 congressional districts would be won
+by the Democratic candidate.
+
+**Formula:**
+
+```
+dem_seats = number of districts where dem_2pv > 0.5
+```
+
+where `dem_2pv = dem_votes / (dem_votes + rep_votes)` for each district.
+
+**How to interpret:** The ensemble produces a distribution of seat counts. If
+the enacted map gives Democrats 5 seats and 8,000 out of 9,000 simulated maps
+give Democrats 6 or more, the enacted map is an outlier favoring Republicans.
+
+**What we found (Georgia Congress 2026 v1):**
+
+| Election | Enacted D seats | Ensemble median | Percentile | Grade |
+|---|---|---|---|---|
+| 2018 Governor | D5 | 5 | 78th | B |
+| 2020 President | D5 | 5 | 55th | A |
+| 2021 Senate Runoff | D5 | 6 | 43rd | A |
+| 2022 Governor | D5 | 4 | 95th | C |
+| 2022 Senate | D5 | 5 | 50th | A |
+| 2024 President | D5 | 5 | 65th | A |
+
+The 2021 Senate Runoff is the most revealing: in a Democratic wave environment
+where neutral maps produce a median of 6 Democratic seats, the enacted map
+produces only 5. The 2022 Governor race shows the opposite — in a Republican
+wave year, the enacted map actually produces more Democratic seats than typical
+neutral maps (D5 vs. median D4). This asymmetry is a design signature: the map
+is built to lock in Republican advantage in neutral or Democratic environments
+while still appearing fair in heavily Republican environments.
+
+---
+
+### 4.2 Efficiency Gap
+
+**What it measures:** The difference in "wasted votes" between the two parties.
+A vote is wasted if it goes to the losing candidate (regardless of margin) or
+is more than the minimum needed to win (excess votes in a landslide).
+
+**Formula:**
+
+For each district in a given draw:
+
+```
+Wasted Dem votes =
+    IF Dems win: dem_votes − (total_votes / 2)   [excess votes above winning threshold]
+    IF Dems lose: all dem_votes                   [all votes go to the losing candidate]
+
+Wasted Rep votes = same logic from the Republican side
+
+Efficiency Gap = (total_wasted_dem − total_wasted_rep) / total_votes
+```
+
+**Sign convention:** Positive = Republican advantage (Dems waste more votes).
+Negative = Democratic advantage.
+
+**Significance thresholds:**
+- |EG| < 0.05 (5%): within normal range
+- |EG| > 0.08 (8%): substantial partisan bias (SCOTUS-cited threshold)
+- |EG| > 0.10 (10%): severe
+
+**Plain English:** If one party consistently wins big in a few districts while
+the other party wins many districts by small margins, the big-winning party
+is "wasting" votes, and the map is inefficient for them. A gerrymanderer
+**packs** the opponent's voters into safe districts (lots of excess wasted votes)
+and **cracks** the remainder across districts where they lose narrowly (all
+wasted). This creates a large positive EG favoring the gerrymanderer.
+
+**What we found:** The enacted Georgia congressional map has an average
+efficiency gap of +11% across all six elections, meaning Democrats waste
+significantly more votes than Republicans. This is above the 8% threshold
+considered substantial by election law scholars.
+
+---
+
+### 4.3 Mean-Median Difference
+
+**What it measures:** The difference between the mean Democratic vote share
+across all districts and the median Democratic vote share.
+
+**Formula:**
+
+```
+Mean-Median = mean(dem_2pv across all districts) − median(dem_2pv across all districts)
+```
+
+**Sign convention:** Positive = Democratic advantage (Dems win seats more efficiently).
+Negative = Republican advantage.
+
+**Significance threshold:** Values outside ±0.03 (3 percentage points) suggest
+systematic partisan advantage.
+
+**Plain English:** In a fair map, the mean and median vote share should be close.
+If a party's vote share is clustered in a few large wins (packing), their median
+will be higher than their mean — meaning they win some seats in blowouts while
+losing many others narrowly. This produces a negative mean-median (favoring
+Republicans) even when Democrats win the statewide popular vote.
+
+---
+
+### 4.4 Competitive Districts
+
+**What it measures:** How many districts have a close enough vote margin
+that either party could win with a reasonable shift in turnout or candidate quality.
+
+**Formula:**
+
+```
+win_margin = |dem_2pv − 0.50| × 2
+
+competitive_at_threshold_T = number of districts where win_margin ≤ T
+```
+
+**Primary threshold used:** T = 0.05 (5% win margin — the winning candidate
+gets between 52.5% and 47.5% of the two-party vote).
+
+**How to interpret:** A district with a 5% margin can flip parties if 2.5% of
+voters switch sides — a realistic possibility in most elections. The more
+competitive districts a map has, the more voters have real choices and the more
+the legislature reflects actual shifts in public opinion.
+
+**What we found:** The enacted Georgia congressional map has **0 competitive
+districts** (margin ≤ 5%) in every election. The ensemble average is 1–2
+competitive districts. This means **100% of simulated neutral maps produce more
+competitive districts** than the enacted map — the enacted map maximally
+insulates all incumbents from electoral accountability.
+
+---
+
+## 5. Metrics — Demographics
+
+Demographic metrics use CVAP (Citizen Voting Age Population) rather than total
+population, because only citizens can vote. The threshold for a "majority"
+district is CVAP > 50%.
+
+### 5.1 Majority-Black Districts
+
+**Formula:**
+
+```
+majority_black = (CVAP_BLK / CVAP_TOT) > 0.50
+```
+
+where CVAP_BLK counts Black or African American citizens "alone or in combination"
+(includes biracial and multiracial individuals with any Black ancestry, per
+the standard Census "any part" counting method).
+
+**Legal significance:** The Voting Rights Act (VRA) § 2 prohibits maps that
+dilute minority voting power. Courts have generally held that minority groups
+must have an opportunity to elect candidates of their choice when they are
+geographically concentrated and politically cohesive. A map that packs a minority
+group into fewer districts than geography would naturally produce may violate § 2.
+
+**What we found:** The enacted Georgia congressional map has **4 majority-Black
+districts** (D4, D5, D6, D13). The ensemble average is only **2**. This is at
+the extreme high end — the enacted map has more majority-Black districts than
+virtually any neutral simulation would produce. This is consistent with a
+"packing" strategy: concentrating Black Democratic voters into a small number
+of overwhelmingly safe Democratic seats, which reduces their influence in
+surrounding districts.
+
+### 5.2 Majority-White Districts
+
+**Formula:**
+
+```
+majority_white = (CVAP_WHT / CVAP_TOT) > 0.50
+```
+
+where CVAP_WHT counts White, non-Hispanic citizens only.
+
+**What we found:** The enacted map has **9 majority-white districts**. The
+ensemble average is 9.7, so the enacted map is slightly below the ensemble
+center on this metric.
+
+### 5.3 Majority-Minority Coalition
+
+**Formula:**
+
+```
+pct_minority_coalition = 1 − (CVAP_WHT / CVAP_TOT)
+majority_coalition = pct_minority_coalition > 0.50
+```
+
+This captures districts where all non-white groups together constitute a majority,
+even if no single group crosses 50% on its own.
+
+**What we found:** The enacted map has **5 majority-minority coalition districts**,
+at the 37th percentile of the ensemble — roughly within the normal range.
+
+---
+
+---
+
+## 6. Metrics — Proportionality & Geography
+
+### 6.1 Proportionality Gap
+
+**What it measures:** The difference between what the enacted map delivers and
+what a truly proportional system would deliver — decomposed into two parts:
+
+| Component | Formula | What it captures |
+|---|---|---|
+| **Geographic Baseline Gap** | Ensemble median seats − Proportional target | How much geography alone (sorting, concentration) costs Democrats. This would exist even with a perfectly neutral map. |
+| **Manipulation Gap** | Enacted seats − Ensemble median seats | How much the **specific choices made by the map-drawers** cost Democrats beyond neutral geography. |
+| **Total Gap** | Enacted seats − Proportional target | The full deficit from proportionality. |
+
+**Proportional target formula:**
+```
+proportional_target = statewide_dem_2pv × N_districts
+                    = 51.49% × 14 ≈ 7.2 seats
+```
+
+**Georgia Congress findings:**
+- Proportional target: **7.2 seats** (Democrats win 51.49% of the statewide composite vote)
+- Ensemble median: **6 seats** (geography alone costs ~1.2 seats)
+- Enacted: **5 seats** (map choices cost another 1 seat)
+- Total gap: **2.2 seats** — Democrats win 5 seats while winning 51% of votes
+
+**Why this matters:** The geographic baseline gap is beyond any mapper's control —
+it reflects where people live. The manipulation gap is a direct measure of
+deliberate partisan design above and beyond what geography requires.
+
+**How it appears in the UI (Benchmark tab):**
+A number line shows three markers:
+- Gray: Neutral ensemble median
+- Blue: Proportional target
+- Red: Enacted plan position
+Two segments are labeled: "Geographic baseline" (gray span) and "Manipulation" (red span).
+
+---
+
+### 6.2 Municipal Splits (Urban Cracking)
+
+**What it measures:** How many cities and municipalities are split across two
+or more congressional districts. Georgia's constitution requires avoiding
+unnecessary splits.
+
+**Formula:**
+```
+muni_splits = count of municipalities where VTDs are assigned to
+              more than one district
+```
+
+**Georgia's paradox:** The enacted congressional map has **12 municipal splits**
+— cleaner than 99.9% of neutral ensemble plans (ensemble median: ~27 splits).
+This seems to favor Democrats (fewer splits = less cracking). Yet:
+- The `muni_splits ↔ dem_seats` Pearson correlation across the ensemble is **r ≈ 0.026** (near-zero)
+- The map produces **0 competitive seats** despite its clean municipal boundaries
+
+**What this means:** Manipulation occurs **below the city level** — at the
+sub-municipal VTD granularity. The map-drawers respected city limits while
+carefully selecting which VTDs within cities go to which districts, concentrating
+Democratic voters into a small number of landslide districts (packing) and
+diluting the rest. This is a sophisticated technique invisible to city-level metrics.
+
+**The UrbanCrackPanel (Benchmark tab):** An interactive panel tests four
+correlation questions across all neutral ensemble draws:
+
+| Pair | r (Georgia Congress) | Finding |
+|---|---|---|
+| City splits → Dem seats | ~0.03 | Near-zero — independent |
+| City splits → Efficiency gap | ~0.10 | Near-zero — independent |
+| City splits → Competitive seats | ~0.08 | Near-zero — independent |
+| Dem seats → Efficiency gap | ~0.89 | Strong — same signal |
+
+Each pair shows a scatter plot with all neutral ensemble plans (blue dots),
+a regression trend line, and the enacted map's position (red crosshair + label).
+
+---
+
+## 7. The Princeton Grading System
+
+The Princeton Gerrymandering Project grades maps based on where the enacted plan
+falls in the distribution of simulated plans. We use the same framework with one
+important modification for Voting Rights Act (VRA) metrics.
+
+### Standard grading (partisan metrics)
+
+The enacted plan's **percentile rank** determines its grade. Grades measure
+statistical extremeness — not direction.
+
+**Seats-type metrics** (`dem_seats` — higher is better for Democrats):
+
+| Grade | Percentile | Meaning |
+|---|---|---|
+| **A** | ≥ 50th | At or above the neutral ensemble median |
+| **B** | ≥ 20th | Within the lower 80% of neutral maps |
+| **C** | ≥ 5th | Within the lower 95% of neutral maps |
+| **F** | < 5th | Extreme outlier — fewer Democratic seats than 95% of neutral maps |
+
+**Competitiveness metric** (`comp_seats` — higher is better):
+
+| Grade | Percentile | Meaning |
+|---|---|---|
+| **A** | ≥ 95th | More competitive than 95% of neutral maps |
+| **B** | ≥ 64th | More competitive than 64% of neutral maps |
+| **C** | ≥ 5th | Within normal range |
+| **F** | < 5th | Fewer competitive seats than 95% of neutral maps |
+
+**Symmetric metrics** (`efficiency_gap`, `mean_median` — center of distribution is best):
+
+| Grade | Distance from 50th percentile | Meaning |
+|---|---|---|
+| **A** | ≤ 10 pp from median | Within normal fluctuation range |
+| **B** | ≤ 30 pp from median | Mild partisan lean |
+| **C** | ≤ 45 pp from median | Noticeable lean, not yet extreme |
+| **F** | > 45 pp from median | Outside the 5th–95th percentile band |
+
+**Important note:** Always report the grade AND the direction. "Grade F, at the
+96th percentile" means the enacted map is an extreme outlier *favorable to
+Republicans* — it wastes more Democratic votes than 96% of neutral maps.
+
+### Floor-based grading (VRA minority metrics)
+
+The Voting Rights Act is a **floor statute**: it prohibits maps that dilute
+minority voting power but never penalizes having more minority-opportunity
+districts than a neutral baseline. The standard Princeton symmetric grade
+(which penalizes "too many" minority districts) is legally incoherent for
+these metrics.
+
+**Applied to:** `maj_black` (majority-Black districts), `min_coal` (minority coalition)
+
+| Grade | Percentile | Meaning |
+|---|---|---|
+| **A** | ≥ 50th | At or above the neutral ensemble median — comfortably adequate |
+| **B** | ≥ 10th | At or above the VRA floor — meets minimum legal standard |
+| **F** | < 10th | Below the VRA floor — potential Section 2 vote dilution |
+
+The traditional symmetric grade is retained in the scorecard data as
+`grade_symmetric` for researchers who want to compare with original Princeton
+methodology. It is shown at reduced opacity in the MetricsGlossary panel.
+
+### Composite grading
+
+A composite **Partisan Fairness** grade combines `dem_seats`, `efficiency_gap`,
+and `mean_median`. An **Overall** grade further incorporates geographic metrics
+and competitiveness. Both are recomputed from per-metric data at serve time —
+never pre-stored in the scorecard file.
+
+---
+
+## 8. Key Findings — Georgia Congress 2026
+
+**Run name:** `congress_2026_v1`  
+**Draws:** 9,999 simulated maps + 1 enacted (draw 1)  
+**Algorithm:** ReCom, 10,000 steps, burn-in 0, ε = 2% (VTD-level)  
+
+### Partisan fairness summary
+
+The enacted map locks in a **D5/R9 split** regardless of political environment:
+
+- In the 2021 Senate Runoff wave (a statewide Democratic environment), the
+  ensemble median is **D6**. The enacted map produces only **D5** — 1 seat
+  below what a neutral map would typically produce.
+- In the 2022 GOP wave, the enacted map produces **D5** when the ensemble
+  median is **D4** — meaning the map actually protected 1 Democratic seat
+  that a neutral map might have flipped.
+- In the moderate 2020/2024 presidential environments, the enacted map
+  sits at or near the ensemble median.
+
+This asymmetric behavior — performing slightly below expectations for Democrats
+in their best environment, slightly above in their worst — is consistent with
+a map designed to minimize variance around a target of 5 Democratic seats.
+
+### Competitiveness finding (strongest signal)
+
+**0 competitive districts** (margin ≤ 5%) in 5 of 6 elections.  
+Only the 2022 Governor race produces 1 competitive district in the enacted map.  
+Ensemble average: **1.4 districts** at the 5% threshold.  
+**100% of simulated maps produce more competitive districts** than the enacted
+map in most election environments.
+
+This is the clearest quantitative signal of gerrymandering in the dataset.
+
+### Demographic finding (packing)
+
+**4 majority-Black districts vs. ensemble average of 2.**  
+The enacted map has more majority-Black districts than essentially all neutral
+simulations — at the **0th percentile** of the distribution. While VRA compliance
+requires some majority-minority districts, having more than nearly any neutral
+map suggests that Black voters are being packed into the minimum number of
+politically effective seats.
+
+---
+
+## 9. Interpreting the Charts
+
+### Partisan histogram
+
+Each bar shows the fraction of simulated maps that produced that many Democratic
+seats. The blue shaded region is the IQR (center 50%). The red dashed line is
+the enacted map.
+
+**What to look for:**
+- Is the enacted map's red line inside the blue shaded IQR? (Grade A = good)
+- Is the enacted map consistently to the left of center? (Fewer Democratic seats than typical)
+- Is the pattern consistent across all six elections?
+
+### Competitiveness histogram
+
+Same structure as the partisan histogram, but the x-axis shows how many
+competitive districts each simulated map produced.
+
+**What to look for:**
+- Is the enacted map's line at 0 (or near 0) while the ensemble clusters at 2–4?
+- A map at the extreme left means it maximally reduces competitive districts.
+
+### Demographics histogram
+
+Three panels: majority-Black, majority-White, majority-minority coalition.
+The colored bar shows the simulated distribution; the red line shows enacted.
+
+**What to look for:**
+- Majority-Black panel: Is the enacted map to the right of the ensemble (more
+  packed)? Is it at or above the 90th percentile?
+
+### River chart
+
+The x-axis shows each district, sorted by its median Democratic vote share
+across all simulated maps (leftmost = most Republican, rightmost = most Democratic).
+The blue bands show the 5th–95th percentile (outer band) and 25th–75th percentile
+(IQR, inner band). The red line is the enacted plan.
+
+**What to look for:**
+- Does the red line follow the blue IQR band smoothly (consistent with typical
+  maps), or does it zigzag wildly (unusually structured)?
+- Districts where the red line is far outside the bands represent unusual choices.
+- The classic gerrymander pattern is a zigzag: alternating very safe R and very
+  safe D districts, with no competitive ones in between.
+
+### Proportionality gap number line
+
+Three markers on a horizontal axis:
+- **Gray dot** — Neutral ensemble median (what neutral geography produces)
+- **Blue dot** — Proportional target (what the statewide vote share would ideally produce)
+- **Red dot** — Enacted plan position
+
+Two spans are labeled: "Geographic baseline" (gray → blue) and "Manipulation" (red → gray).
+
+**What to look for:**
+- How far left is the red dot from the blue dot? That's the total gap.
+- How much of that gap is "Manipulation" vs. "Geographic baseline"?
+
+### Urban cracking correlation table (4 buttons)
+
+Four clickable buttons show the Pearson correlation between a geographic
+metric (city splits) and partisan outcomes, across all neutral ensemble draws.
+
+**What to look for:**
+- `r` near 0: these two metrics are independent — the geographic pattern doesn't
+  drive the partisan outcome (Georgia's case: cracking works sub-municipally)
+- `r` near ±1: the metrics move together — knowing one predicts the other
+
+Each button opens a scatter chart with:
+- Blue dots = neutral ensemble plans
+- Orange trend line = linear regression
+- **Red crosshair** = enacted plan's position (dashed lines to both axes + coordinate label)
+
+The enacted map's red marker may sit far from the blue cloud even when `r ≈ 0`,
+showing that the enacted plan is an outlier in both dimensions simultaneously.
+
+---
+
+## 10. Data Quality & Limitations
+
+### Election data accuracy
+
+All vote totals are verified against Georgia Secretary of State certified results.
+Typical discrepancy: < 0.1%. The small gap comes from VTD-level rounding when
+disaggregating block-level data.
+
+| Election | Dem diff from SOS | Rep diff from SOS |
+|---|---|---|
+| 2018 Governor | 0.04% | 0.04% |
+| 2021 Senate Runoff | 0.00% | 0.00% |
+| 2022 Governor | 0.01% | 0.04% |
+| 2022 Senate | 0.04% | 0.00% |
+| 2024 President | 0.01% | 0.03% |
+
+### VTD vs. precinct
+
+The analysis uses 2020 Census VTDs, not actual 2022 or 2024 election precincts.
+Georgia changed precinct boundaries between 2020 and 2024. This means:
+
+1. The precinct data is disaggregated from blocks to 2020 VTDs using population
+   weights — a standard redistricting practice, not an approximation unique to
+   this analysis.
+2. The same geographic unit is used consistently for all elections and for the
+   ensemble, so relative comparisons are valid.
+
+### Ensemble sample size
+
+9,000–10,000 draws is standard for published redistricting analyses (Princeton
+uses 1M, but for most applications 10,000 is sufficient for stable percentile
+estimates). Percentile ranks reported to the nearest 0.1% are reliable; the
+uncertainty on a percentile estimate from 10,000 draws is approximately ±0.5%.
+
+### Enacted map VTD-level deviations
+
+The enacted congressional map, when evaluated at VTD level, has a maximum
+population deviation of 1.8% (vs. the 1% target). This is because the actual
+enacted map was drawn at block or split-VTD precision; assigning whole VTDs
+to one side of a boundary introduces rounding. The ensemble uses ±2% tolerance
+to accommodate this. This is consistent with Princeton and ALARM methodologies.
+
+---
+
+## 11. Glossary
+
+| Term | Definition |
+|---|---|
+| **CVAP** | Citizen Voting Age Population — people who are both citizens and at least 18 years old |
+| **dem_2pv** | Democratic two-party vote share: Dem votes ÷ (Dem + Rep votes), expressed as 0–1 |
+| **Draw** | One simulated map produced by the ReCom algorithm |
+| **Efficiency Gap (EG)** | Measure of wasted vote asymmetry between parties; positive = Republican advantage |
+| **Ensemble** | The full set of simulated maps used as a statistical benchmark |
+| **Gerrymander** | Drawing district lines to give one party a systematic advantage |
+| **IQR** | Interquartile range — the middle 50% of a distribution (25th–75th percentile) |
+| **Majority-minority district** | A district where a minority group constitutes > 50% of CVAP |
+| **Mean-median difference** | Mean Dem vote share minus median Dem vote share; negative = Republican packing advantage |
+| **Packing** | Concentrating a group's voters into a small number of overwhelmingly safe districts |
+| **Cracking** | Splitting a group's voters across many districts where they narrowly lose |
+| **Percentile rank** | The fraction of simulated maps at or below the enacted value |
+| **Princeton grade** | Letter grade (A–F) based on percentile rank of enacted map vs. ensemble |
+| **ReCom** | Redistricting Combinatorics — the Markov Chain algorithm used to generate random maps |
+| **VTD** | Voting Tabulation District — Census precinct equivalent; the atom of this analysis |
+| **VRA** | Voting Rights Act of 1965 — federal law prohibiting racial discrimination in voting |
+| **VRA floor grading** | Grading method for minority metrics: penalizes too-few minority districts (potential §2 dilution) but never too-many; uses 10th percentile as the legal floor |
+| **Win margin** | |dem_2pv − 0.5| × 2; a margin of 0.05 means 52.5% vs 47.5% |
+| **ε (epsilon)** | Population tolerance — how much any district can deviate from ideal population |
+| **Proportionality gap** | Deficit between Democratic seat share and vote share; decomposed into geographic baseline (unavoidable) + manipulation (deliberate map choices) |
+| **Municipal splits** | Count of cities/municipalities divided across multiple districts; high splits indicate potential urban cracking |
+| **Manipulation gap** | Portion of the proportionality gap attributable to deliberate redistricting choices (enacted − neutral ensemble median) |
+| **Geographic baseline gap** | Portion of proportionality gap from geographic sorting alone (neutral ensemble median − proportional target) |

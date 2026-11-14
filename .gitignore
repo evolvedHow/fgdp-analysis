@@ -1,0 +1,9 @@
+# Auto-generated gitignore for data project
+*.parquet
+*.xlsx
+*.xlsx:*
+*.cache
+*.history.*
+*.tags.*
+.python-version
+wsl.*
