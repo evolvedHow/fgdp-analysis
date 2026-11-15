@@ -50,6 +50,8 @@ class Source:
     grain: str = "county"
     #: Free-text note surfaced in the _manifest tab.
     note: str = ""
+    #: True if certified by Georgia Secretary of State; False for provisional/uncertified.
+    certified: bool = True
 
 
 _MODES_STANDARD = (
@@ -144,6 +146,15 @@ SOURCES: dict[int, Source] = {
         election_date="2024-11-05", cycle_year=2024, election_type="general",
         patterns=("2024/20241105__ga__general__county-level.csv",),
         votes_mode_columns=_MODES_STANDARD, grain="county",
+        certified=True,
+    ),
+    2026: Source(
+        source_id="oe_ga_20261103_general",
+        election_date="2026-11-03", cycle_year=2026, election_type="general",
+        patterns=("2026/20261103__ga__general__county-level.csv",),
+        votes_mode_columns=_MODES_STANDARD, grain="county",
+        certified=False,
+        note="⚠️ UNCERTIFIED: Pending Georgia Secretary of State certification. For development/testing only.",
     ),
 }
 
