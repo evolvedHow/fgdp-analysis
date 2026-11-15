@@ -51,12 +51,28 @@ PARTY_MAP = {
     "W": "Write-in",
 }
 
-def normalize_office(office: str) -> Optional[str]:
-    """Normalize office name to OpenElections standard."""
-    for key, val in OFFICE_MAP.items():
-        if key.lower() in office.lower():
-            return val
-    return office
+def extract_district(office: str) -> tuple[str, str]:
+    """Extract district from office name.
+    
+    Returns (office_with_no_district, district) tuple.
+    For "State House of Representatives - District 1" returns 
+    ("State House of Representatives", "1")
+    """
+    office_clean = office.strip()
+    district = ""
+    
+    # Extract district number from office name
+    if "District" in office_clean:
+        parts = office_clean.split("District")
+        if len(parts) > 1:
+            # Get the number after "District"
+            dist_str = parts[1].strip().split("/")[0].split()[0]
+            if dist_str:
+                district = dist_str
+                # Remove district from office name
+                office_clean = parts[0].strip().rstrip("-").strip()
+    
+    return office_clean, district
 
 def normalize_party(party) -> str:
     """Normalize party code."""
@@ -90,22 +106,14 @@ def convert_2026() -> None:
     # Convert to OpenElections format
     result = []
     for _, row in df.iterrows():
-        office = normalize_office(row["Office Name"])
+        office, district = extract_district(row["Office Name"])
         party = normalize_party(row["Party"])
-        
-        # Extract district from Ballot Name (e.g., "House District 1" → "1")
-        ballot_name = str(row.get("Ballot Name", "")).strip()
-        district = ""
-        if "District" in ballot_name:
-            parts = ballot_name.split("District")
-            if len(parts) > 1:
-                district = parts[1].strip().split()[0]  # Get first word after "District"
         
         record = {
             "county": row["County"].strip(),
-            "office": office,
+            "office": office,  # Keep raw office name for FDP to normalize
             "district": district,
-            "candidate": ballot_name.strip(),  # Use Ballot Name as candidate
+            "candidate": str(row.get("Ballot Name", "")).strip(),  # Use Ballot Name as candidate
             "party": party,
             "votes": int(row["Total"]) if pd.notna(row["Total"]) else 0,
         }

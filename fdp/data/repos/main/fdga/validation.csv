@@ -1,10 +1,12 @@
 check,severity,scope,detail
-party_domain,WARN,all,"638 rows mapped to 'Other'; raw values: {'Unknown': 636, '': 2}"
+district_coverage,FAIL,2026/us_house,14/None districts; missing []
+seat_totals,FAIL,2026/us_house,"seats sum to 14.0, expected nan"
+party_domain,WARN,all,"2,176 rows mapped to 'Other'; raw values: {'Unknown': 2174, '': 2}"
 district_coverage,KNOWN,2002/state_house,"147/180 districts; missing ['148', '149', '150', '151', '152', '153', '154', '155'] (+25 more) — Georgia's 2001 House plan used multi-member districts: 147 districts elected 180 members. The source carries no post identifier, so seat winners are not derivable. Votes are complete and correct. The legacy workbook's 2002 tab also stops at district 147. (Plan later struck down in Larios v. Cox, 2004.)"
 district_coverage,KNOWN,2018/state_house,"178/180 districts; missing ['014', '028'] — Districts 014 and 028 are absent from the OpenElections 2018 per-county precinct files. Verified absent in the raw source, not dropped by the adapter."
 seat_totals,KNOWN,2002/state_house,"seat attribution not derivable — Georgia's 2001 House plan used multi-member districts: 147 districts elected 180 members. The source carries no post identifier, so seat winners are not derivable. Votes are complete and correct. The legacy workbook's 2002 tab also stops at district 147. (Plan later struck down in Larios v. Cox, 2004.)"
-seat_totals,KNOWN,2018/state_house,"seats sum to 178.0, expected 180 — Districts 014 and 028 are absent from the OpenElections 2018 per-county precinct files. Verified absent in the raw source, not dropped by the adapter."
-contest_has_votes,PASS,all,"all 3,232 contests have votes"
+seat_totals,KNOWN,2018/state_house,"seats sum to 178.0, expected 180.0 — Districts 014 and 028 are absent from the OpenElections 2018 per-county precinct files. Verified absent in the raw source, not dropped by the adapter."
+contest_has_votes,PASS,all,"all 3,482 contests have votes"
 county_coverage,PASS,2000/all,159/159 counties
 county_coverage,PASS,2002/all,159/159 counties
 county_coverage,PASS,2004/all,159/159 counties
@@ -56,43 +58,47 @@ district_coverage,PASS,2022/us_house,14/14 districts
 district_coverage,PASS,2024/state_house,180/180 districts
 district_coverage,PASS,2024/state_senate,56/56 districts
 district_coverage,PASS,2024/us_house,14/14 districts
+district_coverage,PASS,2026/state_house,180/180 districts
+district_coverage,PASS,2026/state_senate,56/56 districts
 grain_unique,PASS,all,"0 duplicate rows at grain ['election_date', 'election_type', 'office', 'district', 'county', 'candidate_name', 'party']"
-seat_totals,PASS,2000/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2000/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2000/us_house,11.0 seats = 11 expected
-seat_totals,PASS,2002/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2002/us_house,13.0 seats = 13 expected
-seat_totals,PASS,2004/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2004/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2004/us_house,13.0 seats = 13 expected
-seat_totals,PASS,2006/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2006/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2006/us_house,13.0 seats = 13 expected
-seat_totals,PASS,2008/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2008/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2008/us_house,13.0 seats = 13 expected
-seat_totals,PASS,2010/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2010/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2010/us_house,13.0 seats = 13 expected
-seat_totals,PASS,2012/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2012/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2012/us_house,14.0 seats = 14 expected
-seat_totals,PASS,2014/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2014/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2014/us_house,14.0 seats = 14 expected
-seat_totals,PASS,2016/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2016/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2016/us_house,14.0 seats = 14 expected
-seat_totals,PASS,2018/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2018/us_house,14.0 seats = 14 expected
-seat_totals,PASS,2020/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2020/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2020/us_house,14.0 seats = 14 expected
-seat_totals,PASS,2022/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2022/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2022/us_house,14.0 seats = 14 expected
-seat_totals,PASS,2024/state_house,180.0 seats = 180 expected
-seat_totals,PASS,2024/state_senate,56.0 seats = 56 expected
-seat_totals,PASS,2024/us_house,14.0 seats = 14 expected
-votes_reconcile,PASS,all,"239,508,586 votes preserved through aggregation"
-votes_sane,PASS,all,"33,453 rows, 239,508,586 votes"
+seat_totals,PASS,2000/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2000/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2000/us_house,11.0 seats = 11.0 expected
+seat_totals,PASS,2002/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2002/us_house,13.0 seats = 13.0 expected
+seat_totals,PASS,2004/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2004/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2004/us_house,13.0 seats = 13.0 expected
+seat_totals,PASS,2006/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2006/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2006/us_house,13.0 seats = 13.0 expected
+seat_totals,PASS,2008/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2008/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2008/us_house,13.0 seats = 13.0 expected
+seat_totals,PASS,2010/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2010/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2010/us_house,13.0 seats = 13.0 expected
+seat_totals,PASS,2012/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2012/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2012/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2014/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2014/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2014/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2016/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2016/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2016/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2018/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2018/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2020/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2020/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2020/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2022/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2022/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2022/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2024/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2024/state_senate,56.0 seats = 56.0 expected
+seat_totals,PASS,2024/us_house,14.0 seats = 14.0 expected
+seat_totals,PASS,2026/state_house,180.0 seats = 180.0 expected
+seat_totals,PASS,2026/state_senate,56.0 seats = 56.0 expected
+votes_reconcile,PASS,all,"263,647,431 votes preserved through aggregation"
+votes_sane,PASS,all,"36,322 rows, 263,647,431 votes"
