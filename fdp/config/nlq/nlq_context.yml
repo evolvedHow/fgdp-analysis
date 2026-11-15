@@ -1,0 +1,92 @@
+# FDP NLQ Context Configuration
+# Edit this file to tweak what data the NLQ layer knows about.
+# Changes take effect on next MCP server / API restart — no Python code changes needed.
+
+# ── Chambers available for analysis ───────────────────────────────────
+chambers:
+  - congress
+  - senate
+  - house
+
+# ── Default values ────────────────────────────────────────────────────
+defaults:
+  census_year: 2020
+  cvap_year: 2024
+  geo_level: vtd
+  majority_threshold: 0.50
+  competitive_lo: 0.465
+  competitive_hi: 0.535
+  competitiveness_thresholds:
+    - 0.035
+    - 0.05
+  composite_method: min
+  match_mode: number
+  match_threshold_km: 20.0
+
+# ── Election filters (optional shorthand) ─────────────────────────────
+# If election_years is empty, the NLQ layer discovers from CDM at runtime.
+election_years: []
+election_types: []
+offices: []
+
+# ── Minority group definitions (used as defaults in system prompt) ────
+# Each group: name, label, cvap_col (or formula), majority_threshold,
+# influence_lo, influence_hi
+minority_groups:
+  - name: black
+    label: "Black VAP"
+    cvap_col: pct_bvap_al
+    majority_threshold: 0.50
+    influence_lo: 0.37
+    influence_hi: 0.50
+  - name: white
+    label: "White VAP"
+    cvap_col: pct_wvap_al
+    majority_threshold: 0.50
+    influence_lo: 0.37
+    influence_hi: 0.50
+  - name: hispanic
+    label: "Hispanic VAP"
+    cvap_col: pct_hvp
+    majority_threshold: 0.50
+    influence_lo: 0.37
+    influence_hi: 0.50
+  - name: asian
+    label: "Asian VAP"
+    cvap_col: pct_avap_al
+    majority_threshold: 0.50
+    influence_lo: 0.37
+    influence_hi: 0.50
+  - name: minority_coalition
+    label: "Minority Coalition"
+    formula: "1 - (pct_wvap_al / 100)"
+    majority_threshold: 0.50
+    influence_lo: 0.37
+    influence_hi: 0.50
+
+# ── Column aliases discovered from boundary GeoJSON ───────────────────
+# These are hints for the LLM. Actual discovery happens at runtime from
+# the sample GeoJSON file, but you can override or add here.
+boundary_columns:
+  - district
+  - pop
+  - tvap
+  - pct_wvap_al
+  - pct_bvap_al
+  - pct_avap_al
+  - pct_hvp
+  - pct_bp_
+  - pct_bvp
+  - pct_avp
+  - partisan
+  - g18_pct_dem
+  - p20_pct_dem
+  - r21_pct_dem
+  - g22_pct_dem
+  - s22_pct_dem
+  - p24_pct_dem
+
+# ── Sample boundary file for column discovery ─────────────────────────
+sample_boundary:
+  chamber: congress
+  file: "boundaries/congress/congress_enacted_24_2024update.geojson"

@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.egg-info/
+data-out/
+output/
+figs/
+input_data/*
+!input_data/*_scorecard.json
+!input_data/*_city_integrity.json
+frontend/node_modules/
+.env
+*.pyc

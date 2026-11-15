@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: Roboto, Arial, sans-serif; font-size: 13px;
+    margin: 0; padding: 12px; color: #202124; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e8eaed; background: #202124; }
+    select, .preview { background: #303134; color: #e8eaed; border-color: #5f6368; }
+    .help, .muted { color: #9aa0a6; }
+    fieldset { border-color: #5f6368; }
+  }
+  h2 { font-size: 14px; margin: 0 0 4px; font-weight: 500; }
+  .muted { color: #5f6368; font-size: 12px; margin: 0 0 14px; }
+  fieldset { border: 1px solid #dadce0; border-radius: 6px; margin: 0 0 12px; padding: 10px 12px 12px; }
+  legend { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #5f6368; padding: 0 4px; }
+  label { display: block; margin: 8px 0 3px; font-size: 12px; }
+  select { width: 100%; padding: 6px; border: 1px solid #dadce0; border-radius: 4px; font-size: 13px; background: #fff; }
+  .preview {
+    font-family: "Roboto Mono", Consolas, monospace; font-size: 12px;
+    background: #f1f3f4; border: 1px solid #dadce0; border-radius: 4px;
+    padding: 8px; margin: 10px 0 8px; word-break: break-all; min-height: 18px;
+  }
+  .help { color: #5f6368; font-size: 11.5px; line-height: 1.45; margin: 4px 0 0; }
+  button {
+    width: 100%; padding: 9px; font-size: 13px; font-weight: 500;
+    background: #1a73e8; color: #fff; border: 0; border-radius: 4px; cursor: pointer;
+  }
+  button:hover { background: #1765cc; }
+  button.secondary { background: transparent; color: #1a73e8; border: 1px solid #dadce0; margin-top: 6px; }
+  .status { font-size: 11.5px; margin-top: 8px; min-height: 15px; }
+  .err { color: #d93025; }
+  .ok { color: #188038; }
+</style>
+</head>
+<body>
+
+<h2>Fair Districts GA</h2>
+<p class="muted">Build a formula without knowing the table names.</p>
+
+<fieldset>
+  <legend>One number</legend>
+  <label for="m-year">Election</label>
+  <select id="m-year"></select>
+  <label for="m-chamber">Chamber</label>
+  <select id="m-chamber"></select>
+  <label for="m-measure">Measure</label>
+  <select id="m-measure"></select>
+  <p class="help" id="m-help"></p>
+  <div class="preview" id="m-preview"></div>
+  <button onclick="insert('m-preview')">Insert into the selected cell</button>
+</fieldset>
+
+<fieldset>
+  <legend>A table to chart</legend>
+  <label for="t-kind">Shape</label>
+  <select id="t-kind">
+    <option value="trend">One measure across every election</option>
+    <option value="chamber">Every chamber for one election</option>
+    <option value="races">Individual races</option>
+    <option value="statewide">Statewide races</option>
+  </select>
+  <label for="t-year">Election</label>
+  <select id="t-year"></select>
+  <label for="t-chamber">Chamber</label>
+  <select id="t-chamber"></select>
+  <label for="t-measure">Measure</label>
+  <select id="t-measure"></select>
+  <label for="t-filter">Which races</label>
+  <select id="t-filter">
+    <option value="all">All</option>
+    <option value="competitive">Competitive only</option>
+    <option value="uncontested">Uncontested only</option>
+    <option value="contested">Contested only</option>
+    <option value="close">Decided by under 5%</option>
+  </select>
+  <div class="preview" id="t-preview"></div>
+  <button onclick="insert('t-preview')">Insert into the selected cell</button>
+  <p class="help">Spills across several rows and columns — leave room below
+     and to the right of the cell you pick.</p>
+</fieldset>
+
+<button class="secondary" onclick="refresh()">Refresh data from the data layer</button>
+<div class="status" id="status"></div>
+
+<script>
+var OPTIONS = null;
+
+function el(id) { return document.getElementById(id); }
+
+function fill(select, items) {
+  select.innerHTML = '';
+  items.forEach(function (it) {
+    var o = document.createElement('option');
+    o.value = it.value; o.textContent = it.label;
+    select.appendChild(o);
+  });
+}
+
+function boot(opts) {
+  OPTIONS = opts;
+  var years = opts.cycles.slice().reverse().map(function (y) {
+    return { value: y, label: String(y) };
+  });
+  var measures = opts.measures.map(function (m) {
+    return { value: m.value, label: m.label };
+  });
+  fill(el('m-year'), years);
+  fill(el('t-year'), years);
+  fill(el('m-chamber'), opts.chambers);
+  fill(el('t-chamber'), opts.chambers);
+  fill(el('m-measure'), measures);
+  fill(el('t-measure'), measures);
+  ['m-year','m-chamber','m-measure','t-kind','t-year','t-chamber','t-measure','t-filter']
+    .forEach(function (id) { el(id).addEventListener('change', render); });
+  render();
+}
+
+function q(v) { return '"' + v + '"'; }
+
+function render() {
+  // Single value — prefer the purpose-built function when one exists, since
+  // it reads better in the formula bar than the generic FDGA_VALUE.
+  var year = el('m-year').value;
+  var chamber = el('m-chamber').value;
+  var measure = el('m-measure').value;
+  var direct = {
+    seats_r: 'FDGA_SEATS(' + year + ', ' + q(chamber) + ', "R")',
+    seats_d: 'FDGA_SEATS(' + year + ', ' + q(chamber) + ', "D")',
+    seat_share_r: 'FDGA_SEAT_SHARE(' + year + ', ' + q(chamber) + ', "R")',
+    seat_share_d: 'FDGA_SEAT_SHARE(' + year + ', ' + q(chamber) + ', "D")',
+    vote_share_r: 'FDGA_VOTE_SHARE(' + year + ', ' + q(chamber) + ', "R")',
+    vote_share_d: 'FDGA_VOTE_SHARE(' + year + ', ' + q(chamber) + ', "D")',
+    gap: 'FDGA_GAP(' + year + ', ' + q(chamber) + ')',
+    uncontested: 'FDGA_UNCONTESTED(' + year + ', ' + q(chamber) + ')',
+    competitive: 'FDGA_COMPETITIVE(' + year + ', ' + q(chamber) + ')'
+  };
+  el('m-preview').textContent = '=' + (direct[measure] ||
+    'FDGA_VALUE(' + year + ', ' + q(chamber) + ', ' + q(measure) + ')');
+
+  var help = '';
+  OPTIONS.measures.forEach(function (m) {
+    if (m.value === measure && m.help) help = m.help;
+  });
+  el('m-help').textContent = help;
+
+  // Table — show only the inputs the chosen shape actually uses.
+  var kind = el('t-kind').value;
+  var needs = {
+    trend:     { year: false, chamber: true,  measure: true,  filter: false },
+    chamber:   { year: true,  chamber: false, measure: true,  filter: false },
+    races:     { year: true,  chamber: true,  measure: false, filter: true  },
+    statewide: { year: true,  chamber: false, measure: false, filter: false }
+  }[kind];
+  [['t-year', needs.year], ['t-chamber', needs.chamber],
+   ['t-measure', needs.measure], ['t-filter', needs.filter]].forEach(function (p) {
+    el(p[0]).parentElement.querySelector('label[for="' + p[0] + '"]').style.display =
+      p[1] ? 'block' : 'none';
+    el(p[0]).style.display = p[1] ? 'block' : 'none';
+  });
+
+  var formula;
+  if (kind === 'trend') {
+    formula = 'FDGA_TREND(' + q(el('t-chamber').value) + ', ' + q(el('t-measure').value) + ')';
+  } else if (kind === 'chamber') {
+    formula = 'FDGA_BY_CHAMBER(' + el('t-year').value + ', ' + q(el('t-measure').value) + ')';
+  } else if (kind === 'races') {
+    formula = 'FDGA_RACES(' + el('t-year').value + ', ' + q(el('t-chamber').value) +
+              ', ' + q(el('t-filter').value) + ')';
+  } else {
+    formula = 'FDGA_STATEWIDE(' + el('t-year').value + ')';
+  }
+  el('t-preview').textContent = '=' + formula;
+}
+
+function insert(previewId) {
+  var formula = el(previewId).textContent;
+  google.script.run
+    .withSuccessHandler(function () { say('Inserted ' + formula, 'ok'); })
+    .withFailureHandler(function (e) { say(e.message, 'err'); })
+    .insertFormula(formula);
+}
+
+function refresh() {
+  say('Refreshing…', '');
+  google.script.run
+    .withSuccessHandler(function (copied) { say('Refreshed: ' + copied.join(', '), 'ok'); })
+    .withFailureHandler(function (e) { say(e.message, 'err'); })
+    .refreshData();
+}
+
+function say(text, cls) {
+  var s = el('status');
+  s.textContent = text;
+  s.className = 'status ' + cls;
+}
+
+google.script.run
+  .withSuccessHandler(boot)
+  .withFailureHandler(function (e) { say(e.message, 'err'); })
+  .getSidebarOptions();
+</script>
+</body>
+</html>

@@ -7,3 +7,5 @@
 *.tags.*
 .python-version
 wsl.*
+dist/
+node_modules/

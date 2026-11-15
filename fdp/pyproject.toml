@@ -1,0 +1,64 @@
+[project]
+name = "fdp"
+version = "0.1.0"
+description = "Fair Districts Data Platform — shared data management for fairdistrictsga.org apps"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "geopandas>=1.0.0",
+    "pandas>=2.0.0",
+    "pyarrow>=14.0.0",
+    "pyyaml>=6.0.0",
+    "fiona>=1.9.0",
+    "shapely>=2.0.0",
+    "pyproj>=3.6.0",
+    "pyogrio>=0.7.0",
+    "click>=8.1.0",
+    "requests>=2.31.0",
+    "census>=0.8.0",
+    "rich>=13.0.0",
+    "duckdb>=1.1.0",
+    "litellm>=1.40.0",
+    "matplotlib>=3.10.9",
+    "seaborn>=0.13.2",
+    "openpyxl>=3.1.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "jupyterlab>=4.6.6",
+    "notebook>=7.6.5",
+]
+api = [
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+    "httpx>=0.27",        # used by FastAPI TestClient and async HTTP calls
+    "mcp>=1.6.0",
+]
+modal = [
+    "modal>=0.64.0",
+]
+sheets = [
+    # Publishing the GGA canonical data model to the Google Sheets data layer.
+    # See scripts/push_gga_to_sheets.py
+    "google-api-python-client>=2.100",
+    "google-auth>=2.30",
+]
+postgres = [
+    # Optional PostgreSQL support for legacy scripts and one-off migrations.
+    # The FDP API no longer requires Postgres; install this only if you need
+    # the old manifest/loader scripts.
+    "psycopg[binary]>=3.1.0",
+]
+
+[project.scripts]
+fdp = "fdp.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["fdp"]

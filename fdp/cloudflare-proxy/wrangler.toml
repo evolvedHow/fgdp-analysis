@@ -1,0 +1,14 @@
+name = "fdp-proxy"
+main = "src/index.ts"
+compatibility_date = "2024-11-12"
+
+# Environment variables (non-sensitive):
+#   MODAL_URL       Full origin of the Modal deployment, e.g.
+#                   https://vgana--fdp-api-fastapi-app.modal.run
+#   ALLOWED_ORIGINS Comma-separated CORS origins, or "*" for public data
+#
+# Secrets (set with `wrangler secret put`):
+#   PROXY_TOKEN     Bearer token clients must send in Authorization header
+
+[vars]
+ALLOWED_ORIGINS = "*"

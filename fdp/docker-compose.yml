@@ -1,0 +1,39 @@
+# FDP local development stack (file-only — no database required)
+#
+# The FDP API now reads directly from parquet/GeoJSON files on disk, so this
+# compose file only starts the REST API server.  Data updates are file
+# replacements in the mounted FDP_DATA_PATH volume.
+#
+# Quick start:
+#   docker compose up -d fdp-api
+#   curl http://localhost:8080/api/v1/health
+#
+# To run a one-off fdp CLI command:
+#   docker compose run --rm fdp-cli catalog
+
+services:
+
+  # REST API server — default service for production use
+  # For the homelab MCP deployment, use the fdp-mcp systemd user service
+  # (binds 127.0.0.1:8001) instead of this bridge-network container.
+  fdp-api:
+    build: .
+    environment:
+      FDPAPI_SECRET: ${FDPAPI_SECRET:-}
+      FDP_ROOT:      /fdp-data
+      PORT:          ${FDPAPI_PORT:-8080}
+    ports:
+      - "${FDPAPI_PORT:-8080}:${FDPAPI_PORT:-8080}"
+    volumes:
+      - ${FDP_DATA_PATH:-./data}:/fdp-data
+
+  # CLI runner — override CMD to run any fdp command
+  # Example: docker compose run --rm fdp-cli catalog
+  fdp-cli:
+    build: .
+    entrypoint: ["fdp"]
+    command: ["--help"]
+    environment:
+      FDP_ROOT: /fdp-data
+    volumes:
+      - ${FDP_DATA_PATH:-./data}:/fdp-data

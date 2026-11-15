@@ -1,0 +1,105 @@
+
+# 2026-06-04 00:48:37.912333
++y
+
+# 2026-06-04 00:49:21.896951
++/help
+
+# 2026-06-04 00:53:16.747327
++/quit
+
+# 2026-06-04 11:45:49.025195
++n
+
+# 2026-06-04 11:46:42.449320
++/code
+
+# 2026-06-04 11:46:58.859645
++/add
+
+# 2026-06-04 11:47:04.532085
++/help
+
+# 2026-06-04 11:48:00.968923
++/code
+
+# 2026-06-04 11:48:12.876787
++hey take a look at the app fdex. It allows users to explore the Georgia districts (though not dedicated to just Georgia). There are a few things that need fixing; cosmetically. Go thru the .md to get a good handle on the architecture. Here are the edits I need: Change the names and positions of the maps in the drop down list. Three maps listed under “Current maps until 2024 election” should be moved down under Prior maps. Remove “Current” from the names. Should read “US Congress, 2021 - 2024”, etc.
++
++Top 3 maps should be under heading: Current Maps, for 2024 and later elections. Change names to “Current….” Instead of “Enacted…”
++
++Change drop down selection for partisan lean, it reads “Partisan lean, 2018-2021”. Should read 2018-2024. Also change the partisan lean legend to match.
++
++Search box allows me to use district number, i.e. D7. It advertises county and address as options but those don’t seem to work.
+
+# 2026-06-04 11:48:16.103458
++y
+
+# 2026-06-04 11:49:19.070679
++/models
+
+# 2026-06-04 11:49:28.039279
++/models qwen
+
+# 2026-06-04 11:50:00.785591
++/model qwen.qwen3-coder
+
+# 2026-06-04 11:50:13.962256
++hey take a look at the app fdex. It allows users to explore the Georgia districts (though not dedicated to just Georgia). There are a few things that need fixing; cosmetically. Go thru the .md to get a good handle on the architecture. Here are the edits I need: Change the names and positions of the maps in the drop down list. Three maps listed under “Current maps until 2024 election” should be moved down under Prior maps. Remove “Current” from the names. Should read “US Congress, 2021 - 2024”, etc.
++
++Top 3 maps should be under heading: Current Maps, for 2024 and later elections. Change names to “Current….” Instead of “Enacted…”
++
++Change drop down selection for partisan lean, it reads “Partisan lean, 2018-2021”. Should read 2018-2024. Also change the partisan lean legend to match.
++
++Search box allows me to use district number, i.e. D7. It advertises county and address as options but those don’t seem to work.
+
+# 2026-06-04 11:50:15.824046
++y
+
+# 2026-06-04 11:54:09.601535
++/help
+
+# 2026-06-04 11:54:24.678781
++/add fdex
+
+# 2026-06-04 11:54:52.138170
++/git add /home/vgana/codebox/fgdp/fdex
+
+# 2026-06-04 11:56:46.153840
++/code hey take a look at the app fdex. It allows users to explore the Georgia districts (though not dedicated to just Georgia). There are a few things that need fixing; cosmetically. Go thru the .md to get a good handle on the architecture. Here are the edits I need: Change the names and positions of the maps in the drop down list. Three maps listed under “Current maps until 2024 election” should be moved down under Prior maps. Remove “Current” from the names. Should read “US Congress, 2021 - 2024”, etc.
++
++Top 3 maps should be under heading: Current Maps, for 2024 and later elections. Change names to “Current….” Instead of “Enacted…”
++
++Change drop down selection for partisan lean, it reads “Partisan lean, 2018-2021”. Should read 2018-2024. Also change the partisan lean legend to match.
++
++Search box allows me to use district number, i.e. D7. It advertises county and address as options but those don’t seem to work.
+
+# 2026-06-04 11:56:48.480658
++y
+
+# 2026-06-04 11:58:05.516241
++Y
+
+# 2026-06-04 11:58:30.658040
++/models
+
+# 2026-06-04 11:58:36.731628
++qwen
+
+# 2026-06-04 11:58:44.656491
++N
+
+# 2026-06-04 12:27:04.353904
++/exit
+
+# 2026-07-24 17:04:49.813880
++n
+
+# 2026-07-24 17:06:59.328801
++/quit
+
+# 2026-07-24 17:07:48.313762
++/help
+
+# 2026-07-24 17:08:13.162788
++/quit

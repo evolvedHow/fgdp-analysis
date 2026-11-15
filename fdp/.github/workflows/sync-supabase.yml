@@ -1,0 +1,37 @@
+name: Sync FDP data to Supabase
+
+on:
+  # Run manually or on a schedule (e.g. weekly after new data is published).
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 0"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install FDP package
+        run: uv sync --extra api
+
+      - name: Create FDP schema in Supabase
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run fdp init-db
+
+      - name: Load registered parquets into Supabase
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: uv run fdp load-pg

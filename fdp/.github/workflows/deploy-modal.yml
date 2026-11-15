@@ -1,0 +1,38 @@
+name: Deploy FDP API to Modal
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "fdp/**"
+      - "modal_app.py"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".github/workflows/deploy-modal.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Modal client
+        run: uv pip install --system modal
+
+      - name: Deploy to Modal
+        env:
+          MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
+          MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+        run: modal deploy modal_app.py

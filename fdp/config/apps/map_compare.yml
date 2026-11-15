@@ -1,0 +1,179 @@
+# =============================================================================
+# map-compare — Redistricting plan comparison tool
+# =============================================================================
+
+app:
+  name: map_compare
+  description: "Side-by-side redistricting plan comparison with metrics and AI narratives"
+  repo: main
+
+map:
+  zoom: 6.0
+
+# Plan catalogue — mirrors map-compare/public/data-catalog.json, which is the
+# app's own source of truth for its preset library. Every file the catalogue
+# lists must appear here, or sync-app leaves a stale copy in public/data/ that
+# never picks up rescored elections.
+plans:
+  congress:
+    - id: congress12_census20
+      label: "GA Congress — 2012 Plan (2020 Census data)"
+      file: "boundaries/congress/congress12_census20.geojson"
+    - id: congress21_census20
+      label: "GA Congress — 2021 Plan (2020 Census data)"
+      file: "boundaries/congress/congress21_census20.geojson"
+    - id: congress21_p2
+      label: "GA Congress — 2021 Plan v2"
+      file: "boundaries/congress/congress21_p2.geojson"
+    - id: congress_cooper
+      label: "GA Congress — Cooper Remedial Plan"
+      file: "boundaries/congress/congress_cooper.geojson"
+    - id: congress_enacted_2123_2024update
+      label: "GA Congress — Enacted 2021-23 (2024 update)"
+      file: "boundaries/congress/congress_enacted_2123_2024update.geojson"
+    - id: congress_enacted_24_2024update
+      label: "GA Congress — Enacted 2024 (2024 update)"
+      file: "boundaries/congress/congress_enacted_24_2024update.geojson"
+    - id: congress_proposed3
+      label: "GA Congress — Proposed Plan 3"
+      file: "boundaries/congress/congress_proposed3.geojson"
+    - id: congress_remedy_1
+      label: "GA Congress — Remedy Plan 1"
+      file: "boundaries/congress/congress_remedy_1.geojson"
+    - id: congress_remedy_1_2024update
+      label: "GA Congress — Remedy Plan 1 (2024 update)"
+      file: "boundaries/congress/congress_remedy_1_2024update.geojson"
+    - id: congress_remedy_2
+      label: "GA Congress — Remedy Plan 2"
+      file: "boundaries/congress/congress_remedy_2.geojson"
+    - id: enacted_congress22
+      label: "GA Congress — Enacted 2022"
+      file: "boundaries/congress/enacted_congress22.geojson"
+  senate:
+    - id: enacted_senate22
+      label: "GA Senate — Enacted 2022"
+      file: "boundaries/senate/enacted_senate22.geojson"
+    - id: enacted_senate22_2024update
+      label: "GA Senate — Enacted 2022 (2024 update)"
+      file: "boundaries/senate/enacted_senate22_2024update.geojson"
+    - id: senate14_census20
+      label: "GA Senate — 2014 Plan (2020 Census data)"
+      file: "boundaries/senate/senate14_census20.geojson"
+    - id: senate_enacted_2123_2024update
+      label: "GA Senate — Enacted 2021-23 (2024 update)"
+      file: "boundaries/senate/senate_enacted_2123_2024update.geojson"
+    - id: senate_enacted_24_2024update
+      label: "GA Senate — Enacted 2024 (2024 update)"
+      file: "boundaries/senate/senate_enacted_24_2024update.geojson"
+    - id: senate_prop1_dem
+      label: "GA Senate — Proposed Plan 1 (Democratic)"
+      file: "boundaries/senate/senate_prop1_dem.geojson"
+    - id: senate_prop2_rep
+      label: "GA Senate — Proposed Plan 2 (Republican)"
+      file: "boundaries/senate/senate_prop2_rep.geojson"
+    - id: senate_prop3_rep
+      label: "GA Senate — Proposed Plan 3 (Republican)"
+      file: "boundaries/senate/senate_prop3_rep.geojson"
+    - id: senate_remedy
+      label: "GA Senate — Remedy Plan"
+      file: "boundaries/senate/senate_remedy.geojson"
+    - id: senate_remedy_2
+      label: "GA Senate — Remedy Plan 2"
+      file: "boundaries/senate/senate_remedy_2.geojson"
+    - id: senate_remedy_40pct
+      label: "GA Senate — Remedy 40% Plan"
+      file: "boundaries/senate/senate_remedy_40pct.geojson"
+    - id: senate_remedy_40pct_2024update
+      label: "GA Senate — Remedy 40% Plan (2024 update)"
+      file: "boundaries/senate/senate_remedy_40pct_2024update.geojson"
+  house:
+    - id: enacted_house22
+      label: "GA House — Enacted 2022"
+      file: "boundaries/house/enacted_house22.geojson"
+    - id: enacted_house22_2024update
+      label: "GA House — Enacted 2022 (2024 update)"
+      file: "boundaries/house/enacted_house22_2024update.geojson"
+    - id: house15_census20
+      label: "GA House — 2015 Plan (2020 Census data)"
+      file: "boundaries/house/house15_census20.geojson"
+    - id: house_enacted_2123_2024update
+      label: "GA House — Enacted 2021-23 (2024 update)"
+      file: "boundaries/house/house_enacted_2123_2024update.geojson"
+    - id: house_enacted_24_2024update
+      label: "GA House — Enacted 2024 (2024 update)"
+      file: "boundaries/house/house_enacted_24_2024update.geojson"
+    - id: house_prop1_dem
+      label: "GA House — Proposed Plan 1 (Democratic)"
+      file: "boundaries/house/house_prop1_dem.geojson"
+    - id: house_prop2_rep
+      label: "GA House — Proposed Plan 2 (Republican)"
+      file: "boundaries/house/house_prop2_rep.geojson"
+    - id: house_prop3_rep
+      label: "GA House — Proposed Plan 3 (Republican)"
+      file: "boundaries/house/house_prop3_rep.geojson"
+    - id: house_remedy_1
+      label: "GA House — Remedy Plan 1"
+      file: "boundaries/house/house_remedy_1.geojson"
+    - id: house_remedy_1_2024update
+      label: "GA House — Remedy Plan 1 (2024 update)"
+      file: "boundaries/house/house_remedy_1_2024update.geojson"
+    - id: house_remedy_2
+      label: "GA House — Remedy Plan 2"
+      file: "boundaries/house/house_remedy_2.geojson"
+
+reference_layers:
+  county: "boundaries/reference/county.geojson"
+  places: "boundaries/reference/places_2020data.geojson"
+
+# Displacement pairs — pre-compute population movement between plan transitions
+displacement_pairs:
+  - id: congress_2123_to_24
+    label: "GA Congress 2021-23 → 2024"
+    plan_a: boundaries/congress/congress_enacted_2123_2024update.geojson
+    plan_b: boundaries/congress/congress_enacted_24_2024update.geojson
+    plan_a_id: congress_enacted_2123_2024update
+    plan_b_id: congress_enacted_24_2024update
+    
+  - id: senate_2123_to_24
+    label: "GA Senate 2021-23 → 2024"
+    plan_a: boundaries/senate/senate_enacted_2123_2024update.geojson
+    plan_b: boundaries/senate/senate_enacted_24_2024update.geojson
+    plan_a_id: senate_enacted_2123_2024update
+    plan_b_id: senate_enacted_24_2024update
+    
+  - id: house_2123_to_24
+    label: "GA House 2021-23 → 2024"
+    plan_a: boundaries/house/house_enacted_2123_2024update.geojson
+    plan_b: boundaries/house/house_enacted_24_2024update.geojson
+    plan_a_id: house_enacted_2123_2024update
+    plan_b_id: house_enacted_24_2024update
+    
+  - id: congress_21_to_22
+    label: "GA Congress 2021 → 2022 Enacted"
+    plan_a: boundaries/congress/congress21_census20.geojson
+    plan_b: boundaries/congress/enacted_congress22.geojson
+    plan_a_id: congress21_census20
+    plan_b_id: enacted_congress22
+    
+  - id: senate_14_to_22
+    label: "GA Senate 2014 → 2022 Enacted"
+    plan_a: boundaries/senate/senate14_census20.geojson
+    plan_b: boundaries/senate/enacted_senate22.geojson
+    plan_a_id: senate14_census20
+    plan_b_id: enacted_senate22
+    
+  - id: house_15_to_22
+    label: "GA House 2015 → 2022 Enacted"
+    plan_a: boundaries/house/house15_census20.geojson
+    plan_b: boundaries/house/enacted_house22.geojson
+    plan_a_id: house15_census20
+    plan_b_id: enacted_house22
+
+# LLM: map-compare calls AI providers client-side; list supported providers
+llm:
+  providers:
+    - groq
+    - anthropic
+    - openai
+    - google
+  default_provider: groq

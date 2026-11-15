@@ -1,0 +1,27 @@
+# fdensemble — Railway deployment config
+#
+# Railway service settings:
+#   Root directory  → fdensemble
+#   Builder         → Dockerfile  (auto-detected)
+#   Port            → set to 8010 (or Railway auto-assigns via $PORT)
+#
+# Persistent volume (required for uploaded maps to survive redeploys):
+#   Mount path      → /app/uploaded_maps
+#   Create in Railway dashboard: Service → Volumes → Add Volume → /app/uploaded_maps
+#   MAPS_DIR env var is NOT needed when mounted at the default path.
+#
+# Optional environment variables:
+#   FDPAPI_BASE    https://fdp-api.up.railway.app  (switches to FDP API mode)
+#   DATA_DIR       dataverse_files/GA_cd_2020
+#   MAPS_DIR       /app/uploaded_maps  (default; override if volume is at a different path)
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/api/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

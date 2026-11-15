@@ -1,0 +1,326 @@
+"""
+FDP Policy Chat — 3-stage NLQ pipeline.
+
+Stage 1: NLQ → SQL      (LiteLLM → Claude/Groq, non-streaming)
+Stage 2: SQL → Execute  (fdp.query.execute_select → Supabase)
+Stage 3: Results → Insight + Chart  (Claude, streaming SSE)
+
+Each stage is a separate function so stages can be tested independently
+and so the caller (main.py) can emit SSE events between stages.
+
+SSE event sequence emitted by run_pipeline_stream():
+  {"event": "sql",     "data": "<SELECT ...>"}
+  {"event": "rows",    "data": [...],  "row_count": N}
+  {"event": "token",   "data": "<word>"}   ← repeated for narrative tokens
+  {"event": "chart",   "data": {...}}      ← Vega-Lite spec or null
+  {"event": "finding", "data": "<bold stat>"}
+  {"event": "done",    "data": ""}
+  {"event": "error",   "data": "<message>"}  ← on failure
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+import os
+import re
+from typing import AsyncIterator
+
+import litellm
+
+from .schema import execute_query, get_data_dictionary
+from .prompts import build_sql_prompt, INSIGHT_SYSTEM_PROMPT
+from .cache import get_cached, store_cache
+from .questions import find_library_match
+
+logger = logging.getLogger(__name__)
+
+litellm.set_verbose = False
+
+
+# ---------------------------------------------------------------------------
+# SQL post-processing — fix common LLM generation mistakes
+# ---------------------------------------------------------------------------
+
+def _clean_sql(sql: str) -> str:
+    """
+    Fix common LLM-generated SQL mistakes before execution.
+
+    Currently handles:
+    - Trailing comma after the last CTE in a WITH clause
+      e.g.  ), \\n  SELECT ...  →  ) \\n  SELECT ...
+    """
+    # Remove trailing comma after the last CTE closing paren before SELECT/INSERT/UPDATE
+    # Pattern: ),  (optional whitespace/comments)  SELECT
+    sql = re.sub(
+        r",(\s*(?:--[^\n]*)?\s*)(SELECT|INSERT|UPDATE|DELETE|WITH)\b",
+        r"\1\2",
+        sql,
+        flags=re.IGNORECASE,
+    )
+    return sql.strip()
+
+
+# ---------------------------------------------------------------------------
+# Model selection
+# ---------------------------------------------------------------------------
+
+def _sql_model() -> str:
+    """LLM for Stage 1 (SQL generation) — prefers Claude for accuracy."""
+    return os.environ.get(
+        "SQL_LLM_PROVIDER",
+        os.environ.get("LLM_PROVIDER", "anthropic/claude-sonnet-4-20250514"),
+    )
+
+
+def _insight_model() -> str:
+    """LLM for Stage 3 (insight generation) — Claude preferred for policy framing."""
+    return os.environ.get(
+        "INSIGHT_LLM_PROVIDER",
+        os.environ.get("LLM_PROVIDER", "anthropic/claude-sonnet-4-20250514"),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Stage 1 — NLQ → SQL
+# ---------------------------------------------------------------------------
+
+def generate_sql(
+    question: str,
+    history: list[dict] | None = None,
+) -> str:
+    """
+    Convert a natural language question to a PostgreSQL SELECT statement.
+
+    Parameters
+    ----------
+    question:   The user's current question in plain English.
+    history:    Prior conversation turns [{"role": "user"|"assistant", "content": ...}].
+                Used to resolve anaphoric references ("show that by county").
+
+    Returns
+    -------
+    str — a PostgreSQL SELECT statement ready to execute.
+    """
+    data_dict = get_data_dictionary()
+    system_prompt = build_sql_prompt(data_dict)
+
+    messages: list[dict] = [{"role": "system", "content": system_prompt}]
+
+    # Inject conversation history (last 6 turns to stay within context limits)
+    if history:
+        for turn in history[-6:]:
+            messages.append({"role": turn["role"], "content": turn["content"]})
+
+    messages.append({"role": "user", "content": question})
+
+    resp = litellm.completion(
+        model=_sql_model(),
+        messages=messages,
+        max_tokens=2048,
+        temperature=0,
+    )
+    raw = resp.choices[0].message.content.strip()
+
+    # Strip accidental markdown fences
+    raw = re.sub(r"^```\w*\s*", "", raw, flags=re.MULTILINE)
+    raw = re.sub(r"\s*```$", "", raw.strip())
+
+    # Extract first SQL statement (safety)
+    statements = [s.strip() for s in raw.split(";") if s.strip()]
+    sql = statements[0] if statements else raw
+
+    # Fix common LLM SQL mistakes
+    sql = _clean_sql(sql)
+
+    logger.debug("Stage 1 SQL: %s", sql[:200])
+    return sql
+
+
+# ---------------------------------------------------------------------------
+# Stage 2 — Execute SQL
+# ---------------------------------------------------------------------------
+
+def execute_sql(sql: str, max_rows: int = 2000) -> tuple[list[dict], int]:
+    """
+    Execute a SELECT against Supabase and return (rows, total_row_count).
+
+    Returns a display-safe sample (≤ max_rows) plus the count of all rows.
+    """
+    from fdp.query import QueryError  # noqa: PLC0415
+
+    rows = execute_query(sql, max_rows=max_rows)
+    return rows, len(rows)
+
+
+# ---------------------------------------------------------------------------
+# Stage 3 — Insight + Chart (streaming)
+# ---------------------------------------------------------------------------
+
+async def generate_insight_stream(
+    question: str,
+    sql: str,
+    rows: list[dict],
+    row_count: int,
+) -> AsyncIterator[dict]:
+    """
+    Async generator that yields SSE event dicts for Stage 3.
+
+    Yields:
+        {"event": "token",   "data": "<word>"}  — narrative tokens (streamed)
+        {"event": "chart",   "data": {...}}      — Vega-Lite spec or null
+        {"event": "finding", "data": "<text>"}  — key finding stat
+    """
+    # Prepare context for the insight LLM — use first 50 rows to stay concise
+    sample = rows[:50]
+    columns = list(sample[0].keys()) if sample else []
+
+    user_content = f"""Question: {question}
+
+SQL executed:
+{sql}
+
+Result: {row_count} total rows. Showing first {len(sample)}:
+Columns: {columns}
+
+{json.dumps(sample, indent=2, default=str)}
+"""
+
+    messages = [
+        {"role": "system", "content": INSIGHT_SYSTEM_PROMPT},
+        {"role": "user",   "content": user_content},
+    ]
+
+    # Stream the response
+    accumulated = ""
+    try:
+        stream = litellm.completion(
+            model=_insight_model(),
+            messages=messages,
+            max_tokens=2048,
+            temperature=0.3,
+            stream=True,
+        )
+        for chunk in stream:
+            delta = chunk.choices[0].delta.content or ""
+            accumulated += delta
+            # Emit tokens as they arrive (but only actual word characters to reduce noise)
+            if delta:
+                yield {"event": "token", "data": delta}
+
+    except Exception as exc:  # noqa: BLE001
+        logger.error("Stage 3 LLM error: %s", exc)
+        yield {"event": "error", "data": f"Insight generation failed: {exc}"}
+        return
+
+    # Parse the completed JSON response
+    try:
+        # Claude sometimes wraps in ```json ... ``` — strip it
+        clean = re.sub(r"^```json\s*", "", accumulated.strip(), flags=re.MULTILINE)
+        clean = re.sub(r"\s*```$", "", clean.strip())
+        parsed = json.loads(clean)
+        yield {"event": "chart",   "data": parsed.get("chart")}
+        yield {"event": "finding", "data": parsed.get("key_finding", "")}
+    except json.JSONDecodeError as exc:
+        logger.warning("Stage 3 JSON parse error: %s — raw: %s", exc, accumulated[:200])
+        # Graceful degradation: no chart, no finding — narrative tokens already streamed
+        yield {"event": "chart",   "data": None}
+        yield {"event": "finding", "data": ""}
+
+
+# ---------------------------------------------------------------------------
+# Full pipeline (for use by main.py SSE endpoint)
+# ---------------------------------------------------------------------------
+
+async def run_pipeline_stream(
+    question: str,
+    history: list[dict] | None = None,
+) -> AsyncIterator[dict]:
+    """
+    Run the full 3-stage pipeline and yield SSE event dicts.
+
+    Cache-first: checks Supabase query_cache before running any stage.
+    Library-first: uses pre-written SQL for known questions.
+
+    Yields events in this order:
+      sql → rows → token (×N) → chart → finding → done
+      (plus optional: {"event": "cache_hit", "data": {...}})
+    """
+    # ── Cache check ──────────────────────────────────────────────────────────
+    cached = get_cached(question)
+    if cached:
+        logger.info("Cache hit for question (hits: %d)", cached["hit_count"])
+        rows = cached["result_rows"] if isinstance(cached["result_rows"], list) \
+               else json.loads(cached["result_rows"] or "[]")
+        yield {"event": "cache_hit", "data": {
+            "refreshed_at": cached["refreshed_at"].isoformat()
+                            if hasattr(cached["refreshed_at"], "isoformat")
+                            else str(cached["refreshed_at"]),
+            "hit_count": cached["hit_count"],
+        }}
+        yield {"event": "sql",  "data": cached["sql_query"] or ""}
+        yield {"event": "rows", "data": rows[:100], "row_count": cached["row_count"] or 0}
+        if rows:
+            async for event in generate_insight_stream(
+                question, cached["sql_query"] or "", rows, cached["row_count"] or 0
+            ):
+                yield event
+        else:
+            yield {"event": "token",   "data": "No results found in cache."}
+            yield {"event": "chart",   "data": None}
+            yield {"event": "finding", "data": "No data found"}
+        yield {"event": "done", "data": ""}
+        return
+
+    # ── Library match — use pre-written SQL if available ─────────────────────
+    library_q = find_library_match(question)
+    library_id = library_q["id"] if library_q else None
+    expires_hours = library_q.get("expires_hours") if library_q else None
+
+    # Stage 1 — SQL generation (or use pre-written SQL)
+    if library_q and library_q.get("sql"):
+        sql = library_q["sql"].strip()
+        logger.info("Using predefined SQL for library question: %s", library_id)
+    else:
+        try:
+            sql = generate_sql(question, history)
+        except Exception as exc:  # noqa: BLE001
+            logger.error("Stage 1 failed: %s", exc)
+            yield {"event": "error", "data": f"Could not generate SQL: {exc}"}
+            return
+
+    yield {"event": "sql", "data": sql}
+
+    # Stage 2 — Execute
+    try:
+        rows, row_count = execute_sql(sql)
+    except Exception as exc:  # noqa: BLE001
+        logger.error("Stage 2 failed: %s", exc)
+        yield {"event": "error", "data": f"Query failed: {exc}"}
+        return
+
+    yield {"event": "rows", "data": rows[:100], "row_count": row_count}
+
+    if not rows:
+        yield {"event": "token",   "data": "The query returned no results for this question. "}
+        yield {"event": "token",   "data": "This may mean the data isn't available yet or the question needs to be refined."}
+        yield {"event": "chart",   "data": None}
+        yield {"event": "finding", "data": "No data found"}
+        yield {"event": "done",    "data": ""}
+        return
+
+    # Store to cache before streaming Stage 3 (so even a partial Stage 3 doesn't lose the data)
+    store_cache(
+        question=question,
+        sql=sql,
+        rows=rows,
+        row_count=row_count,
+        library_id=library_id,
+        expires_hours=expires_hours,
+    )
+
+    # Stage 3 — Insight + chart
+    async for event in generate_insight_stream(question, sql, rows, row_count):
+        yield event
+
+    yield {"event": "done", "data": ""}

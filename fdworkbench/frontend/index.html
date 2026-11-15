@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FDP Policy Chat — FairDistricts GA</title>
+
+  <!-- Vega-Lite for charts -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #1d4ed8;
+      --blue-lt: #dbeafe;
+      --gray-50: #f9fafb;
+      --gray-100:#f3f4f6;
+      --gray-200:#e5e7eb;
+      --gray-400:#9ca3af;
+      --gray-600:#4b5563;
+      --gray-800:#1f2937;
+      --red:     #dc2626;
+      --green:   #16a34a;
+      --sidebar: 260px;
+      --header:  56px;
+    }
+
+    html, body { height: 100%; font-family: system-ui, -apple-system, sans-serif;
+                 font-size: 15px; color: var(--gray-800); background: var(--gray-50); }
+
+    /* ── Layout ───────────────────────────────────────────────────── */
+    #app { display: flex; flex-direction: column; height: 100vh; }
+
+    header {
+      height: var(--header); display: flex; align-items: center; gap: 12px;
+      padding: 0 20px; background: white; border-bottom: 1px solid var(--gray-200);
+      flex-shrink: 0;
+    }
+    header .logo { font-size: 18px; font-weight: 700; color: var(--blue); }
+    header .subtitle { font-size: 13px; color: var(--gray-600); margin-top: 1px; }
+    header .spacer { flex: 1; }
+    header .badge {
+      font-size: 11px; background: var(--blue-lt); color: var(--blue);
+      padding: 3px 8px; border-radius: 99px; font-weight: 600;
+    }
+
+    .body { display: flex; flex: 1; overflow: hidden; }
+
+    /* ── Sidebar ──────────────────────────────────────────────────── */
+    #sidebar {
+      width: var(--sidebar); flex-shrink: 0;
+      border-right: 1px solid var(--gray-200); background: white;
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    .sidebar-section { padding: 12px 14px 6px; font-size: 11px; font-weight: 700;
+                       text-transform: uppercase; letter-spacing: .05em; color: var(--gray-400); }
+    /* ── Question library items ──────────────────────────────────────── */
+    #question-library { overflow-y: auto; flex: 1; }
+    .lib-loading { padding: 10px 14px; font-size: 12px; color: var(--gray-400); }
+
+    .lib-item {
+      position: relative; margin: 1px 6px; border-radius: 6px;
+    }
+    .lib-item-btn {
+      display: block; width: 100%; text-align: left;
+      padding: 9px 14px 9px 14px; border: none; background: none; cursor: pointer;
+      font-size: 13px; line-height: 1.4; color: var(--gray-600);
+      border-radius: 6px; width: 100%;
+    }
+    .lib-item:hover .lib-item-btn { background: var(--gray-100); color: var(--gray-800); }
+
+    /* cache stats + recycle — hidden until hover */
+    .lib-item-meta {
+      display: none; position: absolute; bottom: 2px; right: 6px;
+      font-size: 10px; color: var(--gray-400); gap: 4px; align-items: center;
+    }
+    .lib-item:hover .lib-item-meta { display: flex; }
+    .lib-recycle {
+      background: none; border: none; cursor: pointer; padding: 0 2px;
+      font-size: 11px; color: var(--gray-400); line-height: 1;
+    }
+    .lib-recycle:hover { color: var(--blue); }
+    .lib-cached  { color: #16a34a; }   /* green dot when cached */
+    .lib-stale   { color: var(--gray-400); }
+
+    .suggestion-btn {
+      display: block; width: 100%; text-align: left;
+      padding: 9px 14px; border: none; background: none; cursor: pointer;
+      font-size: 13px; line-height: 1.4; color: var(--gray-600);
+      border-radius: 6px; margin: 1px 6px; width: calc(100% - 12px);
+    }
+    .suggestion-btn:hover { background: var(--gray-100); color: var(--gray-800); }
+
+    .sidebar-divider { height: 1px; background: var(--gray-200); margin: 8px 14px; }
+
+    #history-list { flex: 1; overflow-y: auto; padding: 4px 6px; }
+    .history-item {
+      padding: 8px 10px; border-radius: 6px; cursor: pointer;
+      font-size: 12px; color: var(--gray-600); line-height: 1.4;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .history-item:hover { background: var(--gray-100); }
+    .history-item.active { background: var(--blue-lt); color: var(--blue); }
+
+    .new-chat-btn {
+      margin: 10px 10px; padding: 9px 12px; border-radius: 8px;
+      background: var(--blue); color: white; border: none; cursor: pointer;
+      font-size: 13px; font-weight: 600; text-align: center;
+    }
+    .new-chat-btn:hover { background: #1e40af; }
+
+    /* ── Main chat panel ──────────────────────────────────────────── */
+    #main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+    #thread {
+      flex: 1; overflow-y: auto; padding: 24px 32px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    /* Welcome screen */
+    #welcome {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 20px;
+      text-align: center; padding: 40px;
+    }
+    #welcome h2 { font-size: 24px; font-weight: 700; color: var(--blue); }
+    #welcome p  { font-size: 15px; color: var(--gray-600); max-width: 480px; line-height: 1.6; }
+
+    /* Message bubbles */
+    .msg { display: flex; gap: 12px; max-width: 820px; width: 100%; }
+    .msg.user { flex-direction: row-reverse; align-self: flex-end; }
+
+    .bubble {
+      padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6;
+      max-width: 75%;
+    }
+    .msg.user .bubble {
+      background: var(--blue); color: white; border-bottom-right-radius: 4px;
+    }
+    .msg.assistant .bubble {
+      background: white; border: 1px solid var(--gray-200);
+      border-bottom-left-radius: 4px; max-width: 100%; width: 100%;
+    }
+
+    /* ── Answer card ──────────────────────────────────────────────── */
+    .answer-card { display: flex; flex-direction: column; gap: 14px; }
+
+    .narrative { font-size: 14px; line-height: 1.7; color: var(--gray-800); }
+    .narrative .cursor { display: inline-block; width: 2px; height: 14px;
+                         background: var(--gray-400); margin-left: 2px; animation: blink 1s step-start infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .key-finding {
+      background: var(--blue-lt); border-left: 3px solid var(--blue);
+      padding: 8px 12px; border-radius: 0 6px 6px 0;
+      font-size: 14px; font-weight: 600; color: var(--blue);
+    }
+
+    /* Chart container */
+    .chart-wrap { background: var(--gray-50); border: 1px solid var(--gray-200);
+                  border-radius: 8px; padding: 12px; overflow: hidden; }
+
+    /* Collapsible details */
+    .details-toggle {
+      display: flex; align-items: center; gap: 6px; cursor: pointer;
+      font-size: 12px; color: var(--gray-400); user-select: none;
+      padding: 4px 0;
+    }
+    .details-toggle:hover { color: var(--gray-600); }
+    .details-toggle .arrow { transition: transform .15s; }
+    .details-toggle.open .arrow { transform: rotate(90deg); }
+
+    .details-content { display: none; margin-top: 8px; }
+    .details-content.open { display: block; }
+
+    .data-table-wrap {
+      overflow-x: auto; max-height: 200px; overflow-y: auto;
+      border: 1px solid var(--gray-200); border-radius: 6px;
+    }
+    .data-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .data-table th {
+      background: var(--gray-100); padding: 6px 10px;
+      text-align: left; font-weight: 600; position: sticky; top: 0;
+      border-bottom: 1px solid var(--gray-200); white-space: nowrap;
+    }
+    .data-table td {
+      padding: 5px 10px; border-bottom: 1px solid var(--gray-100);
+      white-space: nowrap; max-width: 200px; overflow: hidden; text-overflow: ellipsis;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .sql-block {
+      font-family: ui-monospace, 'Cascadia Code', Menlo, monospace;
+      font-size: 12px; background: var(--gray-800); color: #e5e7eb;
+      padding: 12px; border-radius: 6px; overflow-x: auto; white-space: pre;
+    }
+
+    /* ── Export toolbar ──────────────────────────────────────────────── */
+    .export-toolbar {
+      display: flex; gap: 4px; justify-content: flex-end; margin-bottom: 6px;
+    }
+    .export-btn {
+      font-size: 11px; padding: 3px 8px; border-radius: 5px; border: 1px solid var(--gray-200);
+      background: white; color: var(--gray-600); cursor: pointer; display: flex;
+      align-items: center; gap: 4px; white-space: nowrap;
+    }
+    .export-btn:hover { background: var(--gray-100); border-color: var(--gray-400); color: var(--gray-800); }
+
+    /* Card footer — cache info + bookmark */
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 6px; min-height: 22px;
+    }
+    .cache-notice { font-size: 11px; color: var(--gray-400); }
+    .bookmark-btn {
+      font-size: 11px; color: var(--gray-400); background: none; border: none;
+      cursor: pointer; padding: 2px 6px; border-radius: 4px;
+    }
+    .bookmark-btn:hover { background: var(--gray-100); color: var(--blue); }
+
+    /* ── Chart builder modal ──────────────────────────────────────────── */
+    #chart-modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,.45);
+      z-index: 1000; align-items: center; justify-content: center;
+    }
+    #chart-modal-overlay.open { display: flex; }
+    #chart-modal {
+      background: white; border-radius: 12px; width: 92vw; max-width: 1100px;
+      height: 86vh; display: flex; flex-direction: column; overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,.25);
+    }
+    #chart-modal-header {
+      display: flex; align-items: center; padding: 14px 20px;
+      border-bottom: 1px solid var(--gray-200); gap: 12px; flex-shrink: 0;
+    }
+    #chart-modal-header h3 { font-size: 15px; font-weight: 700; flex: 1; }
+    #chart-modal-close {
+      background: none; border: none; cursor: pointer; font-size: 20px;
+      color: var(--gray-400); line-height: 1; padding: 0 4px;
+    }
+    #chart-modal-close:hover { color: var(--gray-800); }
+    #chart-modal-body {
+      display: flex; flex: 1; overflow: hidden;
+    }
+    /* Left panel: controls */
+    #chart-controls {
+      width: 260px; flex-shrink: 0; border-right: 1px solid var(--gray-200);
+      overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 16px;
+    }
+    .ctrl-section { display: flex; flex-direction: column; gap: 8px; }
+    .ctrl-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .04em; color: var(--gray-400);
+    }
+    /* Chart type grid */
+    #chart-type-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    }
+    .chart-type-btn {
+      display: flex; flex-direction: column; align-items: center; gap: 3px;
+      padding: 8px 4px; border: 1px solid var(--gray-200); border-radius: 8px;
+      background: white; cursor: pointer; font-size: 11px; color: var(--gray-600);
+    }
+    .chart-type-btn .ct-icon { font-size: 20px; line-height: 1; }
+    .chart-type-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .chart-type-btn.active { border-color: var(--blue); background: var(--blue-lt); color: var(--blue); font-weight: 600; }
+    /* Column selectors */
+    .ctrl-select {
+      width: 100%; padding: 6px 8px; border: 1px solid var(--gray-200);
+      border-radius: 6px; font-size: 12px; background: white; color: var(--gray-800);
+    }
+    .ctrl-select:focus { outline: none; border-color: var(--blue); }
+    .ctrl-hint { font-size: 11px; color: var(--gray-400); line-height: 1.4; }
+    /* Chart title input */
+    .ctrl-input {
+      width: 100%; padding: 6px 8px; border: 1px solid var(--gray-200);
+      border-radius: 6px; font-size: 12px;
+    }
+    .ctrl-input:focus { outline: none; border-color: var(--blue); }
+    /* Right panel: preview */
+    #chart-preview {
+      flex: 1; display: flex; flex-direction: column; overflow: hidden; padding: 16px;
+    }
+    #chart-preview-container {
+      flex: 1; border: 1px solid var(--gray-200); border-radius: 8px;
+      background: var(--gray-50); overflow: hidden; min-height: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #chart-preview-container .vega-embed { width: 100%; height: 100%; }
+    #chart-preview-msg {
+      color: var(--gray-400); font-size: 13px; text-align: center; padding: 20px;
+    }
+    #chart-modal-footer {
+      display: flex; gap: 10px; padding: 12px 16px; justify-content: flex-end;
+      border-top: 1px solid var(--gray-200); flex-shrink: 0;
+    }
+    .modal-btn {
+      padding: 8px 18px; border-radius: 7px; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: none;
+    }
+    .modal-btn-primary { background: var(--blue); color: white; }
+    .modal-btn-primary:hover { background: #1e40af; }
+    .modal-btn-secondary { background: var(--gray-100); color: var(--gray-800); border: 1px solid var(--gray-200); }
+    .modal-btn-secondary:hover { background: var(--gray-200); }
+    .modal-btn:disabled { opacity: .4; cursor: default; }
+
+    /* ── Print styles ─────────────────────────────────────────────────── */
+    @media print {
+      body * { visibility: hidden; }
+      .print-target, .print-target * { visibility: visible; }
+      .print-target {
+        position: fixed; inset: 0; padding: 24px; background: white;
+        font-size: 13px;
+      }
+      .export-toolbar, .card-footer, .details-toggle,
+      .bookmark-btn, .cache-notice { display: none !important; }
+      .details-content { display: block !important; }
+      .data-table-wrap { max-height: none !important; overflow: visible !important; }
+    }
+
+    /* Typing indicator */
+    .typing {
+      display: flex; align-items: center; gap: 6px; color: var(--gray-400); font-size: 13px;
+    }
+    .dot-flashing { width: 8px; height: 8px; border-radius: 50%;
+                    background: var(--gray-400); animation: dot-flash .8s ease-in-out infinite; }
+    .dot-flashing:nth-child(2) { animation-delay: .2s; }
+    .dot-flashing:nth-child(3) { animation-delay: .4s; }
+    @keyframes dot-flash { 0%,80%,100% { opacity: .2; } 40% { opacity: 1; } }
+
+    /* Error */
+    .error-msg {
+      background: #fef2f2; border: 1px solid #fecaca; color: var(--red);
+      padding: 10px 14px; border-radius: 8px; font-size: 13px;
+    }
+
+    /* ── Input bar ────────────────────────────────────────────────── */
+    #input-bar {
+      padding: 14px 32px 18px; background: white;
+      border-top: 1px solid var(--gray-200); flex-shrink: 0;
+    }
+    #input-form { display: flex; gap: 10px; align-items: flex-end; }
+    #input {
+      flex: 1; padding: 10px 14px; border: 1px solid var(--gray-200);
+      border-radius: 10px; font-size: 14px; font-family: inherit;
+      resize: none; min-height: 44px; max-height: 140px;
+      line-height: 1.5; outline: none;
+    }
+    #input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(29,78,216,.1); }
+    #send-btn {
+      padding: 10px 20px; background: var(--blue); color: white;
+      border: none; border-radius: 10px; cursor: pointer; font-size: 14px;
+      font-weight: 600; flex-shrink: 0; height: 44px;
+    }
+    #send-btn:disabled { opacity: .5; cursor: not-allowed; }
+    #send-btn:not(:disabled):hover { background: #1e40af; }
+
+    .input-hint {
+      font-size: 11px; color: var(--gray-400); margin-top: 6px; text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- Header -->
+  <header>
+    <div>
+      <div class="logo">FDP Policy Chat</div>
+      <div class="subtitle">FairDistricts Georgia — Redistricting Intelligence</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="badge">Georgia 2020–2024</div>
+  </header>
+
+  <!-- ── Chart Builder Modal ──────────────────────────────────────── -->
+  <div id="chart-modal-overlay" onclick="if(event.target===this)closeChartModal()">
+    <div id="chart-modal">
+      <div id="chart-modal-header">
+        <h3>📊 Build Chart</h3>
+        <span id="chart-modal-subtitle" style="font-size:12px;color:var(--gray-400)"></span>
+        <button id="chart-modal-close" onclick="closeChartModal()">×</button>
+      </div>
+      <div id="chart-modal-body">
+        <!-- Controls -->
+        <div id="chart-controls">
+          <div class="ctrl-section">
+            <div class="ctrl-label">Chart Type</div>
+            <div id="chart-type-grid">
+              <button class="chart-type-btn active" data-type="bar"    onclick="selectChartType('bar')">   <span class="ct-icon">📊</span>Bar</button>
+              <button class="chart-type-btn"        data-type="line"   onclick="selectChartType('line')">  <span class="ct-icon">📈</span>Line</button>
+              <button class="chart-type-btn"        data-type="area"   onclick="selectChartType('area')">  <span class="ct-icon">🏔</span>Area</button>
+              <button class="chart-type-btn"        data-type="stream" onclick="selectChartType('stream')"><span class="ct-icon">🌊</span>Stream</button>
+              <button class="chart-type-btn"        data-type="pie"    onclick="selectChartType('pie')">   <span class="ct-icon">🥧</span>Pie</button>
+              <button class="chart-type-btn"        data-type="scatter"onclick="selectChartType('scatter')"><span class="ct-icon">🔵</span>Scatter</button>
+              <button class="chart-type-btn"        data-type="sankey" onclick="selectChartType('sankey')"><span class="ct-icon">➡</span>Sankey</button>
+            </div>
+          </div>
+
+          <div class="ctrl-section" id="ctrl-title-section">
+            <div class="ctrl-label">Chart Title</div>
+            <input class="ctrl-input" id="ctrl-title" placeholder="Optional title…" oninput="schedulePreview()">
+          </div>
+
+          <div id="ctrl-axis-fields">
+            <!-- populated dynamically per chart type -->
+          </div>
+
+          <div class="ctrl-section">
+            <div class="ctrl-label">Max Rows in Chart</div>
+            <select class="ctrl-select" id="ctrl-max-rows" onchange="schedulePreview()">
+              <option value="20">20</option>
+              <option value="30" selected>30</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Preview -->
+        <div id="chart-preview">
+          <div id="chart-preview-container">
+            <div id="chart-preview-msg">Configure chart options and click Preview</div>
+          </div>
+        </div>
+      </div>
+      <div id="chart-modal-footer">
+        <button class="modal-btn modal-btn-secondary" onclick="closeChartModal()">Close</button>
+        <button class="modal-btn modal-btn-secondary" id="btn-preview" onclick="renderPreview()">Preview</button>
+        <button class="modal-btn modal-btn-primary"   id="btn-download-png" onclick="downloadChartPNG()" disabled>⬇ Download PNG</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-section">Suggested Questions</div>
+      <div id="question-library">
+        <!-- populated by loadQuestionLibrary() -->
+        <div class="lib-loading">Loading…</div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-section">Conversation History</div>
+      <div id="history-list"></div>
+      <button class="new-chat-btn" onclick="newChat()">+ New Conversation</button>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+      <div id="thread">
+        <div id="welcome">
+          <h2>Ask about Georgia redistricting</h2>
+          <p>Get plain-English answers about election results, demographic data, and
+             redistricting fairness — no technical background needed.</p>
+        </div>
+      </div>
+
+      <div id="input-bar">
+        <form id="input-form" onsubmit="return false;">
+          <textarea id="input" rows="1"
+            placeholder="Ask about election results, demographic data, redistricting fairness…"
+            onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+          <button id="send-btn" onclick="sendMessage()">Ask</button>
+        </form>
+        <div class="input-hint">Enter to send · Shift+Enter for new line</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ────────────────────────────────────────────────────────────────────────────
+// State
+// ────────────────────────────────────────────────────────────────────────────
+let history = [];       // [{role, content}] — sent to backend for context
+let busy = false;
+let chartCounter = 0;   // unique IDs for Vega charts
+
+// Super-user secret — set once via prompt, stored in sessionStorage only
+let _adminSecret = sessionStorage.getItem('workbench_secret') || null;
+
+function getAdminSecret() {
+  if (!_adminSecret) {
+    _adminSecret = prompt('Enter Workbench Secret:');
+    if (_adminSecret) sessionStorage.setItem('workbench_secret', _adminSecret);
+  }
+  return _adminSecret;
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Question Library sidebar
+// ────────────────────────────────────────────────────────────────────────────
+
+async function loadQuestionLibrary() {
+  const container = document.getElementById('question-library');
+  try {
+    const res = await fetch('/api/questions');
+    const { questions } = await res.json();
+    if (!questions || questions.length === 0) {
+      container.innerHTML = '<div class="lib-loading">No questions yet.</div>';
+      return;
+    }
+    container.innerHTML = questions.map(q => renderLibItem(q)).join('');
+  } catch (e) {
+    container.innerHTML = '<div class="lib-loading">Could not load questions.</div>';
+  }
+}
+
+function renderLibItem(q) {
+  const cached   = q.cache_is_valid;
+  const dot      = cached ? '<span class="lib-cached" title="Cached">●</span>' : '';
+  const age      = cached && q.cache_refreshed_at ? timeAgo(q.cache_refreshed_at) : 'not cached';
+  const hits     = cached ? `${q.cache_hit_count || 0} hits` : '';
+  const statsStr = cached ? `${age} · ${hits}` : age;
+
+  return `
+  <div class="lib-item" id="lib-${q.id}">
+    <button class="lib-item-btn" onclick="ask(${JSON.stringify(q.question_text)})"
+            title="${escHtml(q.question_text)}">${escHtml(q.question_text)}</button>
+    <div class="lib-item-meta">
+      ${dot}
+      <span>${statsStr}</span>
+      <button class="lib-recycle" title="Refresh cache" onclick="invalidateQuestion(event,'${q.id}','${escHtml(q.question_text)}')">↻</button>
+    </div>
+  </div>`;
+}
+
+async function invalidateQuestion(evt, libraryId, questionText) {
+  evt.stopPropagation();
+  const secret = getAdminSecret();
+  if (!secret) return;
+  try {
+    const res = await fetch('/api/cache/invalidate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Workbench-Secret': secret },
+      body: JSON.stringify({ library_id: libraryId }),
+    });
+    if (res.status === 401) { _adminSecret = null; sessionStorage.removeItem('workbench_secret'); alert('Invalid secret'); return; }
+    const { invalidated } = await res.json();
+    // Refresh the sidebar item to show un-cached state
+    await loadQuestionLibrary();
+  } catch (e) { console.error('Invalidate failed', e); }
+}
+
+// Bookmark current answer as a library question (super-user only)
+async function bookmarkAnswer(questionText, sql) {
+  const secret = getAdminSecret();
+  if (!secret) return;
+  const label = prompt('Label for this question (leave blank to use question text):') ?? '';
+  try {
+    const res = await fetch('/api/questions/bookmark', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Workbench-Secret': secret },
+      body: JSON.stringify({ question: questionText, sql, label: label || questionText }),
+    });
+    if (res.status === 401) { _adminSecret = null; sessionStorage.removeItem('workbench_secret'); alert('Invalid secret'); return; }
+    await loadQuestionLibrary();
+    const btn = document.querySelector(`[data-bookmark-q="${CSS.escape(questionText)}"]`);
+    if (btn) { btn.textContent = '✓ Bookmarked'; btn.disabled = true; }
+  } catch (e) { console.error('Bookmark failed', e); }
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function timeAgo(iso) {
+  const diff = (Date.now() - new Date(iso).getTime()) / 1000;
+  if (diff < 60)     return 'just now';
+  if (diff < 3600)   return `${Math.floor(diff/60)}m ago`;
+  if (diff < 86400)  return `${Math.floor(diff/3600)}h ago`;
+  return `${Math.floor(diff/86400)}d ago`;
+}
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// Load library on page ready
+document.addEventListener('DOMContentLoaded', loadQuestionLibrary);
+
+// ────────────────────────────────────────────────────────────────────────────
+// Send message
+// ────────────────────────────────────────────────────────────────────────────
+function ask(text) {
+  document.getElementById('input').value = text;
+  sendMessage();
+}
+
+function sendMessage() {
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if (!text || busy) return;
+
+  input.value = '';
+  autoResize(input);
+  hideWelcome();
+  busy = true;
+  document.getElementById('send-btn').disabled = true;
+
+  appendUserBubble(text);
+  const card = appendAssistantCard();
+  streamResponse(text, card);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// SSE streaming
+// ────────────────────────────────────────────────────────────────────────────
+function streamResponse(message, card) {
+  const { narrative, sqlEl, tableWrap, chartWrap, findingEl, typingEl,
+          cacheNotice, bookmarkBtn } = card;
+  let narrativeText = '';
+  let sqlText = '';
+  let rows = [];
+  let rowCount = 0;
+
+  // Show typing indicator
+  typingEl.style.display = 'flex';
+
+  fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message, history }),
+  }).then(res => {
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    function pump() {
+      reader.read().then(({ done, value }) => {
+        if (done) { onDone(); return; }
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop();   // last partial line goes back to buffer
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try { handleEvent(JSON.parse(line.slice(6))); } catch {}
+          }
+        }
+        pump();
+      }).catch(onDone);
+    }
+    pump();
+  }).catch(err => {
+    typingEl.style.display = 'none';
+    showError(card.bubble, err.message);
+    finish();
+  });
+
+  function handleEvent(ev) {
+    switch (ev.event) {
+      case 'sql':
+        sqlText = ev.data;
+        sqlEl.textContent = sqlText;
+        break;
+
+      case 'rows':
+        rows = ev.data;
+        rowCount = ev.row_count;
+        if (rows.length > 0) {
+          renderTable(tableWrap, rows, rowCount);
+        }
+        break;
+
+      case 'token':
+        // Hide typing indicator on first token
+        typingEl.style.display = 'none';
+        narrativeText += ev.data;
+        narrative.innerHTML = escapeHtml(narrativeText) +
+          '<span class="cursor"></span>';
+        scrollToBottom();
+        break;
+
+      case 'chart':
+        if (ev.data) {
+          renderChart(chartWrap, ev.data);
+        }
+        break;
+
+      case 'finding':
+        if (ev.data) {
+          findingEl.textContent = ev.data;
+          findingEl.style.display = 'block';
+        }
+        break;
+
+      case 'cache_hit':
+        cacheNotice.textContent = `⚡ cached · ${timeAgo(ev.data.refreshed_at)} · ${ev.data.hit_count} hits`;
+        break;
+
+      case 'done':
+        onDone();
+        break;
+
+      case 'error':
+        typingEl.style.display = 'none';
+        showError(card.bubble, ev.data);
+        onDone();
+        break;
+    }
+  }
+
+  function onDone() {
+    // Remove cursor
+    narrative.innerHTML = escapeHtml(narrativeText);
+    typingEl.style.display = 'none';
+
+    // Show bookmark button (super users can save any answer)
+    if (sqlText && bookmarkBtn) {
+      bookmarkBtn.dataset.question = message;
+      bookmarkBtn.dataset.sql = sqlText;
+      bookmarkBtn.style.display = 'inline';
+    }
+
+    // Push to history for multi-turn context
+    if (message) {
+      history.push({ role: 'user', content: message });
+      history.push({
+        role: 'assistant',
+        content: narrativeText || '(data returned)',
+      });
+      // Cap history at 10 turns to avoid token bloat
+      if (history.length > 20) history = history.slice(-20);
+    }
+
+    addToHistoryList(message);
+    finish();
+  }
+
+  function finish() {
+    busy = false;
+    document.getElementById('send-btn').disabled = false;
+    document.getElementById('input').focus();
+  }
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// DOM helpers
+// ────────────────────────────────────────────────────────────────────────────
+function hideWelcome() {
+  const w = document.getElementById('welcome');
+  if (w) w.remove();
+}
+
+function appendUserBubble(text) {
+  const thread = document.getElementById('thread');
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  div.innerHTML = `<div class="bubble">${escapeHtml(text)}</div>`;
+  thread.appendChild(div);
+  scrollToBottom();
+}
+
+function appendAssistantCard() {
+  const thread = document.getElementById('thread');
+  const chartId = 'chart-' + (++chartCounter);
+
+  const div = document.createElement('div');
+  div.className = 'msg assistant';
+  div.innerHTML = `
+    <div class="bubble">
+      <div class="answer-card">
+        <div class="typing" style="display:none">
+          <div class="dot-flashing"></div>
+          <div class="dot-flashing"></div>
+          <div class="dot-flashing"></div>
+          <span style="font-size:13px;margin-left:4px">Thinking…</span>
+        </div>
+        <div class="narrative"></div>
+        <div class="key-finding" style="display:none"></div>
+        <div class="chart-wrap" id="${chartId}" style="display:none"></div>
+
+        <!-- Collapsible: data table -->
+        <div class="details-toggle" onclick="toggleDetails(this)">
+          <span class="arrow">▶</span> View data
+        </div>
+        <div class="details-content">
+          <div class="export-toolbar">
+            <button class="export-btn" onclick="exportCSV(this)"    title="Download as CSV">⬇ CSV</button>
+            <button class="export-btn" onclick="openChartBuilder(this)" title="Build a chart">📊 Chart</button>
+            <button class="export-btn" onclick="printCard(this)"    title="Print / Save as PDF">🖨 PDF</button>
+          </div>
+          <div class="data-table-wrap"></div>
+          <div class="row-count" style="font-size:11px;color:var(--gray-400);margin-top:4px"></div>
+        </div>
+
+        <!-- Collapsible: SQL -->
+        <div class="details-toggle" onclick="toggleDetails(this)">
+          <span class="arrow">▶</span> View SQL
+        </div>
+        <div class="details-content">
+          <pre class="sql-block"></pre>
+        </div>
+
+        <!-- Card footer: cache notice + bookmark -->
+        <div class="card-footer">
+          <span class="cache-notice"></span>
+          <button class="bookmark-btn" style="display:none"
+                  onclick="bookmarkAnswer(this.dataset.question, this.dataset.sql)"
+                  title="Save to question library">⊕ Bookmark</button>
+        </div>
+      </div>
+    </div>
+  `;
+  thread.appendChild(div);
+  scrollToBottom();
+
+  const card = div.querySelector('.answer-card');
+  return {
+    bubble: div.querySelector('.bubble'),
+    narrative: card.querySelector('.narrative'),
+    typingEl: card.querySelector('.typing'),
+    findingEl: card.querySelector('.key-finding'),
+    chartWrap: card.querySelector(`#${chartId}`),
+    tableWrap: card.querySelector('.data-table-wrap'),
+    rowCountEl: card.querySelector('.row-count'),
+    sqlEl: card.querySelector('.sql-block'),
+    cacheNotice: card.querySelector('.cache-notice'),
+    bookmarkBtn: card.querySelector('.bookmark-btn'),
+  };
+}
+
+function renderTable(container, rows, totalCount) {
+  if (!rows.length) return;
+  const cols = Object.keys(rows[0]);
+  let html = '<table class="data-table"><thead><tr>';
+  cols.forEach(c => { html += `<th>${escapeHtml(c)}</th>`; });
+  html += '</tr></thead><tbody>';
+  rows.forEach(row => {
+    html += '<tr>';
+    cols.forEach(c => { html += `<td>${escapeHtml(String(row[c] ?? ''))}</td>`; });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  container.innerHTML = html;
+
+  // Update row count label
+  const rc = container.closest('.answer-card').querySelector('.row-count');
+  if (rc) rc.textContent = totalCount > rows.length
+    ? `Showing ${rows.length} of ${totalCount.toLocaleString()} rows`
+    : `${totalCount.toLocaleString()} rows`;
+
+  // Update toggle label
+  const toggle = container.closest('.details-content').previousElementSibling;
+  if (toggle) toggle.querySelector('.arrow').nextSibling.textContent =
+    ` View data (${Math.min(rows.length, totalCount)} rows)`;
+}
+
+function renderChart(container, spec) {
+  if (!spec) return;
+  container.style.display = 'block';
+
+  // Inject required schema + responsive width
+  const fullSpec = Object.assign({
+    '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+    width: 'container',
+    height: 300,
+  }, spec);
+
+  vegaEmbed(container, fullSpec, {
+    actions: { export: true, source: false, compiled: false, editor: false },
+    theme: 'latimes',
+  }).catch(err => {
+    container.innerHTML = `<div style="color:var(--gray-400);font-size:12px;padding:8px">
+      Chart could not be rendered: ${escapeHtml(err.message)}</div>`;
+  });
+}
+
+function showError(bubble, message) {
+  const card = bubble.querySelector('.answer-card');
+  const el = document.createElement('div');
+  el.className = 'error-msg';
+  el.textContent = message;
+  card.appendChild(el);
+}
+
+function toggleDetails(toggle) {
+  toggle.classList.toggle('open');
+  toggle.nextElementSibling.classList.toggle('open');
+}
+
+function addToHistoryList(text) {
+  const list = document.getElementById('history-list');
+  // Remove duplicates
+  const existing = list.querySelectorAll('.history-item');
+  existing.forEach(el => el.classList.remove('active'));
+
+  const item = document.createElement('div');
+  item.className = 'history-item active';
+  item.textContent = text.slice(0, 60) + (text.length > 60 ? '…' : '');
+  item.title = text;
+  list.insertBefore(item, list.firstChild);
+}
+
+function newChat() {
+  history = [];
+  const thread = document.getElementById('thread');
+  thread.innerHTML = `
+    <div id="welcome">
+      <h2>Ask about Georgia redistricting</h2>
+      <p>Get plain-English answers about election results, demographic data, and
+         redistricting fairness — no technical background needed.</p>
+    </div>`;
+  document.getElementById('input').focus();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// Utilities
+// ────────────────────────────────────────────────────────────────────────────
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function scrollToBottom() {
+  const t = document.getElementById('thread');
+  t.scrollTop = t.scrollHeight;
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 140) + 'px';
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Export: CSV
+// ─────────────────────────────────────────────────────────────────────────────
+function exportCSV(btn) {
+  const rows = getCardRows(btn);
+  if (!rows || !rows.length) return;
+  const cols = Object.keys(rows[0]);
+  const escape = v => {
+    const s = String(v ?? '');
+    return s.includes(',') || s.includes('"') || s.includes('\n')
+      ? '"' + s.replace(/"/g, '""') + '"' : s;
+  };
+  const csv = [cols.map(escape).join(','),
+    ...rows.map(r => cols.map(c => escape(r[c])).join(','))
+  ].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+  a.download = 'fdp_export_' + Date.now() + '.csv';
+  a.click();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Export: Print / PDF
+// ─────────────────────────────────────────────────────────────────────────────
+function printCard(btn) {
+  const card = btn.closest('.answer-card');
+  // Mark this card as the print target, print, then unmark
+  document.querySelectorAll('.print-target').forEach(el => el.classList.remove('print-target'));
+  card.classList.add('print-target');
+  window.print();
+  // Remove after a tick so the card isn't permanently marked
+  setTimeout(() => card.classList.remove('print-target'), 500);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Chart Builder — state
+// ─────────────────────────────────────────────────────────────────────────────
+let _cbRows    = [];    // data rows for the current chart builder session
+let _cbCols    = [];    // column names
+let _cbType    = 'bar'; // currently selected chart type
+let _cbView    = null;  // current Vega view (for PNG export)
+let _previewTimer = null;
+
+// Column field configs per chart type
+const CHART_CONFIGS = {
+  bar:    { fields: [{ id:'x', label:'X axis (category)',   type:'any'  },
+                     { id:'y', label:'Y axis (value)',       type:'num'  },
+                     { id:'color', label:'Group by (optional)', type:'any', optional:true }],
+            hint: 'Best for comparing values across categories.' },
+  line:   { fields: [{ id:'x', label:'X axis (time/order)', type:'any'  },
+                     { id:'y', label:'Y axis (value)',       type:'num'  },
+                     { id:'color', label:'Series (optional)', type:'any', optional:true }],
+            hint: 'Best for trends over time or ordered categories.' },
+  area:   { fields: [{ id:'x', label:'X axis',              type:'any'  },
+                     { id:'y', label:'Y axis (value)',       type:'num'  },
+                     { id:'color', label:'Series (stacked, optional)', type:'any', optional:true }],
+            hint: 'Stacked area chart. Add a series to stack groups.' },
+  stream: { fields: [{ id:'x', label:'X axis (time)',        type:'any'  },
+                     { id:'y', label:'Value',                 type:'num'  },
+                     { id:'color', label:'Stream series',     type:'any'  }],
+            hint: 'River/streamgraph. Requires a series column (e.g. party, year).' },
+  pie:    { fields: [{ id:'label', label:'Label (category)', type:'any'  },
+                     { id:'value', label:'Value (numeric)',  type:'num'  }],
+            hint: 'Shows proportions. Works best with ≤ 8 categories.' },
+  scatter:{ fields: [{ id:'x', label:'X axis (numeric)',     type:'num'  },
+                     { id:'y', label:'Y axis (numeric)',     type:'num'  },
+                     { id:'color', label:'Color by (optional)', type:'any', optional:true }],
+            hint: 'Correlation between two numeric columns.' },
+  sankey: { fields: [{ id:'source', label:'Source node',    type:'any'  },
+                     { id:'target', label:'Target node',    type:'any'  },
+                     { id:'value',  label:'Flow value',     type:'num'  }],
+            hint: 'Flow diagram. Requires source → target → value columns.' },
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Chart Builder — open / close
+// ─────────────────────────────────────────────────────────────────────────────
+function openChartBuilder(btn) {
+  const rows = getCardRows(btn);
+  if (!rows || !rows.length) { alert('No data to chart.'); return; }
+  _cbRows = rows;
+  _cbCols = Object.keys(rows[0]);
+  _cbType = 'bar';
+  _cbView = null;
+
+  document.getElementById('chart-modal-subtitle').textContent =
+    `${rows.length} rows · ${_cbCols.length} columns`;
+  document.getElementById('ctrl-title').value = '';
+  document.getElementById('btn-download-png').disabled = true;
+  document.getElementById('chart-preview-msg').style.display = 'block';
+  document.getElementById('chart-preview-msg').textContent = 'Configure options and click Preview';
+
+  // Reset type buttons
+  document.querySelectorAll('.chart-type-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector('[data-type="bar"]').classList.add('active');
+  renderAxisFields('bar');
+
+  document.getElementById('chart-modal-overlay').classList.add('open');
+}
+
+function closeChartModal() {
+  document.getElementById('chart-modal-overlay').classList.remove('open');
+  if (_cbView) { try { _cbView.finalize(); } catch(e){} _cbView = null; }
+}
+
+function selectChartType(type) {
+  _cbType = type;
+  document.querySelectorAll('.chart-type-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.type === type));
+  renderAxisFields(type);
+  schedulePreview();
+}
+
+function renderAxisFields(type) {
+  const cfg = CHART_CONFIGS[type];
+  const container = document.getElementById('ctrl-axis-fields');
+  container.innerHTML = `
+    <div class="ctrl-section">
+      <div class="ctrl-label">Columns</div>
+      ${cfg.fields.map(f => `
+        <div style="margin-bottom:8px">
+          <div style="font-size:11px;color:var(--gray-600);margin-bottom:3px">
+            ${f.label}${f.optional ? ' <span style="color:var(--gray-400)">(optional)</span>' : ''}
+          </div>
+          <select class="ctrl-select" id="ctrl-${f.id}" onchange="schedulePreview()">
+            ${f.optional ? '<option value="">— none —</option>' : ''}
+            ${_cbCols.map(c => `<option value="${escHtml(c)}">${escHtml(c)}</option>`).join('')}
+          </select>
+        </div>
+      `).join('')}
+      ${cfg.hint ? `<div class="ctrl-hint">${cfg.hint}</div>` : ''}
+    </div>
+  `;
+  // Auto-select sensible defaults based on column names/types
+  autoSelectColumns(type, cfg.fields);
+}
+
+function autoSelectColumns(type, fields) {
+  const numCols  = _cbCols.filter(c => _cbRows.some(r => typeof r[c] === 'number' || !isNaN(parseFloat(r[c]))));
+  const catCols  = _cbCols.filter(c => !numCols.includes(c));
+  fields.forEach(f => {
+    const sel = document.getElementById(`ctrl-${f.id}`);
+    if (!sel) return;
+    if (f.type === 'num' && numCols.length) sel.value = numCols[0];
+    else if (f.type === 'any' && catCols.length) sel.value = catCols[0];
+    // Second numeric field — pick next one
+    if (f.id === 'y' && numCols.length > 1) sel.value = numCols[1];
+    if (f.id === 'x' && catCols.length) sel.value = catCols[0];
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Chart Builder — spec generation
+// ─────────────────────────────────────────────────────────────────────────────
+function getFieldVal(id) {
+  const el = document.getElementById(`ctrl-${id}`);
+  return el ? el.value || null : null;
+}
+
+function inferVLType(col) {
+  if (!col || !_cbRows.length) return 'nominal';
+  const sample = _cbRows.find(r => r[col] != null)?.[col];
+  if (typeof sample === 'number' || (!isNaN(parseFloat(sample)) && isFinite(sample))) return 'quantitative';
+  if (typeof sample === 'string' && /^\d{4}(-\d{2})?/.test(sample)) return 'temporal';
+  return 'nominal';
+}
+
+function buildSpec(type, rows) {
+  const title = document.getElementById('ctrl-title').value.trim() || undefined;
+  const maxRows = parseInt(document.getElementById('ctrl-max-rows').value);
+  const data = { values: rows.slice(0, maxRows) };
+  const base = { title, data, width: 'container', height: 380 };
+
+  switch (type) {
+    case 'bar': {
+      const x = getFieldVal('x'), y = getFieldVal('y'), color = getFieldVal('color');
+      if (!x || !y) return null;
+      return { ...base, mark: { type: 'bar', tooltip: true },
+        encoding: {
+          x: { field: x, type: inferVLType(x), axis: { labelAngle: -40 }, sort: '-y' },
+          y: { field: y, type: 'quantitative' },
+          ...(color ? { color: { field: color, type: 'nominal' } } : {}),
+        }};
+    }
+    case 'line': {
+      const x = getFieldVal('x'), y = getFieldVal('y'), color = getFieldVal('color');
+      if (!x || !y) return null;
+      return { ...base, mark: { type: 'line', point: true, tooltip: true },
+        encoding: {
+          x: { field: x, type: inferVLType(x) },
+          y: { field: y, type: 'quantitative' },
+          ...(color ? { color: { field: color, type: 'nominal' } } : {}),
+        }};
+    }
+    case 'area': {
+      const x = getFieldVal('x'), y = getFieldVal('y'), color = getFieldVal('color');
+      if (!x || !y) return null;
+      return { ...base, mark: { type: 'area', tooltip: true },
+        encoding: {
+          x: { field: x, type: inferVLType(x) },
+          y: { field: y, type: 'quantitative', stack: color ? 'zero' : undefined },
+          ...(color ? { color: { field: color, type: 'nominal' } } : {}),
+        }};
+    }
+    case 'stream': {
+      const x = getFieldVal('x'), y = getFieldVal('y'), color = getFieldVal('color');
+      if (!x || !y || !color) return null;
+      return { ...base, mark: { type: 'area', tooltip: true },
+        encoding: {
+          x: { field: x, type: inferVLType(x) },
+          y: { field: y, type: 'quantitative', stack: 'center', axis: null },
+          color: { field: color, type: 'nominal' },
+        }};
+    }
+    case 'pie': {
+      const label = getFieldVal('label'), value = getFieldVal('value');
+      if (!label || !value) return null;
+      return { ...base, height: 340,
+        mark: { type: 'arc', innerRadius: 60, tooltip: true },
+        encoding: {
+          theta: { field: value, type: 'quantitative' },
+          color: { field: label, type: 'nominal', legend: { orient: 'right' } },
+        }};
+    }
+    case 'scatter': {
+      const x = getFieldVal('x'), y = getFieldVal('y'), color = getFieldVal('color');
+      if (!x || !y) return null;
+      return { ...base, mark: { type: 'point', tooltip: true, filled: true, size: 80 },
+        encoding: {
+          x: { field: x, type: 'quantitative' },
+          y: { field: y, type: 'quantitative' },
+          ...(color ? { color: { field: color, type: 'nominal' } } : {}),
+        }};
+    }
+    case 'sankey': {
+      // Sankey uses full Vega spec (not Vega-Lite)
+      const source = getFieldVal('source'), target = getFieldVal('target'), value = getFieldVal('value');
+      if (!source || !target || !value) return null;
+      return buildSankeySpec(rows.slice(0, maxRows), source, target, value, title);
+    }
+    default: return null;
+  }
+}
+
+function buildSankeySpec(rows, sourceCol, targetCol, valueCol, title) {
+  // Full Vega spec for Sankey diagram
+  const nodes = [...new Set([...rows.map(r => r[sourceCol]), ...rows.map(r => r[targetCol])])]
+    .map((name, i) => ({ name, index: i }));
+  const nodeIndex = Object.fromEntries(nodes.map(n => [n.name, n.index]));
+  const links = rows.map(r => ({
+    source: nodeIndex[r[sourceCol]],
+    target: nodeIndex[r[targetCol]],
+    value: parseFloat(r[valueCol]) || 0,
+  }));
+  return {
+    '$schema': 'https://vega.github.io/schema/vega-lite/v5.json',
+    title: title || 'Sankey Diagram',
+    data: { values: rows },
+    layer: [
+      { mark: { type: 'bar', orient: 'vertical', tooltip: true },
+        encoding: {
+          x: { field: sourceCol, type: 'nominal', axis: { title: sourceCol } },
+          y: { field: valueCol,  type: 'quantitative', stack: true },
+          color: { field: targetCol, type: 'nominal' },
+        }},
+    ],
+    width: 'container', height: 380,
+    // Note: true Sankey requires the vega-sankey plugin.
+    // This fallback shows a stacked bar as an approximation.
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Chart Builder — preview + download
+// ─────────────────────────────────────────────────────────────────────────────
+function schedulePreview() {
+  clearTimeout(_previewTimer);
+  _previewTimer = setTimeout(renderPreview, 400);
+}
+
+async function renderPreview() {
+  const spec = buildSpec(_cbType, _cbRows);
+  const container = document.getElementById('chart-preview-container');
+  const msg = document.getElementById('chart-preview-msg');
+
+  if (!spec) {
+    msg.style.display = 'block';
+    msg.textContent = 'Select all required columns to preview.';
+    document.getElementById('btn-download-png').disabled = true;
+    return;
+  }
+
+  msg.style.display = 'none';
+  if (_cbView) { try { _cbView.finalize(); } catch(e){} _cbView = null; }
+
+  // Clear container but keep the message div
+  const inner = document.createElement('div');
+  inner.style.cssText = 'width:100%;height:100%';
+  container.innerHTML = '';
+  container.appendChild(inner);
+
+  try {
+    const isVegaLite = !spec['$schema']?.includes('/vega/v5');
+    const fullSpec = isVegaLite
+      ? { '$schema': 'https://vega.github.io/schema/vega-lite/v5.json', ...spec }
+      : spec;
+
+    const result = await vegaEmbed(inner, fullSpec, {
+      actions: false, renderer: 'canvas', theme: 'latimes',
+    });
+    _cbView = result.view;
+    document.getElementById('btn-download-png').disabled = false;
+  } catch(e) {
+    container.innerHTML = `<div id="chart-preview-msg" style="display:block;color:var(--red)">Chart error: ${escHtml(e.message)}</div>`;
+    document.getElementById('btn-download-png').disabled = true;
+  }
+}
+
+async function downloadChartPNG() {
+  if (!_cbView) return;
+  try {
+    const url = await _cbView.toImageURL('png', 2);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'fdp_chart_' + Date.now() + '.png';
+    a.click();
+  } catch(e) { alert('Download failed: ' + e.message); }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Helpers — get rows from card context
+// ─────────────────────────────────────────────────────────────────────────────
+function getCardRows(el) {
+  // Walk up to find the answer card, then pull rows from the data table
+  const card = el.closest('.answer-card');
+  if (!card) return [];
+  const table = card.querySelector('.data-table');
+  if (!table) return [];
+  const headers = [...table.querySelectorAll('thead th')].map(th => th.textContent);
+  const rows = [...table.querySelectorAll('tbody tr')].map(tr => {
+    const cells = [...tr.querySelectorAll('td')].map(td => td.textContent);
+    return Object.fromEntries(headers.map((h, i) => [h, cells[i]]));
+  });
+  return rows;
+}
+</script>
+</body>
+</html>

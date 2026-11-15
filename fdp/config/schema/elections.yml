@@ -1,0 +1,212 @@
+# Election Results Schema Definition
+# 
+# Defines the canonical structure for election data in FDP.
+# All election datasets must conform to these field definitions.
+#
+# Used by:
+#   - fdp/loaders/elections.py (validation)
+#   - fdp/schema/models.py (Python dataclasses)
+#   - map-compare/src/lib/types/cdm.ts (TypeScript types)
+
+version: "1.0"
+description: "Georgia election results with certification tracking"
+
+fields:
+  # Core identifiers
+  - name: county
+    type: string
+    description: "Georgia county name (e.g., 'Fulton County')"
+    required: true
+    example: "Fulton County"
+
+  - name: office_name
+    type: string
+    description: "Name of the election office or race"
+    required: true
+    example: "US Senate"
+    values:
+      - "Governor"
+      - "US Senate"
+      - "State Senate - District *"
+      - "State House of Representatives - District *"
+      - "US House of Representatives - District *"
+
+  - name: contest_id
+    type: string
+    description: "Unique identifier for this contest"
+    required: true
+    example: "US2"
+
+  - name: ballot_name
+    type: string
+    description: "Name of candidate or ballot measure"
+    required: true
+    example: "Mike Collins (Rep)"
+
+  - name: choice_id
+    type: float
+    description: "Numeric choice identifier within contest"
+    required: false
+    example: 1.0
+
+  # Vote data
+  - name: party
+    type: string
+    description: "Political party or affiliation"
+    required: false
+    nullable: true
+    values:
+      - "Rep"
+      - "Dem"
+      - "Ind"
+      - "Lib"
+      - "Grn"
+
+  - name: total
+    type: integer
+    description: "Total votes for this choice"
+    required: true
+    example: 1713664
+
+  - name: voting_method
+    type: string
+    description: "Method by which votes were cast"
+    required: false
+    nullable: true
+    values:
+      - "Election Day"
+      - "Advance Voting"
+      - "Absentee by Mail"
+      - "Provisional"
+      - "All Methods"
+
+  # Certification tracking (NEW)
+  - name: certification_status
+    type: enum
+    description: "Current certification status of these results"
+    required: true
+    default: "uncertified"
+    values:
+      - uncertified
+      - certified
+      - certified_with_caveats
+    metadata:
+      color_code:
+        uncertified: "#FF6B6B"       # Red
+        certified: "#51CF66"          # Green
+        certified_with_caveats: "#FFA500"  # Orange
+
+  - name: certified_date
+    type: date
+    description: "Date when results were officially certified (ISO 8601)"
+    required: false
+    nullable: true
+    format: "YYYY-MM-DD"
+    example: "2026-11-15"
+
+  - name: certified_by
+    type: string
+    description: "Official name or organization that certified these results"
+    required: false
+    nullable: true
+    examples:
+      - "Georgia Secretary of State"
+      - "Fulton County Elections Director"
+
+  - name: audit_status
+    type: enum
+    description: "Current status of any election audit or recount"
+    required: false
+    nullable: true
+    default: "pending"
+    values:
+      - pending
+      - in_progress
+      - complete
+      - flagged
+
+  - name: caveat_notes
+    type: string
+    description: |
+      Human-readable notes about the certification status.
+      Use for recording:
+      - Reasons for non-certification
+      - Pending audit details
+      - Data quality issues
+      - Provisional result notes
+    required: false
+    nullable: true
+    example: "Pending final county certification from Fulton County Elections"
+
+quality_checks:
+  - name: "certification_required"
+    description: "All records must have a certification_status"
+    rule:
+      field: "certification_status"
+      condition: "not_null"
+
+  - name: "certified_date_consistency"
+    description: "If certified_date is provided, certification_status must not be 'uncertified'"
+    rule:
+      if:
+        field: "certified_date"
+        condition: "not_null"
+      then:
+        field: "certification_status"
+        not_in: ["uncertified"]
+
+  - name: "caveat_notes_optional"
+    description: "Caveat notes should be provided when status is 'certified_with_caveats'"
+    rule:
+      if:
+        field: "certification_status"
+        equals: "certified_with_caveats"
+      then:
+        field: "caveat_notes"
+        condition: "not_null"
+
+examples:
+  # Uncertified data
+  - county: "Fulton County"
+    office_name: "US Senate"
+    contest_id: "US2"
+    ballot_name: "Mike Collins (Rep)"
+    choice_id: 1.0
+    party: "Rep"
+    total: 150000
+    voting_method: "Election Day"
+    certification_status: "uncertified"
+    certified_date: null
+    certified_by: null
+    audit_status: "pending"
+    caveat_notes: "Awaiting final certification from county elections"
+
+  # Certified data
+  - county: "Gwinnett County"
+    office_name: "Governor"
+    contest_id: "S1"
+    ballot_name: "Tom Kemp (Rep)"
+    choice_id: 3.0
+    party: "Rep"
+    total: 200000
+    voting_method: "All Methods"
+    certification_status: "certified"
+    certified_date: "2026-11-14"
+    certified_by: "Georgia Secretary of State"
+    audit_status: "complete"
+    caveat_notes: null
+
+  # Certified with caveats
+  - county: "DeKalb County"
+    office_name: "State House of Representatives - District 84"
+    contest_id: "H84"
+    ballot_name: "Sandra Scott (Dem)"
+    choice_id: 4.0
+    party: "Dem"
+    total: 85000
+    voting_method: "Advance Voting"
+    certification_status: "certified_with_caveats"
+    certified_date: "2026-11-14"
+    certified_by: "DeKalb County Elections"
+    audit_status: "complete"
+    caveat_notes: "Certified pending resolution of provisional ballot discrepancy (15 ballots)"

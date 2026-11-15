@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useSvgPanZoom } from '../lib/useSvgPanZoom';
 import Section from './Section';
 import FigureTools from './FigureTools';
 import { fmtInt, fmtPct, fmtPts, PARTY } from '../lib/data';
@@ -113,6 +114,9 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
   const slot = dPlotW / Math.max(1, moved.length);
   const maxMove = Math.max(0.05, ...moved.map((d) => d.displacedPct || 0));
 
+  // Pan/zoom for dumbbell chart
+  const { viewBox: dumbViewBox, svgRef: dumbRef } = useSvgPanZoom(W, H, 1, 10);
+
   return (
     <Section
       id="mapswap"
@@ -217,9 +221,11 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
           The 2024 presidential vote in every district, under the old lines and the new ones
         </figcaption>
         <svg
-          viewBox={`0 0 ${W} ${H}`}
+          viewBox={dumbViewBox}
+          ref={dumbRef}
+          style={{ cursor: 'grab', userSelect: 'none' }}
           role="img"
-          aria-label={`Dumbbell chart: 2024 Democratic share in all ${effect.seats} districts under the 2021-23 lines and the 2024 lines`}
+          aria-label={`Dumbbell chart: 2024 Democratic share in all ${effect.seats} districts under the 2021-23 lines and the 2024 lines. Use mouse wheel to zoom, drag to pan.`}
         >
           <rect
             x={x(BAND[0])}

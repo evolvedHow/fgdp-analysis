@@ -1,0 +1,490 @@
+# Text-to-SQL training data for the Fair Districts GA (fdga) schema
+# Converted from text_to_sql_training.jsonl
+
+system: |
+    You are a text-to-SQL translator for the Fair Districts GA database schema 'fdga'. Write concise, efficient SQL. Schema:
+    v_chamber_year(cycle_year, chamber, seats_r, seats_d, seats_other, seat_share_r_pct, seat_share_d_pct, vote_share_r_pct, vote_share_d_pct, seats_votes_gap_r_pct, races_total, races_uncontested, races_contested, races_competitive, uncontested_pct, competitive_pct, votes_total, votes_r, votes_d, seats_derivable)
+    v_contest(cycle_year, chamber, district, winner_name, winner_party, winner_share_pct, margin_pct, margin, votes_total, votes_r, votes_d, votes_other, candidate_count, is_uncontested, is_uncontested_major, is_competitive, is_competitive_052, is_competitive_0535, is_competitive_055, is_competitive_06, votes_two_party, wasted_votes_r, wasted_votes_d, seats_derivable)
+    v_statewide(cycle_year, office, election_type, winner_name, winner_party, winner_share_pct, vote_share_r_pct, vote_share_d_pct, votes_total, votes_r, votes_d)
+    v_county_results(cycle_year, county, office, district, candidate_name, party, votes)
+    v_voter_choice(cycle_year, chamber, ballots_cast, votes_competitive, votes_non_competitive, votes_uncontested, votes_cast, no_vote_cast, competitive_pct, non_competitive_pct, uncontested_pct, no_vote_cast_pct, no_meaningful_choice_pct)
+    v_100_voters(cycle_year, chamber, ballots_cast, had_a_real_race, race_already_decided, only_one_name, skipped_the_race)
+    v_100_voters_long(cycle_year, chamber, sort_order, category, voters_per_100, pct)
+    v_contest_by_category(cycle_year, chamber, category, races, pct_of_total)
+    v_decided_before_election(cycle_year, chamber, uncontested, won_by_20_plus, actual_race, votes_predecided, votes_total, predecided_pct)
+    v_efficiency_gap(cycle_year, chamber, wasted_r_pct, wasted_d_pct, efficiency_gap_r_pct, races, uncontested_races)
+    v_which_party_benefits(cycle_year, chamber, unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d)
+    v_seat_vote_inversions(cycle_year, chamber, vote_share_r_pct, seats_r, seats_d, inversion)
+    v_race_drilldown(cycle_year, chamber, district, winner_name, winner_party, winner_share_pct, margin_pct, votes_total, category)
+
+qa_pairs:
+    - user: How many uncontested races were in the Georgia House in 2016?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2016 AND chamber = 'state_house';
+    - user: What was the uncontested race percentage for the Georgia House in 2016?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2016 AND chamber = 'state_house';
+    - user: How many uncontested races were in the Georgia House in 2020?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: What was the uncontested race percentage for the Georgia House in 2020?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: How many uncontested races were in the Georgia House in 2024?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: What was the uncontested race percentage for the Georgia House in 2024?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: How many uncontested races were in the Georgia Senate in 2016?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2016 AND chamber = 'state_senate';
+    - user: What was the uncontested race percentage for the Georgia Senate in 2016?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2016 AND chamber = 'state_senate';
+    - user: How many uncontested races were in the Georgia Senate in 2020?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: What was the uncontested race percentage for the Georgia Senate in 2020?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: How many uncontested races were in the Georgia Senate in 2024?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: What was the uncontested race percentage for the Georgia Senate in 2024?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: How many uncontested races were in the U.S. House in 2016?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2016 AND chamber = 'us_house';
+    - user: What was the uncontested race percentage for the U.S. House in 2016?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2016 AND chamber = 'us_house';
+    - user: How many uncontested races were in the U.S. House in 2020?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: What was the uncontested race percentage for the U.S. House in 2020?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: How many uncontested races were in the U.S. House in 2024?
+      assistant: SELECT races_uncontested FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: What was the uncontested race percentage for the U.S. House in 2024?
+      assistant: SELECT uncontested_pct FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: How many seats did Republicans win in the Georgia House in 2018?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2018 AND chamber = 'state_house';
+    - user: How many seats did Democrats win in the Georgia House in 2018?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2018 AND chamber = 'state_house';
+    - user: How many seats did Republicans win in the Georgia House in 2022?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2022 AND chamber = 'state_house';
+    - user: How many seats did Democrats win in the Georgia House in 2022?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2022 AND chamber = 'state_house';
+    - user: How many seats did Republicans win in the Georgia House in 2024?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: How many seats did Democrats win in the Georgia House in 2024?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: How many seats did Republicans win in the Georgia Senate in 2018?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2018 AND chamber = 'state_senate';
+    - user: How many seats did Democrats win in the Georgia Senate in 2018?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2018 AND chamber = 'state_senate';
+    - user: How many seats did Republicans win in the Georgia Senate in 2022?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2022 AND chamber = 'state_senate';
+    - user: How many seats did Democrats win in the Georgia Senate in 2022?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2022 AND chamber = 'state_senate';
+    - user: How many seats did Republicans win in the Georgia Senate in 2024?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: How many seats did Democrats win in the Georgia Senate in 2024?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: How many seats did Republicans win in the U.S. House in 2018?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2018 AND chamber = 'us_house';
+    - user: How many seats did Democrats win in the U.S. House in 2018?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2018 AND chamber = 'us_house';
+    - user: How many seats did Republicans win in the U.S. House in 2022?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2022 AND chamber = 'us_house';
+    - user: How many seats did Democrats win in the U.S. House in 2022?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2022 AND chamber = 'us_house';
+    - user: How many seats did Republicans win in the U.S. House in 2024?
+      assistant: SELECT seats_r FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: How many seats did Democrats win in the U.S. House in 2024?
+      assistant: SELECT seats_d FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: What was the Republican seats-votes gap percentage for Georgia House in 2020?
+      assistant: SELECT seats_votes_gap_r_pct FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: What was the Republican seats-votes gap percentage for Georgia House in 2024?
+      assistant: SELECT seats_votes_gap_r_pct FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: What was the Republican seats-votes gap percentage for Georgia Senate in 2020?
+      assistant: SELECT seats_votes_gap_r_pct FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: What was the Republican seats-votes gap percentage for Georgia Senate in 2024?
+      assistant: SELECT seats_votes_gap_r_pct FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: What was the Republican seats-votes gap percentage for U.S. House in 2020?
+      assistant: SELECT seats_votes_gap_r_pct FROM fdga.v_chamber_year WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: What was the Republican seats-votes gap percentage for U.S. House in 2024?
+      assistant: SELECT seats_votes_gap_r_pct FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: Show the trend of uncontested percentages over time for the Georgia House.
+      assistant: SELECT cycle_year, uncontested_pct FROM fdga.v_chamber_year WHERE chamber = 'state_house' ORDER BY cycle_year;
+    - user: List seats won by Republicans and Democrats across all years for Georgia House.
+      assistant: SELECT cycle_year, seats_r, seats_d FROM fdga.v_chamber_year WHERE chamber = 'state_house' ORDER BY cycle_year;
+    - user: Show the trend of uncontested percentages over time for the Georgia Senate.
+      assistant: SELECT cycle_year, uncontested_pct FROM fdga.v_chamber_year WHERE chamber = 'state_senate' ORDER BY cycle_year;
+    - user: List seats won by Republicans and Democrats across all years for Georgia Senate.
+      assistant: SELECT cycle_year, seats_r, seats_d FROM fdga.v_chamber_year WHERE chamber = 'state_senate' ORDER BY cycle_year;
+    - user: Show the trend of uncontested percentages over time for the U.S. House.
+      assistant: SELECT cycle_year, uncontested_pct FROM fdga.v_chamber_year WHERE chamber = 'us_house' ORDER BY cycle_year;
+    - user: List seats won by Republicans and Democrats across all years for U.S. House.
+      assistant: SELECT cycle_year, seats_r, seats_d FROM fdga.v_chamber_year WHERE chamber = 'us_house' ORDER BY cycle_year;
+    - user: Show total Republican and Democratic votes cast in the Georgia House in 2024.
+      assistant: SELECT votes_r, votes_d FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: Show total Republican and Democratic votes cast in the Georgia Senate in 2024.
+      assistant: SELECT votes_r, votes_d FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: Show total Republican and Democratic votes cast in the U.S. House in 2024.
+      assistant: SELECT votes_r, votes_d FROM fdga.v_chamber_year WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: Who won the Georgia House race in district 001 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_house' AND district = '001';
+    - user: What was the winning vote share and margin share for district 001 in Georgia House in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_house' AND district = '001';
+    - user: Who won the Georgia House race in district 001 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '001';
+    - user: What was the winning vote share and margin share for district 001 in Georgia House in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '001';
+    - user: Who won the Georgia House race in district 005 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_house' AND district = '005';
+    - user: What was the winning vote share and margin share for district 005 in Georgia House in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_house' AND district = '005';
+    - user: Who won the Georgia House race in district 005 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '005';
+    - user: What was the winning vote share and margin share for district 005 in Georgia House in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '005';
+    - user: Who won the Georgia House race in district 048 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_house' AND district = '048';
+    - user: What was the winning vote share and margin share for district 048 in Georgia House in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_house' AND district = '048';
+    - user: Who won the Georgia House race in district 048 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '048';
+    - user: What was the winning vote share and margin share for district 048 in Georgia House in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '048';
+    - user: Who won the Georgia Senate race in district 001 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_senate' AND district = '001';
+    - user: What was the winning vote share and margin share for district 001 in Georgia Senate in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_senate' AND district = '001';
+    - user: Who won the Georgia Senate race in district 001 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '001';
+    - user: What was the winning vote share and margin share for district 001 in Georgia Senate in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '001';
+    - user: Who won the Georgia Senate race in district 005 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_senate' AND district = '005';
+    - user: What was the winning vote share and margin share for district 005 in Georgia Senate in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_senate' AND district = '005';
+    - user: Who won the Georgia Senate race in district 005 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '005';
+    - user: What was the winning vote share and margin share for district 005 in Georgia Senate in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '005';
+    - user: Who won the Georgia Senate race in district 048 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_senate' AND district = '048';
+    - user: What was the winning vote share and margin share for district 048 in Georgia Senate in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'state_senate' AND district = '048';
+    - user: Who won the Georgia Senate race in district 048 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '048';
+    - user: What was the winning vote share and margin share for district 048 in Georgia Senate in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '048';
+    - user: Who won the U.S. House race in district 001 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'us_house' AND district = '001';
+    - user: What was the winning vote share and margin share for district 001 in U.S. House in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'us_house' AND district = '001';
+    - user: Who won the U.S. House race in district 001 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '001';
+    - user: What was the winning vote share and margin share for district 001 in U.S. House in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '001';
+    - user: Who won the U.S. House race in district 005 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'us_house' AND district = '005';
+    - user: What was the winning vote share and margin share for district 005 in U.S. House in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'us_house' AND district = '005';
+    - user: Who won the U.S. House race in district 005 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '005';
+    - user: What was the winning vote share and margin share for district 005 in U.S. House in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '005';
+    - user: Who won the U.S. House race in district 048 in 2020 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'us_house' AND district = '048';
+    - user: What was the winning vote share and margin share for district 048 in U.S. House in 2020?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2020 AND chamber = 'us_house' AND district = '048';
+    - user: Who won the U.S. House race in district 048 in 2024 and with what party?
+      assistant: SELECT winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '048';
+    - user: What was the winning vote share and margin share for district 048 in U.S. House in 2024?
+      assistant: SELECT winner_share_pct, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '048';
+    - user: List all competitive districts in the Georgia House for the 2022 election.
+      assistant: SELECT district, winner_name, margin_pct FROM fdga.v_contest WHERE cycle_year = 2022 AND chamber = 'state_house' AND is_competitive = true;
+    - user: List all uncontested districts for Georgia House in 2022.
+      assistant: SELECT district, winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2022 AND chamber = 'state_house' AND is_uncontested = true;
+    - user: List all competitive districts in the Georgia House for the 2024 election.
+      assistant: SELECT district, winner_name, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND is_competitive = true;
+    - user: List all uncontested districts for Georgia House in 2024.
+      assistant: SELECT district, winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND is_uncontested = true;
+    - user: List all competitive districts in the Georgia Senate for the 2022 election.
+      assistant: SELECT district, winner_name, margin_pct FROM fdga.v_contest WHERE cycle_year = 2022 AND chamber = 'state_senate' AND is_competitive = true;
+    - user: List all uncontested districts for Georgia Senate in 2022.
+      assistant: SELECT district, winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2022 AND chamber = 'state_senate' AND is_uncontested = true;
+    - user: List all competitive districts in the Georgia Senate for the 2024 election.
+      assistant: SELECT district, winner_name, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND is_competitive = true;
+    - user: List all uncontested districts for Georgia Senate in 2024.
+      assistant: SELECT district, winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND is_uncontested = true;
+    - user: List all competitive districts in the U.S. House for the 2022 election.
+      assistant: SELECT district, winner_name, margin_pct FROM fdga.v_contest WHERE cycle_year = 2022 AND chamber = 'us_house' AND is_competitive = true;
+    - user: List all uncontested districts for U.S. House in 2022.
+      assistant: SELECT district, winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2022 AND chamber = 'us_house' AND is_uncontested = true;
+    - user: List all competitive districts in the U.S. House for the 2024 election.
+      assistant: SELECT district, winner_name, margin_pct FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND is_competitive = true;
+    - user: List all uncontested districts for U.S. House in 2024.
+      assistant: SELECT district, winner_name, winner_party FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND is_uncontested = true;
+    - user: How many wasted votes did Republicans and Democrats have in Georgia House district 001 in 2024?
+      assistant: SELECT wasted_votes_r, wasted_votes_d FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '001';
+    - user: How many wasted votes did Republicans and Democrats have in Georgia House district 014 in 2024?
+      assistant: SELECT wasted_votes_r, wasted_votes_d FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_house' AND district = '014';
+    - user: How many wasted votes did Republicans and Democrats have in Georgia Senate district 001 in 2024?
+      assistant: SELECT wasted_votes_r, wasted_votes_d FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '001';
+    - user: How many wasted votes did Republicans and Democrats have in Georgia Senate district 014 in 2024?
+      assistant: SELECT wasted_votes_r, wasted_votes_d FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'state_senate' AND district = '014';
+    - user: How many wasted votes did Republicans and Democrats have in U.S. House district 001 in 2024?
+      assistant: SELECT wasted_votes_r, wasted_votes_d FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '001';
+    - user: How many wasted votes did Republicans and Democrats have in U.S. House district 014 in 2024?
+      assistant: SELECT wasted_votes_r, wasted_votes_d FROM fdga.v_contest WHERE cycle_year = 2024 AND chamber = 'us_house' AND district = '014';
+    - user: Who won the statewide president race in 2018 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2018 AND office = 'president';
+    - user: What was the Republican and Democratic vote share in the president election of 2018?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2018 AND office = 'president';
+    - user: Who won the statewide governor race in 2018 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2018 AND office = 'governor';
+    - user: What was the Republican and Democratic vote share in the governor election of 2018?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2018 AND office = 'governor';
+    - user: Who won the statewide us_senate race in 2018 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2018 AND office = 'us_senate';
+    - user: What was the Republican and Democratic vote share in the us_senate election of 2018?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2018 AND office = 'us_senate';
+    - user: Who won the statewide president race in 2020 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2020 AND office = 'president';
+    - user: What was the Republican and Democratic vote share in the president election of 2020?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2020 AND office = 'president';
+    - user: Who won the statewide governor race in 2020 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2020 AND office = 'governor';
+    - user: What was the Republican and Democratic vote share in the governor election of 2020?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2020 AND office = 'governor';
+    - user: Who won the statewide us_senate race in 2020 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2020 AND office = 'us_senate';
+    - user: What was the Republican and Democratic vote share in the us_senate election of 2020?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2020 AND office = 'us_senate';
+    - user: Who won the statewide president race in 2024 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2024 AND office = 'president';
+    - user: What was the Republican and Democratic vote share in the president election of 2024?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2024 AND office = 'president';
+    - user: Who won the statewide governor race in 2024 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2024 AND office = 'governor';
+    - user: What was the Republican and Democratic vote share in the governor election of 2024?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2024 AND office = 'governor';
+    - user: Who won the statewide us_senate race in 2024 and with what vote share?
+      assistant: SELECT winner_name, winner_share_pct FROM fdga.v_statewide WHERE cycle_year = 2024 AND office = 'us_senate';
+    - user: What was the Republican and Democratic vote share in the us_senate election of 2024?
+      assistant: SELECT vote_share_r_pct, vote_share_d_pct FROM fdga.v_statewide WHERE cycle_year = 2024 AND office = 'us_senate';
+    - user: How many votes did Donald Trump get in Fulton county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Fulton' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Fulton county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Fulton' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Fulton county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Fulton' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Fulton county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Fulton' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Fulton county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Fulton' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Fulton county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Fulton' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Gwinnett county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Gwinnett' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Gwinnett county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Gwinnett' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Gwinnett county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Gwinnett' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Gwinnett county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Gwinnett' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Gwinnett county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Gwinnett' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Gwinnett county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Gwinnett' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Cobb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Cobb' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Cobb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Cobb' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Cobb county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Cobb' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Cobb county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Cobb' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Cobb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Cobb' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Cobb county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Cobb' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in DeKalb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'DeKalb' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in DeKalb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'DeKalb' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in DeKalb county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'DeKalb' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in DeKalb county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'DeKalb' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in DeKalb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'DeKalb' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in DeKalb county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'DeKalb' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Chatham county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Chatham' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Chatham county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Chatham' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Chatham county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Chatham' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Chatham county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Chatham' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Chatham county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Chatham' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Chatham county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Chatham' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Richmond county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Richmond' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Richmond county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Richmond' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Richmond county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Richmond' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Richmond county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Richmond' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Richmond county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Richmond' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Richmond county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Richmond' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Bibb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Bibb' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Bibb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Bibb' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Bibb county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Bibb' AND office = 'president' ORDER BY votes DESC;
+    - user: How many votes did Donald Trump get in Bibb county in 2024?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Bibb' AND candidate_name ILIKE '%Trump%' AND office = 'president';
+    - user: How many votes did Joe Biden receive in Bibb county in 2020?
+      assistant: SELECT votes FROM fdga.v_county_results WHERE cycle_year = 2020 AND county = 'Bibb' AND candidate_name ILIKE '%Biden%' AND office = 'president';
+    - user: Show the votes cast for all candidates in the 2024 presidential election in Bibb county.
+      assistant: SELECT candidate_name, party, votes FROM fdga.v_county_results WHERE cycle_year = 2024 AND county = 'Bibb' AND office = 'president' ORDER BY votes DESC;
+    - user: Give me the breakdown of 100 voters for Georgia House in 2020.
+      assistant: SELECT had_a_real_race, race_already_decided, only_one_name, skipped_the_race FROM fdga.v_100_voters WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: Show the voters per 100 category breakdown for Georgia House in 2020.
+      assistant: SELECT category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = 2020 AND chamber = 'state_house' ORDER BY sort_order;
+    - user: Give me the breakdown of 100 voters for Georgia House in 2024.
+      assistant: SELECT had_a_real_race, race_already_decided, only_one_name, skipped_the_race FROM fdga.v_100_voters WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: Show the voters per 100 category breakdown for Georgia House in 2024.
+      assistant: SELECT category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = 2024 AND chamber = 'state_house' ORDER BY sort_order;
+    - user: Give me the breakdown of 100 voters for Georgia Senate in 2020.
+      assistant: SELECT had_a_real_race, race_already_decided, only_one_name, skipped_the_race FROM fdga.v_100_voters WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: Show the voters per 100 category breakdown for Georgia Senate in 2020.
+      assistant: SELECT category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = 2020 AND chamber = 'state_senate' ORDER BY sort_order;
+    - user: Give me the breakdown of 100 voters for Georgia Senate in 2024.
+      assistant: SELECT had_a_real_race, race_already_decided, only_one_name, skipped_the_race FROM fdga.v_100_voters WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: Show the voters per 100 category breakdown for Georgia Senate in 2024.
+      assistant: SELECT category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = 2024 AND chamber = 'state_senate' ORDER BY sort_order;
+    - user: Give me the breakdown of 100 voters for U.S. House in 2020.
+      assistant: SELECT had_a_real_race, race_already_decided, only_one_name, skipped_the_race FROM fdga.v_100_voters WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: Show the voters per 100 category breakdown for U.S. House in 2020.
+      assistant: SELECT category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = 2020 AND chamber = 'us_house' ORDER BY sort_order;
+    - user: Give me the breakdown of 100 voters for U.S. House in 2024.
+      assistant: SELECT had_a_real_race, race_already_decided, only_one_name, skipped_the_race FROM fdga.v_100_voters WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: Show the voters per 100 category breakdown for U.S. House in 2024.
+      assistant: SELECT category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = 2024 AND chamber = 'us_house' ORDER BY sort_order;
+    - user: Why is 2002 Georgia House excluded from the 100 voters breakdown?
+      assistant: SELECT 'Voter choice in 2002 Georgia House is not derivable due to multi-member districts' WHERE NOT EXISTS (SELECT 1 FROM fdga.v_100_voters WHERE cycle_year = 2002 AND chamber = 'state_house');
+    - user: What is the percentage of races in each competitiveness category for Georgia House in 2022?
+      assistant: SELECT category, races, pct_of_total FROM fdga.v_contest_by_category WHERE cycle_year = 2022 AND chamber = 'state_house';
+    - user: What is the percentage of races in each competitiveness category for Georgia House in 2024?
+      assistant: SELECT category, races, pct_of_total FROM fdga.v_contest_by_category WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: What is the percentage of races in each competitiveness category for Georgia Senate in 2022?
+      assistant: SELECT category, races, pct_of_total FROM fdga.v_contest_by_category WHERE cycle_year = 2022 AND chamber = 'state_senate';
+    - user: What is the percentage of races in each competitiveness category for Georgia Senate in 2024?
+      assistant: SELECT category, races, pct_of_total FROM fdga.v_contest_by_category WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: What is the percentage of races in each competitiveness category for U.S. House in 2022?
+      assistant: SELECT category, races, pct_of_total FROM fdga.v_contest_by_category WHERE cycle_year = 2022 AND chamber = 'us_house';
+    - user: What is the percentage of races in each competitiveness category for U.S. House in 2024?
+      assistant: SELECT category, races, pct_of_total FROM fdga.v_contest_by_category WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: How many votes were decided before election day in the Georgia House in 2020?
+      assistant: SELECT votes_predecided, predecided_pct FROM fdga.v_decided_before_election WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: What are the predecided and actual race counts in the Georgia House for the cycle 2020?
+      assistant: SELECT uncontested, won_by_20_plus, actual_race FROM fdga.v_decided_before_election WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: How many votes were decided before election day in the Georgia House in 2024?
+      assistant: SELECT votes_predecided, predecided_pct FROM fdga.v_decided_before_election WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: What are the predecided and actual race counts in the Georgia House for the cycle 2024?
+      assistant: SELECT uncontested, won_by_20_plus, actual_race FROM fdga.v_decided_before_election WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: How many votes were decided before election day in the Georgia Senate in 2020?
+      assistant: SELECT votes_predecided, predecided_pct FROM fdga.v_decided_before_election WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: What are the predecided and actual race counts in the Georgia Senate for the cycle 2020?
+      assistant: SELECT uncontested, won_by_20_plus, actual_race FROM fdga.v_decided_before_election WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: How many votes were decided before election day in the Georgia Senate in 2024?
+      assistant: SELECT votes_predecided, predecided_pct FROM fdga.v_decided_before_election WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: What are the predecided and actual race counts in the Georgia Senate for the cycle 2024?
+      assistant: SELECT uncontested, won_by_20_plus, actual_race FROM fdga.v_decided_before_election WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: How many votes were decided before election day in the U.S. House in 2020?
+      assistant: SELECT votes_predecided, predecided_pct FROM fdga.v_decided_before_election WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: What are the predecided and actual race counts in the U.S. House for the cycle 2020?
+      assistant: SELECT uncontested, won_by_20_plus, actual_race FROM fdga.v_decided_before_election WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: How many votes were decided before election day in the U.S. House in 2024?
+      assistant: SELECT votes_predecided, predecided_pct FROM fdga.v_decided_before_election WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: What are the predecided and actual race counts in the U.S. House for the cycle 2024?
+      assistant: SELECT uncontested, won_by_20_plus, actual_race FROM fdga.v_decided_before_election WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: What was the efficiency gap in Georgia House in 2020?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: Show the wasted vote percentages by party for Georgia House in 2020.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: What was the efficiency gap in Georgia House in 2022?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2022 AND chamber = 'state_house';
+    - user: Show the wasted vote percentages by party for Georgia House in 2022.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2022 AND chamber = 'state_house';
+    - user: What was the efficiency gap in Georgia House in 2024?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: Show the wasted vote percentages by party for Georgia House in 2024.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: What was the efficiency gap in Georgia Senate in 2020?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: Show the wasted vote percentages by party for Georgia Senate in 2020.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: What was the efficiency gap in Georgia Senate in 2022?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2022 AND chamber = 'state_senate';
+    - user: Show the wasted vote percentages by party for Georgia Senate in 2022.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2022 AND chamber = 'state_senate';
+    - user: What was the efficiency gap in Georgia Senate in 2024?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: Show the wasted vote percentages by party for Georgia Senate in 2024.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: What was the efficiency gap in U.S. House in 2020?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: Show the wasted vote percentages by party for U.S. House in 2020.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: What was the efficiency gap in U.S. House in 2022?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2022 AND chamber = 'us_house';
+    - user: Show the wasted vote percentages by party for U.S. House in 2022.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2022 AND chamber = 'us_house';
+    - user: What was the efficiency gap in U.S. House in 2024?
+      assistant: SELECT efficiency_gap_r_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: Show the wasted vote percentages by party for U.S. House in 2024.
+      assistant: SELECT wasted_r_pct, wasted_d_pct FROM fdga.v_efficiency_gap WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: Who benefits more from uncontested races in the Georgia House in 2020 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: Who benefits more from uncontested races in the Georgia House in 2022 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2022 AND chamber = 'state_house';
+    - user: Who benefits more from uncontested races in the Georgia House in 2024 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: Who benefits more from uncontested races in the Georgia Senate in 2020 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: Who benefits more from uncontested races in the Georgia Senate in 2022 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2022 AND chamber = 'state_senate';
+    - user: Who benefits more from uncontested races in the Georgia Senate in 2024 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: Who benefits more from uncontested races in the U.S. House in 2020 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: Who benefits more from uncontested races in the U.S. House in 2022 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2022 AND chamber = 'us_house';
+    - user: Who benefits more from uncontested races in the U.S. House in 2024 in terms of unopposed seats and votes?
+      assistant: SELECT unopposed_r, unopposed_d, votes_unopposed_r, votes_unopposed_d FROM fdga.v_which_party_benefits WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: Find any election cycles where the party with more votes won fewer seats.
+      assistant: SELECT cycle_year, chamber_label, vote_share_r_pct, seats_r, seats_d, inversion FROM fdga.v_seat_vote_inversions;
+    - user: How does the actual seats won in Georgia House in 2020 compare with proportional allocation based on statewide and chamber vote baselines?
+      assistant: SELECT seats_r, seats_r_proportional_chamber, r_seat_bonus_chamber, seats_r_proportional_statewide, r_seat_bonus_statewide FROM fdga.v_proportional_allocation WHERE cycle_year = 2020 AND chamber = 'state_house';
+    - user: How does the actual seats won in Georgia House in 2024 compare with proportional allocation based on statewide and chamber vote baselines?
+      assistant: SELECT seats_r, seats_r_proportional_chamber, r_seat_bonus_chamber, seats_r_proportional_statewide, r_seat_bonus_statewide FROM fdga.v_proportional_allocation WHERE cycle_year = 2024 AND chamber = 'state_house';
+    - user: How does the actual seats won in Georgia Senate in 2020 compare with proportional allocation based on statewide and chamber vote baselines?
+      assistant: SELECT seats_r, seats_r_proportional_chamber, r_seat_bonus_chamber, seats_r_proportional_statewide, r_seat_bonus_statewide FROM fdga.v_proportional_allocation WHERE cycle_year = 2020 AND chamber = 'state_senate';
+    - user: How does the actual seats won in Georgia Senate in 2024 compare with proportional allocation based on statewide and chamber vote baselines?
+      assistant: SELECT seats_r, seats_r_proportional_chamber, r_seat_bonus_chamber, seats_r_proportional_statewide, r_seat_bonus_statewide FROM fdga.v_proportional_allocation WHERE cycle_year = 2024 AND chamber = 'state_senate';
+    - user: How does the actual seats won in U.S. House in 2020 compare with proportional allocation based on statewide and chamber vote baselines?
+      assistant: SELECT seats_r, seats_r_proportional_chamber, r_seat_bonus_chamber, seats_r_proportional_statewide, r_seat_bonus_statewide FROM fdga.v_proportional_allocation WHERE cycle_year = 2020 AND chamber = 'us_house';
+    - user: How does the actual seats won in U.S. House in 2024 compare with proportional allocation based on statewide and chamber vote baselines?
+      assistant: SELECT seats_r, seats_r_proportional_chamber, r_seat_bonus_chamber, seats_r_proportional_statewide, r_seat_bonus_statewide FROM fdga.v_proportional_allocation WHERE cycle_year = 2024 AND chamber = 'us_house';
+    - user: How many split counties are there in the Georgia House across all cycles?
+      assistant: SELECT cycle_year, counties_split, counties_reporting FROM fdga.v_county_splits WHERE chamber = 'state_house' ORDER BY cycle_year;
+    - user: How many split counties are there in the Georgia Senate across all cycles?
+      assistant: SELECT cycle_year, counties_split, counties_reporting FROM fdga.v_county_splits WHERE chamber = 'state_senate' ORDER BY cycle_year;
+    - user: How many split counties are there in the U.S. House across all cycles?
+      assistant: SELECT cycle_year, counties_split, counties_reporting FROM fdga.v_county_splits WHERE chamber = 'us_house' ORDER BY cycle_year;
+    - user: If the voting population were distilled to 100, how did their votes affect the outcomes in the 2024 elections?
+      assistant: SELECT chamber_label, category, voters_per_100 FROM fdga.v_100_voters_long WHERE cycle_year = {{cycle_year}} ORDER BY chamber_label, sort_order;
+    - user: What is the long trend in uncontested races
+      assistant: SELECT cycle_year, chamber_label, races_uncontested, races_total, uncontested_pct FROM fdga.v_chamber_year ORDER BY cycle_year, chamber_label;

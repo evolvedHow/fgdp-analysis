@@ -1,0 +1,31 @@
+# Cloudflare Tunnel configuration for the local FDP MCP/API server.
+#
+# This exposes the systemd service running at 127.0.0.1:8001 through a
+# Cloudflare-managed subdomain (e.g. fdp.yourdomain.com).
+#
+# Setup steps:
+#   1. Install cloudflared:
+#        curl -L --output /tmp/cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+#        sudo dpkg -i /tmp/cloudflared.deb
+#
+#   2. Authenticate and create a tunnel:
+#        cloudflared tunnel login
+#        cloudflared tunnel create fdp
+#        cloudflared tunnel route dns fdp fdp.yourdomain.com
+#
+#   3. Copy this file to ~/.cloudflared/<TUNNEL_ID>.yml and fill in the
+#      actual tunnel UUID from step 2.
+#
+#   4. Run as a service:
+#        sudo cloudflared service install
+#        sudo systemctl enable --now cloudflared
+
+tunnel: <TUNNEL_ID>
+credentials-file: /root/.cloudflared/<TUNNEL_ID>.json
+
+ingress:
+  - hostname: fdp.yourdomain.com
+    service: http://127.0.0.1:8001
+    originRequest:
+      noTLSVerify: true
+  - service: http_status:404
