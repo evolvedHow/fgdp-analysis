@@ -32180,3 +32180,1275 @@ election_date,cycle_year,election_type,office,district,county,candidate_name,par
 2024-11-05,2024,general,us_house,014,Walker,Shawn Harris,Democrat,D,8029,oe_ga_20241105_general,1840
 2024-11-05,2024,general,us_house,014,Whitfield,Marjorie Taylor Greene,Republican,R,25707,oe_ga_20241105_general,1940
 2024-11-05,2024,general,us_house,014,Whitfield,Shawn Harris,Democrat,D,13174,oe_ga_20241105_general,1939
+2026-11-03,2026,general,governor,,Appling County,Ballots Cast,Unknown,O,12448,oe_ga_20261103_general,5
+2026-11-03,2026,general,governor,,Appling County,Josh McLaurin (Dem),DEM,D,2804,oe_ga_20261103_general,7
+2026-11-03,2026,general,governor,,Appling County,Rick Jackson (Rep),REP,R,9544,oe_ga_20261103_general,6
+2026-11-03,2026,general,governor,,Appling County,Total Votes,Unknown,O,12348,oe_ga_20261103_general,4
+2026-11-03,2026,general,governor,,Atkinson County,Ballots Cast,Unknown,O,4498,oe_ga_20261103_general,77
+2026-11-03,2026,general,governor,,Atkinson County,Josh McLaurin (Dem),DEM,D,1393,oe_ga_20261103_general,79
+2026-11-03,2026,general,governor,,Atkinson County,Rick Jackson (Rep),REP,R,3065,oe_ga_20261103_general,78
+2026-11-03,2026,general,governor,,Atkinson County,Total Votes,Unknown,O,4458,oe_ga_20261103_general,76
+2026-11-03,2026,general,governor,,Bacon County,Ballots Cast,Unknown,O,7092,oe_ga_20261103_general,144
+2026-11-03,2026,general,governor,,Bacon County,Josh McLaurin (Dem),DEM,D,1143,oe_ga_20261103_general,146
+2026-11-03,2026,general,governor,,Bacon County,Rick Jackson (Rep),REP,R,5856,oe_ga_20261103_general,145
+2026-11-03,2026,general,governor,,Bacon County,Total Votes,Unknown,O,6999,oe_ga_20261103_general,143
+2026-11-03,2026,general,governor,,Baker County,Ballots Cast,Unknown,O,2292,oe_ga_20261103_general,212
+2026-11-03,2026,general,governor,,Baker County,Josh McLaurin (Dem),DEM,D,956,oe_ga_20261103_general,214
+2026-11-03,2026,general,governor,,Baker County,Rick Jackson (Rep),REP,R,1300,oe_ga_20261103_general,213
+2026-11-03,2026,general,governor,,Baker County,Total Votes,Unknown,O,2256,oe_ga_20261103_general,211
+2026-11-03,2026,general,governor,,Baldwin County,Ballots Cast,Unknown,O,30410,oe_ga_20261103_general,279
+2026-11-03,2026,general,governor,,Baldwin County,Josh McLaurin (Dem),DEM,D,15721,oe_ga_20261103_general,281
+2026-11-03,2026,general,governor,,Baldwin County,Rick Jackson (Rep),REP,R,14309,oe_ga_20261103_general,280
+2026-11-03,2026,general,governor,,Baldwin County,Total Votes,Unknown,O,30030,oe_ga_20261103_general,278
+2026-11-03,2026,general,governor,,Banks County,Ballots Cast,Unknown,O,14670,oe_ga_20261103_general,350
+2026-11-03,2026,general,governor,,Banks County,Josh McLaurin (Dem),DEM,D,2088,oe_ga_20261103_general,352
+2026-11-03,2026,general,governor,,Banks County,Rick Jackson (Rep),REP,R,12456,oe_ga_20261103_general,351
+2026-11-03,2026,general,governor,,Banks County,Total Votes,Unknown,O,14544,oe_ga_20261103_general,349
+2026-11-03,2026,general,governor,,Barrow County,Ballots Cast,Unknown,O,66374,oe_ga_20261103_general,418
+2026-11-03,2026,general,governor,,Barrow County,Josh McLaurin (Dem),DEM,D,25386,oe_ga_20261103_general,420
+2026-11-03,2026,general,governor,,Barrow County,Rick Jackson (Rep),REP,R,40428,oe_ga_20261103_general,419
+2026-11-03,2026,general,governor,,Barrow County,Total Votes,Unknown,O,65814,oe_ga_20261103_general,417
+2026-11-03,2026,general,governor,,Bartow County,Ballots Cast,Unknown,O,85220,oe_ga_20261103_general,500
+2026-11-03,2026,general,governor,,Bartow County,Josh McLaurin (Dem),DEM,D,26307,oe_ga_20261103_general,502
+2026-11-03,2026,general,governor,,Bartow County,Rick Jackson (Rep),REP,R,58231,oe_ga_20261103_general,501
+2026-11-03,2026,general,governor,,Bartow County,Total Votes,Unknown,O,84538,oe_ga_20261103_general,499
+2026-11-03,2026,general,governor,,Ben Hill County,Ballots Cast,Unknown,O,9870,oe_ga_20261103_general,575
+2026-11-03,2026,general,governor,,Ben Hill County,Josh McLaurin (Dem),DEM,D,3946,oe_ga_20261103_general,577
+2026-11-03,2026,general,governor,,Ben Hill County,Rick Jackson (Rep),REP,R,5824,oe_ga_20261103_general,576
+2026-11-03,2026,general,governor,,Ben Hill County,Total Votes,Unknown,O,9770,oe_ga_20261103_general,574
+2026-11-03,2026,general,governor,,Berrien County,Ballots Cast,Unknown,O,11722,oe_ga_20261103_general,648
+2026-11-03,2026,general,governor,,Berrien County,Josh McLaurin (Dem),DEM,D,2202,oe_ga_20261103_general,650
+2026-11-03,2026,general,governor,,Berrien County,Rick Jackson (Rep),REP,R,9407,oe_ga_20261103_general,649
+2026-11-03,2026,general,governor,,Berrien County,Total Votes,Unknown,O,11609,oe_ga_20261103_general,647
+2026-11-03,2026,general,governor,,Bibb County,Ballots Cast,Unknown,O,111574,oe_ga_20261103_general,714
+2026-11-03,2026,general,governor,,Bibb County,Josh McLaurin (Dem),DEM,D,72891,oe_ga_20261103_general,716
+2026-11-03,2026,general,governor,,Bibb County,Rick Jackson (Rep),REP,R,37679,oe_ga_20261103_general,715
+2026-11-03,2026,general,governor,,Bibb County,Total Votes,Unknown,O,110570,oe_ga_20261103_general,713
+2026-11-03,2026,general,governor,,Bleckley County,Ballots Cast,Unknown,O,9362,oe_ga_20261103_general,806
+2026-11-03,2026,general,governor,,Bleckley County,Josh McLaurin (Dem),DEM,D,2283,oe_ga_20261103_general,808
+2026-11-03,2026,general,governor,,Bleckley County,Rick Jackson (Rep),REP,R,6961,oe_ga_20261103_general,807
+2026-11-03,2026,general,governor,,Bleckley County,Total Votes,Unknown,O,9244,oe_ga_20261103_general,805
+2026-11-03,2026,general,governor,,Brantley County,Ballots Cast,Unknown,O,11050,oe_ga_20261103_general,872
+2026-11-03,2026,general,governor,,Brantley County,Josh McLaurin (Dem),DEM,D,1216,oe_ga_20261103_general,874
+2026-11-03,2026,general,governor,,Brantley County,Rick Jackson (Rep),REP,R,9760,oe_ga_20261103_general,873
+2026-11-03,2026,general,governor,,Brantley County,Total Votes,Unknown,O,10976,oe_ga_20261103_general,871
+2026-11-03,2026,general,governor,,Brooks County,Ballots Cast,Unknown,O,10998,oe_ga_20261103_general,939
+2026-11-03,2026,general,governor,,Brooks County,Josh McLaurin (Dem),DEM,D,4474,oe_ga_20261103_general,941
+2026-11-03,2026,general,governor,,Brooks County,Rick Jackson (Rep),REP,R,6398,oe_ga_20261103_general,940
+2026-11-03,2026,general,governor,,Brooks County,Total Votes,Unknown,O,10872,oe_ga_20261103_general,938
+2026-11-03,2026,general,governor,,Bryan County,Ballots Cast,Unknown,O,36288,oe_ga_20261103_general,1006
+2026-11-03,2026,general,governor,,Bryan County,Josh McLaurin (Dem),DEM,D,13887,oe_ga_20261103_general,1008
+2026-11-03,2026,general,governor,,Bryan County,Rick Jackson (Rep),REP,R,22052,oe_ga_20261103_general,1007
+2026-11-03,2026,general,governor,,Bryan County,Total Votes,Unknown,O,35939,oe_ga_20261103_general,1005
+2026-11-03,2026,general,governor,,Bulloch County,Ballots Cast,Unknown,O,49584,oe_ga_20261103_general,1085
+2026-11-03,2026,general,governor,,Bulloch County,Josh McLaurin (Dem),DEM,D,20233,oe_ga_20261103_general,1087
+2026-11-03,2026,general,governor,,Bulloch County,Rick Jackson (Rep),REP,R,28853,oe_ga_20261103_general,1086
+2026-11-03,2026,general,governor,,Bulloch County,Total Votes,Unknown,O,49086,oe_ga_20261103_general,1084
+2026-11-03,2026,general,governor,,Burke County,Ballots Cast,Unknown,O,17462,oe_ga_20261103_general,1157
+2026-11-03,2026,general,governor,,Burke County,Josh McLaurin (Dem),DEM,D,8857,oe_ga_20261103_general,1159
+2026-11-03,2026,general,governor,,Burke County,Rick Jackson (Rep),REP,R,8421,oe_ga_20261103_general,1158
+2026-11-03,2026,general,governor,,Burke County,Total Votes,Unknown,O,17278,oe_ga_20261103_general,1156
+2026-11-03,2026,general,governor,,Butts County,Ballots Cast,Unknown,O,19382,oe_ga_20261103_general,1225
+2026-11-03,2026,general,governor,,Butts County,Josh McLaurin (Dem),DEM,D,6199,oe_ga_20261103_general,1227
+2026-11-03,2026,general,governor,,Butts County,Rick Jackson (Rep),REP,R,12938,oe_ga_20261103_general,1226
+2026-11-03,2026,general,governor,,Butts County,Total Votes,Unknown,O,19137,oe_ga_20261103_general,1224
+2026-11-03,2026,general,governor,,Calhoun County,Ballots Cast,Unknown,O,3284,oe_ga_20261103_general,1292
+2026-11-03,2026,general,governor,,Calhoun County,Josh McLaurin (Dem),DEM,D,1906,oe_ga_20261103_general,1294
+2026-11-03,2026,general,governor,,Calhoun County,Rick Jackson (Rep),REP,R,1340,oe_ga_20261103_general,1293
+2026-11-03,2026,general,governor,,Calhoun County,Total Votes,Unknown,O,3246,oe_ga_20261103_general,1291
+2026-11-03,2026,general,governor,,Camden County,Ballots Cast,Unknown,O,38260,oe_ga_20261103_general,1359
+2026-11-03,2026,general,governor,,Camden County,Josh McLaurin (Dem),DEM,D,14053,oe_ga_20261103_general,1361
+2026-11-03,2026,general,governor,,Camden County,Rick Jackson (Rep),REP,R,23889,oe_ga_20261103_general,1360
+2026-11-03,2026,general,governor,,Camden County,Total Votes,Unknown,O,37942,oe_ga_20261103_general,1358
+2026-11-03,2026,general,governor,,Candler County,Ballots Cast,Unknown,O,6840,oe_ga_20261103_general,1425
+2026-11-03,2026,general,governor,,Candler County,Josh McLaurin (Dem),DEM,D,2161,oe_ga_20261103_general,1427
+2026-11-03,2026,general,governor,,Candler County,Rick Jackson (Rep),REP,R,4602,oe_ga_20261103_general,1426
+2026-11-03,2026,general,governor,,Candler County,Total Votes,Unknown,O,6763,oe_ga_20261103_general,1424
+2026-11-03,2026,general,governor,,Carroll County,Ballots Cast,Unknown,O,90490,oe_ga_20261103_general,1491
+2026-11-03,2026,general,governor,,Carroll County,Josh McLaurin (Dem),DEM,D,32039,oe_ga_20261103_general,1493
+2026-11-03,2026,general,governor,,Carroll County,Rick Jackson (Rep),REP,R,57763,oe_ga_20261103_general,1492
+2026-11-03,2026,general,governor,,Carroll County,Total Votes,Unknown,O,89802,oe_ga_20261103_general,1490
+2026-11-03,2026,general,governor,,Catoosa County,Ballots Cast,Unknown,O,47736,oe_ga_20261103_general,1577
+2026-11-03,2026,general,governor,,Catoosa County,Josh McLaurin (Dem),DEM,D,12878,oe_ga_20261103_general,1579
+2026-11-03,2026,general,governor,,Catoosa County,Rick Jackson (Rep),REP,R,34406,oe_ga_20261103_general,1578
+2026-11-03,2026,general,governor,,Catoosa County,Total Votes,Unknown,O,47284,oe_ga_20261103_general,1576
+2026-11-03,2026,general,governor,,Charlton County,Ballots Cast,Unknown,O,6478,oe_ga_20261103_general,1649
+2026-11-03,2026,general,governor,,Charlton County,Josh McLaurin (Dem),DEM,D,1630,oe_ga_20261103_general,1651
+2026-11-03,2026,general,governor,,Charlton County,Rick Jackson (Rep),REP,R,4790,oe_ga_20261103_general,1650
+2026-11-03,2026,general,governor,,Charlton County,Total Votes,Unknown,O,6420,oe_ga_20261103_general,1648
+2026-11-03,2026,general,governor,,Chatham County,Ballots Cast,Unknown,O,225044,oe_ga_20261103_general,1716
+2026-11-03,2026,general,governor,,Chatham County,Josh McLaurin (Dem),DEM,D,142269,oe_ga_20261103_general,1718
+2026-11-03,2026,general,governor,,Chatham County,Rick Jackson (Rep),REP,R,80634,oe_ga_20261103_general,1717
+2026-11-03,2026,general,governor,,Chatham County,Total Votes,Unknown,O,222903,oe_ga_20261103_general,1715
+2026-11-03,2026,general,governor,,Chattahoochee County,Ballots Cast,Unknown,O,2184,oe_ga_20261103_general,1807
+2026-11-03,2026,general,governor,,Chattahoochee County,Josh McLaurin (Dem),DEM,D,1069,oe_ga_20261103_general,1809
+2026-11-03,2026,general,governor,,Chattahoochee County,Rick Jackson (Rep),REP,R,1094,oe_ga_20261103_general,1808
+2026-11-03,2026,general,governor,,Chattahoochee County,Total Votes,Unknown,O,2163,oe_ga_20261103_general,1806
+2026-11-03,2026,general,governor,,Chattooga County,Ballots Cast,Unknown,O,14262,oe_ga_20261103_general,1876
+2026-11-03,2026,general,governor,,Chattooga County,Josh McLaurin (Dem),DEM,D,3237,oe_ga_20261103_general,1878
+2026-11-03,2026,general,governor,,Chattooga County,Rick Jackson (Rep),REP,R,10883,oe_ga_20261103_general,1877
+2026-11-03,2026,general,governor,,Chattooga County,Total Votes,Unknown,O,14120,oe_ga_20261103_general,1875
+2026-11-03,2026,general,governor,,Cherokee County,Ballots Cast,Unknown,O,255852,oe_ga_20261103_general,1944
+2026-11-03,2026,general,governor,,Cherokee County,Josh McLaurin (Dem),DEM,D,87930,oe_ga_20261103_general,1946
+2026-11-03,2026,general,governor,,Cherokee County,Rick Jackson (Rep),REP,R,165872,oe_ga_20261103_general,1945
+2026-11-03,2026,general,governor,,Cherokee County,Total Votes,Unknown,O,253802,oe_ga_20261103_general,1943
+2026-11-03,2026,general,governor,,Clarke County,Ballots Cast,Unknown,O,86120,oe_ga_20261103_general,2056
+2026-11-03,2026,general,governor,,Clarke County,Josh McLaurin (Dem),DEM,D,63568,oe_ga_20261103_general,2058
+2026-11-03,2026,general,governor,,Clarke County,Rick Jackson (Rep),REP,R,21620,oe_ga_20261103_general,2057
+2026-11-03,2026,general,governor,,Clarke County,Total Votes,Unknown,O,85188,oe_ga_20261103_general,2055
+2026-11-03,2026,general,governor,,Clay County,Ballots Cast,Unknown,O,2226,oe_ga_20261103_general,2139
+2026-11-03,2026,general,governor,,Clay County,Josh McLaurin (Dem),DEM,D,1234,oe_ga_20261103_general,2141
+2026-11-03,2026,general,governor,,Clay County,Rick Jackson (Rep),REP,R,967,oe_ga_20261103_general,2140
+2026-11-03,2026,general,governor,,Clay County,Total Votes,Unknown,O,2201,oe_ga_20261103_general,2138
+2026-11-03,2026,general,governor,,Clayton County,Ballots Cast,Unknown,O,193112,oe_ga_20261103_general,2209
+2026-11-03,2026,general,governor,,Clayton County,Josh McLaurin (Dem),DEM,D,172038,oe_ga_20261103_general,2211
+2026-11-03,2026,general,governor,,Clayton County,Rick Jackson (Rep),REP,R,19113,oe_ga_20261103_general,2210
+2026-11-03,2026,general,governor,,Clayton County,Total Votes,Unknown,O,191151,oe_ga_20261103_general,2208
+2026-11-03,2026,general,governor,,Clinch County,Ballots Cast,Unknown,O,3978,oe_ga_20261103_general,2302
+2026-11-03,2026,general,governor,,Clinch County,Josh McLaurin (Dem),DEM,D,1041,oe_ga_20261103_general,2304
+2026-11-03,2026,general,governor,,Clinch County,Rick Jackson (Rep),REP,R,2883,oe_ga_20261103_general,2303
+2026-11-03,2026,general,governor,,Clinch County,Total Votes,Unknown,O,3924,oe_ga_20261103_general,2301
+2026-11-03,2026,general,governor,,Cobb County,Ballots Cast,Unknown,O,678272,oe_ga_20261103_general,2369
+2026-11-03,2026,general,governor,,Cobb County,Josh McLaurin (Dem),DEM,D,417754,oe_ga_20261103_general,2371
+2026-11-03,2026,general,governor,,Cobb County,Rick Jackson (Rep),REP,R,254220,oe_ga_20261103_general,2370
+2026-11-03,2026,general,governor,,Cobb County,Total Votes,Unknown,O,671974,oe_ga_20261103_general,2368
+2026-11-03,2026,general,governor,,Coffee County,Ballots Cast,Unknown,O,23916,oe_ga_20261103_general,2516
+2026-11-03,2026,general,governor,,Coffee County,Josh McLaurin (Dem),DEM,D,8304,oe_ga_20261103_general,2518
+2026-11-03,2026,general,governor,,Coffee County,Rick Jackson (Rep),REP,R,15355,oe_ga_20261103_general,2517
+2026-11-03,2026,general,governor,,Coffee County,Total Votes,Unknown,O,23659,oe_ga_20261103_general,2515
+2026-11-03,2026,general,governor,,Colquitt County,Ballots Cast,Unknown,O,25022,oe_ga_20261103_general,2590
+2026-11-03,2026,general,governor,,Colquitt County,Josh McLaurin (Dem),DEM,D,7716,oe_ga_20261103_general,2592
+2026-11-03,2026,general,governor,,Colquitt County,Rick Jackson (Rep),REP,R,17069,oe_ga_20261103_general,2591
+2026-11-03,2026,general,governor,,Colquitt County,Total Votes,Unknown,O,24785,oe_ga_20261103_general,2589
+2026-11-03,2026,general,governor,,Columbia County,Ballots Cast,Unknown,O,136008,oe_ga_20261103_general,2656
+2026-11-03,2026,general,governor,,Columbia County,Josh McLaurin (Dem),DEM,D,57092,oe_ga_20261103_general,2658
+2026-11-03,2026,general,governor,,Columbia County,Rick Jackson (Rep),REP,R,77847,oe_ga_20261103_general,2657
+2026-11-03,2026,general,governor,,Columbia County,Total Votes,Unknown,O,134939,oe_ga_20261103_general,2655
+2026-11-03,2026,general,governor,,Cook County,Ballots Cast,Unknown,O,11004,oe_ga_20261103_general,2743
+2026-11-03,2026,general,governor,,Cook County,Josh McLaurin (Dem),DEM,D,3552,oe_ga_20261103_general,2745
+2026-11-03,2026,general,governor,,Cook County,Rick Jackson (Rep),REP,R,7365,oe_ga_20261103_general,2744
+2026-11-03,2026,general,governor,,Cook County,Total Votes,Unknown,O,10917,oe_ga_20261103_general,2742
+2026-11-03,2026,general,governor,,Coweta County,Ballots Cast,Unknown,O,134682,oe_ga_20261103_general,2812
+2026-11-03,2026,general,governor,,Coweta County,Josh McLaurin (Dem),DEM,D,50460,oe_ga_20261103_general,2814
+2026-11-03,2026,general,governor,,Coweta County,Rick Jackson (Rep),REP,R,83070,oe_ga_20261103_general,2813
+2026-11-03,2026,general,governor,,Coweta County,Total Votes,Unknown,O,133530,oe_ga_20261103_general,2811
+2026-11-03,2026,general,governor,,Crawford County,Ballots Cast,Unknown,O,9402,oe_ga_20261103_general,2895
+2026-11-03,2026,general,governor,,Crawford County,Josh McLaurin (Dem),DEM,D,2693,oe_ga_20261103_general,2897
+2026-11-03,2026,general,governor,,Crawford County,Rick Jackson (Rep),REP,R,6603,oe_ga_20261103_general,2896
+2026-11-03,2026,general,governor,,Crawford County,Total Votes,Unknown,O,9296,oe_ga_20261103_general,2894
+2026-11-03,2026,general,governor,,Crisp County,Ballots Cast,Unknown,O,12720,oe_ga_20261103_general,2961
+2026-11-03,2026,general,governor,,Crisp County,Josh McLaurin (Dem),DEM,D,4890,oe_ga_20261103_general,2963
+2026-11-03,2026,general,governor,,Crisp County,Rick Jackson (Rep),REP,R,7643,oe_ga_20261103_general,2962
+2026-11-03,2026,general,governor,,Crisp County,Total Votes,Unknown,O,12533,oe_ga_20261103_general,2960
+2026-11-03,2026,general,governor,,Dade County,Ballots Cast,Unknown,O,10886,oe_ga_20261103_general,3031
+2026-11-03,2026,general,governor,,Dade County,Josh McLaurin (Dem),DEM,D,2292,oe_ga_20261103_general,3033
+2026-11-03,2026,general,governor,,Dade County,Rick Jackson (Rep),REP,R,8449,oe_ga_20261103_general,3032
+2026-11-03,2026,general,governor,,Dade County,Total Votes,Unknown,O,10741,oe_ga_20261103_general,3030
+2026-11-03,2026,general,governor,,Dawson County,Ballots Cast,Unknown,O,29092,oe_ga_20261103_general,3099
+2026-11-03,2026,general,governor,,Dawson County,Josh McLaurin (Dem),DEM,D,5968,oe_ga_20261103_general,3101
+2026-11-03,2026,general,governor,,Dawson County,Rick Jackson (Rep),REP,R,22891,oe_ga_20261103_general,3100
+2026-11-03,2026,general,governor,,Dawson County,Total Votes,Unknown,O,28859,oe_ga_20261103_general,3098
+2026-11-03,2026,general,governor,,Decatur County,Ballots Cast,Unknown,O,17104,oe_ga_20261103_general,3173
+2026-11-03,2026,general,governor,,Decatur County,Josh McLaurin (Dem),DEM,D,7261,oe_ga_20261103_general,3175
+2026-11-03,2026,general,governor,,Decatur County,Rick Jackson (Rep),REP,R,9664,oe_ga_20261103_general,3174
+2026-11-03,2026,general,governor,,Decatur County,Total Votes,Unknown,O,16925,oe_ga_20261103_general,3172
+2026-11-03,2026,general,governor,,Dekalb County,Ballots Cast,Unknown,O,648322,oe_ga_20261103_general,3239
+2026-11-03,2026,general,governor,,Dekalb County,Josh McLaurin (Dem),DEM,D,548213,oe_ga_20261103_general,3241
+2026-11-03,2026,general,governor,,Dekalb County,Rick Jackson (Rep),REP,R,92540,oe_ga_20261103_general,3240
+2026-11-03,2026,general,governor,,Dekalb County,Total Votes,Unknown,O,640753,oe_ga_20261103_general,3238
+2026-11-03,2026,general,governor,,Dodge County,Ballots Cast,Unknown,O,12598,oe_ga_20261103_general,3391
+2026-11-03,2026,general,governor,,Dodge County,Josh McLaurin (Dem),DEM,D,3584,oe_ga_20261103_general,3393
+2026-11-03,2026,general,governor,,Dodge County,Rick Jackson (Rep),REP,R,8876,oe_ga_20261103_general,3392
+2026-11-03,2026,general,governor,,Dodge County,Total Votes,Unknown,O,12460,oe_ga_20261103_general,3390
+2026-11-03,2026,general,governor,,Dooly County,Ballots Cast,Unknown,O,6670,oe_ga_20261103_general,3457
+2026-11-03,2026,general,governor,,Dooly County,Josh McLaurin (Dem),DEM,D,3153,oe_ga_20261103_general,3459
+2026-11-03,2026,general,governor,,Dooly County,Rick Jackson (Rep),REP,R,3411,oe_ga_20261103_general,3458
+2026-11-03,2026,general,governor,,Dooly County,Total Votes,Unknown,O,6564,oe_ga_20261103_general,3456
+2026-11-03,2026,general,governor,,Dougherty County,Ballots Cast,Unknown,O,54846,oe_ga_20261103_general,3527
+2026-11-03,2026,general,governor,,Dougherty County,Josh McLaurin (Dem),DEM,D,40370,oe_ga_20261103_general,3529
+2026-11-03,2026,general,governor,,Dougherty County,Rick Jackson (Rep),REP,R,13902,oe_ga_20261103_general,3528
+2026-11-03,2026,general,governor,,Dougherty County,Total Votes,Unknown,O,54272,oe_ga_20261103_general,3526
+2026-11-03,2026,general,governor,,Douglas County,Ballots Cast,Unknown,O,119662,oe_ga_20261103_general,3606
+2026-11-03,2026,general,governor,,Douglas County,Josh McLaurin (Dem),DEM,D,87852,oe_ga_20261103_general,3608
+2026-11-03,2026,general,governor,,Douglas County,Rick Jackson (Rep),REP,R,30927,oe_ga_20261103_general,3607
+2026-11-03,2026,general,governor,,Douglas County,Total Votes,Unknown,O,118779,oe_ga_20261103_general,3605
+2026-11-03,2026,general,governor,,Early County,Ballots Cast,Unknown,O,7246,oe_ga_20261103_general,3688
+2026-11-03,2026,general,governor,,Early County,Josh McLaurin (Dem),DEM,D,3326,oe_ga_20261103_general,3690
+2026-11-03,2026,general,governor,,Early County,Rick Jackson (Rep),REP,R,3809,oe_ga_20261103_general,3689
+2026-11-03,2026,general,governor,,Early County,Total Votes,Unknown,O,7135,oe_ga_20261103_general,3687
+2026-11-03,2026,general,governor,,Echols County,Ballots Cast,Unknown,O,1900,oe_ga_20261103_general,3758
+2026-11-03,2026,general,governor,,Echols County,Josh McLaurin (Dem),DEM,D,275,oe_ga_20261103_general,3760
+2026-11-03,2026,general,governor,,Echols County,Rick Jackson (Rep),REP,R,1613,oe_ga_20261103_general,3759
+2026-11-03,2026,general,governor,,Echols County,Total Votes,Unknown,O,1888,oe_ga_20261103_general,3757
+2026-11-03,2026,general,governor,,Effingham County,Ballots Cast,Unknown,O,51280,oe_ga_20261103_general,3825
+2026-11-03,2026,general,governor,,Effingham County,Josh McLaurin (Dem),DEM,D,16053,oe_ga_20261103_general,3827
+2026-11-03,2026,general,governor,,Effingham County,Rick Jackson (Rep),REP,R,34711,oe_ga_20261103_general,3826
+2026-11-03,2026,general,governor,,Effingham County,Total Votes,Unknown,O,50764,oe_ga_20261103_general,3824
+2026-11-03,2026,general,governor,,Elbert County,Ballots Cast,Unknown,O,14236,oe_ga_20261103_general,3899
+2026-11-03,2026,general,governor,,Elbert County,Josh McLaurin (Dem),DEM,D,4730,oe_ga_20261103_general,3901
+2026-11-03,2026,general,governor,,Elbert County,Rick Jackson (Rep),REP,R,9379,oe_ga_20261103_general,3900
+2026-11-03,2026,general,governor,,Elbert County,Total Votes,Unknown,O,14109,oe_ga_20261103_general,3898
+2026-11-03,2026,general,governor,,Emanuel County,Ballots Cast,Unknown,O,14728,oe_ga_20261103_general,3967
+2026-11-03,2026,general,governor,,Emanuel County,Josh McLaurin (Dem),DEM,D,4695,oe_ga_20261103_general,3969
+2026-11-03,2026,general,governor,,Emanuel County,Rick Jackson (Rep),REP,R,9894,oe_ga_20261103_general,3968
+2026-11-03,2026,general,governor,,Emanuel County,Total Votes,Unknown,O,14589,oe_ga_20261103_general,3966
+2026-11-03,2026,general,governor,,Evans County,Ballots Cast,Unknown,O,6286,oe_ga_20261103_general,4034
+2026-11-03,2026,general,governor,,Evans County,Josh McLaurin (Dem),DEM,D,2004,oe_ga_20261103_general,4036
+2026-11-03,2026,general,governor,,Evans County,Rick Jackson (Rep),REP,R,4216,oe_ga_20261103_general,4035
+2026-11-03,2026,general,governor,,Evans County,Total Votes,Unknown,O,6220,oe_ga_20261103_general,4033
+2026-11-03,2026,general,governor,,Fannin County,Ballots Cast,Unknown,O,23456,oe_ga_20261103_general,4105
+2026-11-03,2026,general,governor,,Fannin County,Josh McLaurin (Dem),DEM,D,4666,oe_ga_20261103_general,4107
+2026-11-03,2026,general,governor,,Fannin County,Rick Jackson (Rep),REP,R,18550,oe_ga_20261103_general,4106
+2026-11-03,2026,general,governor,,Fannin County,Total Votes,Unknown,O,23216,oe_ga_20261103_general,4104
+2026-11-03,2026,general,governor,,Fayette County,Ballots Cast,Unknown,O,125524,oe_ga_20261103_general,4172
+2026-11-03,2026,general,governor,,Fayette County,Josh McLaurin (Dem),DEM,D,65451,oe_ga_20261103_general,4174
+2026-11-03,2026,general,governor,,Fayette County,Rick Jackson (Rep),REP,R,59021,oe_ga_20261103_general,4173
+2026-11-03,2026,general,governor,,Fayette County,Total Votes,Unknown,O,124472,oe_ga_20261103_general,4171
+2026-11-03,2026,general,governor,,Floyd County,Ballots Cast,Unknown,O,65082,oe_ga_20261103_general,4257
+2026-11-03,2026,general,governor,,Floyd County,Josh McLaurin (Dem),DEM,D,22746,oe_ga_20261103_general,4259
+2026-11-03,2026,general,governor,,Floyd County,Rick Jackson (Rep),REP,R,41636,oe_ga_20261103_general,4258
+2026-11-03,2026,general,governor,,Floyd County,Total Votes,Unknown,O,64382,oe_ga_20261103_general,4256
+2026-11-03,2026,general,governor,,Forsyth County,Ballots Cast,Unknown,O,215920,oe_ga_20261103_general,4336
+2026-11-03,2026,general,governor,,Forsyth County,Josh McLaurin (Dem),DEM,D,81009,oe_ga_20261103_general,4338
+2026-11-03,2026,general,governor,,Forsyth County,Rick Jackson (Rep),REP,R,133282,oe_ga_20261103_general,4337
+2026-11-03,2026,general,governor,,Forsyth County,Total Votes,Unknown,O,214291,oe_ga_20261103_general,4335
+2026-11-03,2026,general,governor,,Franklin County,Ballots Cast,Unknown,O,17108,oe_ga_20261103_general,4428
+2026-11-03,2026,general,governor,,Franklin County,Josh McLaurin (Dem),DEM,D,2827,oe_ga_20261103_general,4430
+2026-11-03,2026,general,governor,,Franklin County,Rick Jackson (Rep),REP,R,14165,oe_ga_20261103_general,4429
+2026-11-03,2026,general,governor,,Franklin County,Total Votes,Unknown,O,16992,oe_ga_20261103_general,4427
+2026-11-03,2026,general,governor,,Fulton County,Ballots Cast,Unknown,O,922322,oe_ga_20261103_general,4495
+2026-11-03,2026,general,governor,,Fulton County,Josh McLaurin (Dem),DEM,D,684506,oe_ga_20261103_general,4497
+2026-11-03,2026,general,governor,,Fulton County,Rick Jackson (Rep),REP,R,227453,oe_ga_20261103_general,4496
+2026-11-03,2026,general,governor,,Fulton County,Total Votes,Unknown,O,911959,oe_ga_20261103_general,4494
+2026-11-03,2026,general,governor,,Gilmer County,Ballots Cast,Unknown,O,28266,oe_ga_20261103_general,4678
+2026-11-03,2026,general,governor,,Gilmer County,Josh McLaurin (Dem),DEM,D,6138,oe_ga_20261103_general,4680
+2026-11-03,2026,general,governor,,Gilmer County,Rick Jackson (Rep),REP,R,21852,oe_ga_20261103_general,4679
+2026-11-03,2026,general,governor,,Gilmer County,Total Votes,Unknown,O,27990,oe_ga_20261103_general,4677
+2026-11-03,2026,general,governor,,Glascock County,Ballots Cast,Unknown,O,2452,oe_ga_20261103_general,4745
+2026-11-03,2026,general,governor,,Glascock County,Josh McLaurin (Dem),DEM,D,211,oe_ga_20261103_general,4747
+2026-11-03,2026,general,governor,,Glascock County,Rick Jackson (Rep),REP,R,2211,oe_ga_20261103_general,4746
+2026-11-03,2026,general,governor,,Glascock County,Total Votes,Unknown,O,2422,oe_ga_20261103_general,4744
+2026-11-03,2026,general,governor,,Glynn County,Ballots Cast,Unknown,O,67462,oe_ga_20261103_general,4813
+2026-11-03,2026,general,governor,,Glynn County,Josh McLaurin (Dem),DEM,D,26788,oe_ga_20261103_general,4815
+2026-11-03,2026,general,governor,,Glynn County,Rick Jackson (Rep),REP,R,40049,oe_ga_20261103_general,4814
+2026-11-03,2026,general,governor,,Glynn County,Total Votes,Unknown,O,66837,oe_ga_20261103_general,4812
+2026-11-03,2026,general,governor,,Gordon County,Ballots Cast,Unknown,O,38096,oe_ga_20261103_general,4886
+2026-11-03,2026,general,governor,,Gordon County,Josh McLaurin (Dem),DEM,D,9464,oe_ga_20261103_general,4888
+2026-11-03,2026,general,governor,,Gordon County,Rick Jackson (Rep),REP,R,28301,oe_ga_20261103_general,4887
+2026-11-03,2026,general,governor,,Gordon County,Total Votes,Unknown,O,37765,oe_ga_20261103_general,4885
+2026-11-03,2026,general,governor,,Grady County,Ballots Cast,Unknown,O,16114,oe_ga_20261103_general,4960
+2026-11-03,2026,general,governor,,Grady County,Josh McLaurin (Dem),DEM,D,5620,oe_ga_20261103_general,4962
+2026-11-03,2026,general,governor,,Grady County,Rick Jackson (Rep),REP,R,10352,oe_ga_20261103_general,4961
+2026-11-03,2026,general,governor,,Grady County,Total Votes,Unknown,O,15972,oe_ga_20261103_general,4959
+2026-11-03,2026,general,governor,,Greene County,Ballots Cast,Unknown,O,22566,oe_ga_20261103_general,5030
+2026-11-03,2026,general,governor,,Greene County,Josh McLaurin (Dem),DEM,D,7566,oe_ga_20261103_general,5032
+2026-11-03,2026,general,governor,,Greene County,Rick Jackson (Rep),REP,R,14742,oe_ga_20261103_general,5031
+2026-11-03,2026,general,governor,,Greene County,Total Votes,Unknown,O,22308,oe_ga_20261103_general,5029
+2026-11-03,2026,general,governor,,Gwinnett County,Ballots Cast,Unknown,O,694112,oe_ga_20261103_general,5098
+2026-11-03,2026,general,governor,,Gwinnett County,Josh McLaurin (Dem),DEM,D,461921,oe_ga_20261103_general,5100
+2026-11-03,2026,general,governor,,Gwinnett County,Rick Jackson (Rep),REP,R,225488,oe_ga_20261103_general,5099
+2026-11-03,2026,general,governor,,Gwinnett County,Total Votes,Unknown,O,687409,oe_ga_20261103_general,5097
+2026-11-03,2026,general,governor,,Habersham County,Ballots Cast,Unknown,O,35188,oe_ga_20261103_general,5284
+2026-11-03,2026,general,governor,,Habersham County,Josh McLaurin (Dem),DEM,D,7546,oe_ga_20261103_general,5286
+2026-11-03,2026,general,governor,,Habersham County,Rick Jackson (Rep),REP,R,27319,oe_ga_20261103_general,5285
+2026-11-03,2026,general,governor,,Habersham County,Total Votes,Unknown,O,34865,oe_ga_20261103_general,5283
+2026-11-03,2026,general,governor,,Hall County,Ballots Cast,Unknown,O,158946,oe_ga_20261103_general,5356
+2026-11-03,2026,general,governor,,Hall County,Josh McLaurin (Dem),DEM,D,54528,oe_ga_20261103_general,5358
+2026-11-03,2026,general,governor,,Hall County,Rick Jackson (Rep),REP,R,102944,oe_ga_20261103_general,5357
+2026-11-03,2026,general,governor,,Hall County,Total Votes,Unknown,O,157472,oe_ga_20261103_general,5355
+2026-11-03,2026,general,governor,,Hancock County,Ballots Cast,Unknown,O,6860,oe_ga_20261103_general,5458
+2026-11-03,2026,general,governor,,Hancock County,Josh McLaurin (Dem),DEM,D,4684,oe_ga_20261103_general,5460
+2026-11-03,2026,general,governor,,Hancock County,Rick Jackson (Rep),REP,R,2079,oe_ga_20261103_general,5459
+2026-11-03,2026,general,governor,,Hancock County,Total Votes,Unknown,O,6763,oe_ga_20261103_general,5457
+2026-11-03,2026,general,governor,,Haralson County,Ballots Cast,Unknown,O,22812,oe_ga_20261103_general,5526
+2026-11-03,2026,general,governor,,Haralson County,Josh McLaurin (Dem),DEM,D,3492,oe_ga_20261103_general,5528
+2026-11-03,2026,general,governor,,Haralson County,Rick Jackson (Rep),REP,R,19147,oe_ga_20261103_general,5527
+2026-11-03,2026,general,governor,,Haralson County,Total Votes,Unknown,O,22639,oe_ga_20261103_general,5525
+2026-11-03,2026,general,governor,,Harris County,Ballots Cast,Unknown,O,34556,oe_ga_20261103_general,5594
+2026-11-03,2026,general,governor,,Harris County,Josh McLaurin (Dem),DEM,D,10615,oe_ga_20261103_general,5596
+2026-11-03,2026,general,governor,,Harris County,Rick Jackson (Rep),REP,R,23686,oe_ga_20261103_general,5595
+2026-11-03,2026,general,governor,,Harris County,Total Votes,Unknown,O,34301,oe_ga_20261103_general,5593
+2026-11-03,2026,general,governor,,Hart County,Ballots Cast,Unknown,O,21782,oe_ga_20261103_general,5666
+2026-11-03,2026,general,governor,,Hart County,Josh McLaurin (Dem),DEM,D,5618,oe_ga_20261103_general,5668
+2026-11-03,2026,general,governor,,Hart County,Rick Jackson (Rep),REP,R,15924,oe_ga_20261103_general,5667
+2026-11-03,2026,general,governor,,Hart County,Total Votes,Unknown,O,21542,oe_ga_20261103_general,5665
+2026-11-03,2026,general,governor,,Heard County,Ballots Cast,Unknown,O,8900,oe_ga_20261103_general,5733
+2026-11-03,2026,general,governor,,Heard County,Josh McLaurin (Dem),DEM,D,1517,oe_ga_20261103_general,5735
+2026-11-03,2026,general,governor,,Heard County,Rick Jackson (Rep),REP,R,7315,oe_ga_20261103_general,5734
+2026-11-03,2026,general,governor,,Heard County,Total Votes,Unknown,O,8832,oe_ga_20261103_general,5732
+2026-11-03,2026,general,governor,,Henry County,Ballots Cast,Unknown,O,220568,oe_ga_20261103_general,5803
+2026-11-03,2026,general,governor,,Henry County,Josh McLaurin (Dem),DEM,D,161278,oe_ga_20261103_general,5805
+2026-11-03,2026,general,governor,,Henry County,Rick Jackson (Rep),REP,R,57700,oe_ga_20261103_general,5804
+2026-11-03,2026,general,governor,,Henry County,Total Votes,Unknown,O,218978,oe_ga_20261103_general,5802
+2026-11-03,2026,general,governor,,Houston County,Ballots Cast,Unknown,O,130620,oe_ga_20261103_general,5906
+2026-11-03,2026,general,governor,,Houston County,Josh McLaurin (Dem),DEM,D,66245,oe_ga_20261103_general,5908
+2026-11-03,2026,general,governor,,Houston County,Rick Jackson (Rep),REP,R,63370,oe_ga_20261103_general,5907
+2026-11-03,2026,general,governor,,Houston County,Total Votes,Unknown,O,129615,oe_ga_20261103_general,5905
+2026-11-03,2026,general,governor,,Irwin County,Ballots Cast,Unknown,O,6620,oe_ga_20261103_general,5994
+2026-11-03,2026,general,governor,,Irwin County,Josh McLaurin (Dem),DEM,D,1622,oe_ga_20261103_general,5996
+2026-11-03,2026,general,governor,,Irwin County,Rick Jackson (Rep),REP,R,4924,oe_ga_20261103_general,5995
+2026-11-03,2026,general,governor,,Irwin County,Total Votes,Unknown,O,6546,oe_ga_20261103_general,5993
+2026-11-03,2026,general,governor,,Jackson County,Ballots Cast,Unknown,O,72464,oe_ga_20261103_general,6060
+2026-11-03,2026,general,governor,,Jackson County,Josh McLaurin (Dem),DEM,D,20241,oe_ga_20261103_general,6062
+2026-11-03,2026,general,governor,,Jackson County,Rick Jackson (Rep),REP,R,51646,oe_ga_20261103_general,6061
+2026-11-03,2026,general,governor,,Jackson County,Total Votes,Unknown,O,71887,oe_ga_20261103_general,6059
+2026-11-03,2026,general,governor,,Jasper County,Ballots Cast,Unknown,O,13854,oe_ga_20261103_general,6142
+2026-11-03,2026,general,governor,,Jasper County,Josh McLaurin (Dem),DEM,D,3279,oe_ga_20261103_general,6144
+2026-11-03,2026,general,governor,,Jasper County,Rick Jackson (Rep),REP,R,10466,oe_ga_20261103_general,6143
+2026-11-03,2026,general,governor,,Jasper County,Total Votes,Unknown,O,13745,oe_ga_20261103_general,6141
+2026-11-03,2026,general,governor,,Jeff Davis County,Ballots Cast,Unknown,O,8360,oe_ga_20261103_general,6208
+2026-11-03,2026,general,governor,,Jeff Davis County,Josh McLaurin (Dem),DEM,D,1771,oe_ga_20261103_general,6210
+2026-11-03,2026,general,governor,,Jeff Davis County,Rick Jackson (Rep),REP,R,6502,oe_ga_20261103_general,6209
+2026-11-03,2026,general,governor,,Jeff Davis County,Total Votes,Unknown,O,8273,oe_ga_20261103_general,6207
+2026-11-03,2026,general,governor,,Jefferson County,Ballots Cast,Unknown,O,12070,oe_ga_20261103_general,6276
+2026-11-03,2026,general,governor,,Jefferson County,Josh McLaurin (Dem),DEM,D,6278,oe_ga_20261103_general,6278
+2026-11-03,2026,general,governor,,Jefferson County,Rick Jackson (Rep),REP,R,5637,oe_ga_20261103_general,6277
+2026-11-03,2026,general,governor,,Jefferson County,Total Votes,Unknown,O,11915,oe_ga_20261103_general,6275
+2026-11-03,2026,general,governor,,Jenkins County,Ballots Cast,Unknown,O,5098,oe_ga_20261103_general,6343
+2026-11-03,2026,general,governor,,Jenkins County,Josh McLaurin (Dem),DEM,D,1959,oe_ga_20261103_general,6345
+2026-11-03,2026,general,governor,,Jenkins County,Rick Jackson (Rep),REP,R,3051,oe_ga_20261103_general,6344
+2026-11-03,2026,general,governor,,Jenkins County,Total Votes,Unknown,O,5010,oe_ga_20261103_general,6342
+2026-11-03,2026,general,governor,,Johnson County,Ballots Cast,Unknown,O,6144,oe_ga_20261103_general,6411
+2026-11-03,2026,general,governor,,Johnson County,Josh McLaurin (Dem),DEM,D,1753,oe_ga_20261103_general,6413
+2026-11-03,2026,general,governor,,Johnson County,Rick Jackson (Rep),REP,R,4328,oe_ga_20261103_general,6412
+2026-11-03,2026,general,governor,,Johnson County,Total Votes,Unknown,O,6081,oe_ga_20261103_general,6410
+2026-11-03,2026,general,governor,,Jones County,Ballots Cast,Unknown,O,24090,oe_ga_20261103_general,6479
+2026-11-03,2026,general,governor,,Jones County,Josh McLaurin (Dem),DEM,D,8740,oe_ga_20261103_general,6481
+2026-11-03,2026,general,governor,,Jones County,Rick Jackson (Rep),REP,R,15165,oe_ga_20261103_general,6480
+2026-11-03,2026,general,governor,,Jones County,Total Votes,Unknown,O,23905,oe_ga_20261103_general,6478
+2026-11-03,2026,general,governor,,Lamar County,Ballots Cast,Unknown,O,15862,oe_ga_20261103_general,6549
+2026-11-03,2026,general,governor,,Lamar County,Josh McLaurin (Dem),DEM,D,4935,oe_ga_20261103_general,6551
+2026-11-03,2026,general,governor,,Lamar County,Rick Jackson (Rep),REP,R,10748,oe_ga_20261103_general,6550
+2026-11-03,2026,general,governor,,Lamar County,Total Votes,Unknown,O,15683,oe_ga_20261103_general,6548
+2026-11-03,2026,general,governor,,Lanier County,Ballots Cast,Unknown,O,5354,oe_ga_20261103_general,6619
+2026-11-03,2026,general,governor,,Lanier County,Josh McLaurin (Dem),DEM,D,1696,oe_ga_20261103_general,6621
+2026-11-03,2026,general,governor,,Lanier County,Rick Jackson (Rep),REP,R,3603,oe_ga_20261103_general,6620
+2026-11-03,2026,general,governor,,Lanier County,Total Votes,Unknown,O,5299,oe_ga_20261103_general,6618
+2026-11-03,2026,general,governor,,Laurens County,Ballots Cast,Unknown,O,36462,oe_ga_20261103_general,6686
+2026-11-03,2026,general,governor,,Laurens County,Josh McLaurin (Dem),DEM,D,13746,oe_ga_20261103_general,6688
+2026-11-03,2026,general,governor,,Laurens County,Rick Jackson (Rep),REP,R,22345,oe_ga_20261103_general,6687
+2026-11-03,2026,general,governor,,Laurens County,Total Votes,Unknown,O,36091,oe_ga_20261103_general,6685
+2026-11-03,2026,general,governor,,Lee County,Ballots Cast,Unknown,O,26716,oe_ga_20261103_general,6753
+2026-11-03,2026,general,governor,,Lee County,Josh McLaurin (Dem),DEM,D,9103,oe_ga_20261103_general,6755
+2026-11-03,2026,general,governor,,Lee County,Rick Jackson (Rep),REP,R,17416,oe_ga_20261103_general,6754
+2026-11-03,2026,general,governor,,Lee County,Total Votes,Unknown,O,26519,oe_ga_20261103_general,6752
+2026-11-03,2026,general,governor,,Liberty County,Ballots Cast,Unknown,O,34094,oe_ga_20261103_general,6820
+2026-11-03,2026,general,governor,,Liberty County,Josh McLaurin (Dem),DEM,D,22667,oe_ga_20261103_general,6822
+2026-11-03,2026,general,governor,,Liberty County,Rick Jackson (Rep),REP,R,11072,oe_ga_20261103_general,6821
+2026-11-03,2026,general,governor,,Liberty County,Total Votes,Unknown,O,33739,oe_ga_20261103_general,6819
+2026-11-03,2026,general,governor,,Lincoln County,Ballots Cast,Unknown,O,7794,oe_ga_20261103_general,6896
+2026-11-03,2026,general,governor,,Lincoln County,Josh McLaurin (Dem),DEM,D,2313,oe_ga_20261103_general,6898
+2026-11-03,2026,general,governor,,Lincoln County,Rick Jackson (Rep),REP,R,5393,oe_ga_20261103_general,6897
+2026-11-03,2026,general,governor,,Lincoln County,Total Votes,Unknown,O,7706,oe_ga_20261103_general,6895
+2026-11-03,2026,general,governor,,Long County,Ballots Cast,Unknown,O,10022,oe_ga_20261103_general,6964
+2026-11-03,2026,general,governor,,Long County,Josh McLaurin (Dem),DEM,D,4622,oe_ga_20261103_general,6966
+2026-11-03,2026,general,governor,,Long County,Rick Jackson (Rep),REP,R,5306,oe_ga_20261103_general,6965
+2026-11-03,2026,general,governor,,Long County,Total Votes,Unknown,O,9928,oe_ga_20261103_general,6963
+2026-11-03,2026,general,governor,,Lowndes County,Ballots Cast,Unknown,O,71720,oe_ga_20261103_general,7036
+2026-11-03,2026,general,governor,,Lowndes County,Josh McLaurin (Dem),DEM,D,33659,oe_ga_20261103_general,7038
+2026-11-03,2026,general,governor,,Lowndes County,Rick Jackson (Rep),REP,R,37493,oe_ga_20261103_general,7037
+2026-11-03,2026,general,governor,,Lowndes County,Total Votes,Unknown,O,71152,oe_ga_20261103_general,7035
+2026-11-03,2026,general,governor,,Lumpkin County,Ballots Cast,Unknown,O,26092,oe_ga_20261103_general,7114
+2026-11-03,2026,general,governor,,Lumpkin County,Josh McLaurin (Dem),DEM,D,5713,oe_ga_20261103_general,7116
+2026-11-03,2026,general,governor,,Lumpkin County,Rick Jackson (Rep),REP,R,20129,oe_ga_20261103_general,7115
+2026-11-03,2026,general,governor,,Lumpkin County,Total Votes,Unknown,O,25842,oe_ga_20261103_general,7113
+2026-11-03,2026,general,governor,,Macon County,Ballots Cast,Unknown,O,7542,oe_ga_20261103_general,7189
+2026-11-03,2026,general,governor,,Macon County,Josh McLaurin (Dem),DEM,D,4591,oe_ga_20261103_general,7191
+2026-11-03,2026,general,governor,,Macon County,Rick Jackson (Rep),REP,R,2858,oe_ga_20261103_general,7190
+2026-11-03,2026,general,governor,,Macon County,Total Votes,Unknown,O,7449,oe_ga_20261103_general,7188
+2026-11-03,2026,general,governor,,Madison County,Ballots Cast,Unknown,O,25180,oe_ga_20261103_general,7257
+2026-11-03,2026,general,governor,,Madison County,Josh McLaurin (Dem),DEM,D,6874,oe_ga_20261103_general,7259
+2026-11-03,2026,general,governor,,Madison County,Rick Jackson (Rep),REP,R,18058,oe_ga_20261103_general,7258
+2026-11-03,2026,general,governor,,Madison County,Total Votes,Unknown,O,24932,oe_ga_20261103_general,7256
+2026-11-03,2026,general,governor,,Marion County,Ballots Cast,Unknown,O,5566,oe_ga_20261103_general,7327
+2026-11-03,2026,general,governor,,Marion County,Josh McLaurin (Dem),DEM,D,2194,oe_ga_20261103_general,7329
+2026-11-03,2026,general,governor,,Marion County,Rick Jackson (Rep),REP,R,3315,oe_ga_20261103_general,7328
+2026-11-03,2026,general,governor,,Marion County,Total Votes,Unknown,O,5509,oe_ga_20261103_general,7326
+2026-11-03,2026,general,governor,,Mcduffie County,Ballots Cast,Unknown,O,16668,oe_ga_20261103_general,7396
+2026-11-03,2026,general,governor,,Mcduffie County,Josh McLaurin (Dem),DEM,D,7005,oe_ga_20261103_general,7398
+2026-11-03,2026,general,governor,,Mcduffie County,Rick Jackson (Rep),REP,R,9496,oe_ga_20261103_general,7397
+2026-11-03,2026,general,governor,,Mcduffie County,Total Votes,Unknown,O,16501,oe_ga_20261103_general,7395
+2026-11-03,2026,general,governor,,Mcintosh County,Ballots Cast,Unknown,O,11512,oe_ga_20261103_general,7468
+2026-11-03,2026,general,governor,,Mcintosh County,Josh McLaurin (Dem),DEM,D,4372,oe_ga_20261103_general,7470
+2026-11-03,2026,general,governor,,Mcintosh County,Rick Jackson (Rep),REP,R,6956,oe_ga_20261103_general,7469
+2026-11-03,2026,general,governor,,Mcintosh County,Total Votes,Unknown,O,11328,oe_ga_20261103_general,7467
+2026-11-03,2026,general,governor,,Meriwether County,Ballots Cast,Unknown,O,18146,oe_ga_20261103_general,7539
+2026-11-03,2026,general,governor,,Meriwether County,Josh McLaurin (Dem),DEM,D,7231,oe_ga_20261103_general,7541
+2026-11-03,2026,general,governor,,Meriwether County,Rick Jackson (Rep),REP,R,10732,oe_ga_20261103_general,7540
+2026-11-03,2026,general,governor,,Meriwether County,Total Votes,Unknown,O,17963,oe_ga_20261103_general,7538
+2026-11-03,2026,general,governor,,Miller County,Ballots Cast,Unknown,O,3946,oe_ga_20261103_general,7609
+2026-11-03,2026,general,governor,,Miller County,Josh McLaurin (Dem),DEM,D,993,oe_ga_20261103_general,7611
+2026-11-03,2026,general,governor,,Miller County,Rick Jackson (Rep),REP,R,2906,oe_ga_20261103_general,7610
+2026-11-03,2026,general,governor,,Miller County,Total Votes,Unknown,O,3899,oe_ga_20261103_general,7608
+2026-11-03,2026,general,governor,,Mitchell County,Ballots Cast,Unknown,O,13508,oe_ga_20261103_general,7679
+2026-11-03,2026,general,governor,,Mitchell County,Josh McLaurin (Dem),DEM,D,6142,oe_ga_20261103_general,7681
+2026-11-03,2026,general,governor,,Mitchell County,Rick Jackson (Rep),REP,R,7257,oe_ga_20261103_general,7680
+2026-11-03,2026,general,governor,,Mitchell County,Total Votes,Unknown,O,13399,oe_ga_20261103_general,7678
+2026-11-03,2026,general,governor,,Monroe County,Ballots Cast,Unknown,O,28408,oe_ga_20261103_general,7745
+2026-11-03,2026,general,governor,,Monroe County,Josh McLaurin (Dem),DEM,D,8321,oe_ga_20261103_general,7747
+2026-11-03,2026,general,governor,,Monroe County,Rick Jackson (Rep),REP,R,19854,oe_ga_20261103_general,7746
+2026-11-03,2026,general,governor,,Monroe County,Total Votes,Unknown,O,28175,oe_ga_20261103_general,7744
+2026-11-03,2026,general,governor,,Montgomery County,Ballots Cast,Unknown,O,5972,oe_ga_20261103_general,7819
+2026-11-03,2026,general,governor,,Montgomery County,Josh McLaurin (Dem),DEM,D,1629,oe_ga_20261103_general,7821
+2026-11-03,2026,general,governor,,Montgomery County,Rick Jackson (Rep),REP,R,4277,oe_ga_20261103_general,7820
+2026-11-03,2026,general,governor,,Montgomery County,Total Votes,Unknown,O,5906,oe_ga_20261103_general,7818
+2026-11-03,2026,general,governor,,Morgan County,Ballots Cast,Unknown,O,21214,oe_ga_20261103_general,7886
+2026-11-03,2026,general,governor,,Morgan County,Josh McLaurin (Dem),DEM,D,6119,oe_ga_20261103_general,7888
+2026-11-03,2026,general,governor,,Morgan County,Rick Jackson (Rep),REP,R,14873,oe_ga_20261103_general,7887
+2026-11-03,2026,general,governor,,Morgan County,Total Votes,Unknown,O,20992,oe_ga_20261103_general,7885
+2026-11-03,2026,general,governor,,Murray County,Ballots Cast,Unknown,O,22844,oe_ga_20261103_general,7954
+2026-11-03,2026,general,governor,,Murray County,Josh McLaurin (Dem),DEM,D,4703,oe_ga_20261103_general,7956
+2026-11-03,2026,general,governor,,Murray County,Rick Jackson (Rep),REP,R,17940,oe_ga_20261103_general,7955
+2026-11-03,2026,general,governor,,Murray County,Total Votes,Unknown,O,22643,oe_ga_20261103_general,7953
+2026-11-03,2026,general,governor,,Muscogee County,Ballots Cast,Unknown,O,125328,oe_ga_20261103_general,8021
+2026-11-03,2026,general,governor,,Muscogee County,Josh McLaurin (Dem),DEM,D,83536,oe_ga_20261103_general,8023
+2026-11-03,2026,general,governor,,Muscogee County,Rick Jackson (Rep),REP,R,40653,oe_ga_20261103_general,8022
+2026-11-03,2026,general,governor,,Muscogee County,Total Votes,Unknown,O,124189,oe_ga_20261103_general,8020
+2026-11-03,2026,general,governor,,Newton County,Ballots Cast,Unknown,O,96298,oe_ga_20261103_general,8112
+2026-11-03,2026,general,governor,,Newton County,Josh McLaurin (Dem),DEM,D,62780,oe_ga_20261103_general,8114
+2026-11-03,2026,general,governor,,Newton County,Rick Jackson (Rep),REP,R,32624,oe_ga_20261103_general,8113
+2026-11-03,2026,general,governor,,Newton County,Total Votes,Unknown,O,95404,oe_ga_20261103_general,8111
+2026-11-03,2026,general,governor,,Oconee County,Ballots Cast,Unknown,O,45796,oe_ga_20261103_general,8195
+2026-11-03,2026,general,governor,,Oconee County,Josh McLaurin (Dem),DEM,D,14910,oe_ga_20261103_general,8197
+2026-11-03,2026,general,governor,,Oconee County,Rick Jackson (Rep),REP,R,30429,oe_ga_20261103_general,8196
+2026-11-03,2026,general,governor,,Oconee County,Total Votes,Unknown,O,45339,oe_ga_20261103_general,8194
+2026-11-03,2026,general,governor,,Oglethorpe County,Ballots Cast,Unknown,O,13770,oe_ga_20261103_general,8267
+2026-11-03,2026,general,governor,,Oglethorpe County,Josh McLaurin (Dem),DEM,D,4659,oe_ga_20261103_general,8269
+2026-11-03,2026,general,governor,,Oglethorpe County,Rick Jackson (Rep),REP,R,8988,oe_ga_20261103_general,8268
+2026-11-03,2026,general,governor,,Oglethorpe County,Total Votes,Unknown,O,13647,oe_ga_20261103_general,8266
+2026-11-03,2026,general,governor,,Paulding County,Ballots Cast,Unknown,O,150344,oe_ga_20261103_general,8335
+2026-11-03,2026,general,governor,,Paulding County,Josh McLaurin (Dem),DEM,D,68802,oe_ga_20261103_general,8337
+2026-11-03,2026,general,governor,,Paulding County,Rick Jackson (Rep),REP,R,80420,oe_ga_20261103_general,8336
+2026-11-03,2026,general,governor,,Paulding County,Total Votes,Unknown,O,149222,oe_ga_20261103_general,8334
+2026-11-03,2026,general,governor,,Peach County,Ballots Cast,Unknown,O,21434,oe_ga_20261103_general,8426
+2026-11-03,2026,general,governor,,Peach County,Josh McLaurin (Dem),DEM,D,11281,oe_ga_20261103_general,8428
+2026-11-03,2026,general,governor,,Peach County,Rick Jackson (Rep),REP,R,9961,oe_ga_20261103_general,8427
+2026-11-03,2026,general,governor,,Peach County,Total Votes,Unknown,O,21242,oe_ga_20261103_general,8425
+2026-11-03,2026,general,governor,,Pickens County,Ballots Cast,Unknown,O,30932,oe_ga_20261103_general,8500
+2026-11-03,2026,general,governor,,Pickens County,Josh McLaurin (Dem),DEM,D,5944,oe_ga_20261103_general,8502
+2026-11-03,2026,general,governor,,Pickens County,Rick Jackson (Rep),REP,R,24708,oe_ga_20261103_general,8501
+2026-11-03,2026,general,governor,,Pickens County,Total Votes,Unknown,O,30652,oe_ga_20261103_general,8499
+2026-11-03,2026,general,governor,,Pierce County,Ballots Cast,Unknown,O,14114,oe_ga_20261103_general,8568
+2026-11-03,2026,general,governor,,Pierce County,Josh McLaurin (Dem),DEM,D,1899,oe_ga_20261103_general,8570
+2026-11-03,2026,general,governor,,Pierce County,Rick Jackson (Rep),REP,R,12118,oe_ga_20261103_general,8569
+2026-11-03,2026,general,governor,,Pierce County,Total Votes,Unknown,O,14017,oe_ga_20261103_general,8567
+2026-11-03,2026,general,governor,,Pike County,Ballots Cast,Unknown,O,18350,oe_ga_20261103_general,8635
+2026-11-03,2026,general,governor,,Pike County,Josh McLaurin (Dem),DEM,D,2866,oe_ga_20261103_general,8637
+2026-11-03,2026,general,governor,,Pike County,Rick Jackson (Rep),REP,R,15343,oe_ga_20261103_general,8636
+2026-11-03,2026,general,governor,,Pike County,Total Votes,Unknown,O,18209,oe_ga_20261103_general,8634
+2026-11-03,2026,general,governor,,Polk County,Ballots Cast,Unknown,O,26742,oe_ga_20261103_general,8702
+2026-11-03,2026,general,governor,,Polk County,Josh McLaurin (Dem),DEM,D,6792,oe_ga_20261103_general,8704
+2026-11-03,2026,general,governor,,Polk County,Rick Jackson (Rep),REP,R,19714,oe_ga_20261103_general,8703
+2026-11-03,2026,general,governor,,Polk County,Total Votes,Unknown,O,26506,oe_ga_20261103_general,8701
+2026-11-03,2026,general,governor,,Pulaski County,Ballots Cast,Unknown,O,6744,oe_ga_20261103_general,8770
+2026-11-03,2026,general,governor,,Pulaski County,Josh McLaurin (Dem),DEM,D,2063,oe_ga_20261103_general,8772
+2026-11-03,2026,general,governor,,Pulaski County,Rick Jackson (Rep),REP,R,4579,oe_ga_20261103_general,8771
+2026-11-03,2026,general,governor,,Pulaski County,Total Votes,Unknown,O,6642,oe_ga_20261103_general,8769
+2026-11-03,2026,general,governor,,Putnam County,Ballots Cast,Unknown,O,21438,oe_ga_20261103_general,8837
+2026-11-03,2026,general,governor,,Putnam County,Josh McLaurin (Dem),DEM,D,6365,oe_ga_20261103_general,8839
+2026-11-03,2026,general,governor,,Putnam County,Rick Jackson (Rep),REP,R,14839,oe_ga_20261103_general,8838
+2026-11-03,2026,general,governor,,Putnam County,Total Votes,Unknown,O,21204,oe_ga_20261103_general,8836
+2026-11-03,2026,general,governor,,Quitman County,Ballots Cast,Unknown,O,1768,oe_ga_20261103_general,8907
+2026-11-03,2026,general,governor,,Quitman County,Josh McLaurin (Dem),DEM,D,755,oe_ga_20261103_general,8909
+2026-11-03,2026,general,governor,,Quitman County,Rick Jackson (Rep),REP,R,967,oe_ga_20261103_general,8908
+2026-11-03,2026,general,governor,,Quitman County,Total Votes,Unknown,O,1722,oe_ga_20261103_general,8906
+2026-11-03,2026,general,governor,,Rabun County,Ballots Cast,Unknown,O,15652,oe_ga_20261103_general,8977
+2026-11-03,2026,general,governor,,Rabun County,Josh McLaurin (Dem),DEM,D,3774,oe_ga_20261103_general,8979
+2026-11-03,2026,general,governor,,Rabun County,Rick Jackson (Rep),REP,R,11704,oe_ga_20261103_general,8978
+2026-11-03,2026,general,governor,,Rabun County,Total Votes,Unknown,O,15478,oe_ga_20261103_general,8976
+2026-11-03,2026,general,governor,,Randolph County,Ballots Cast,Unknown,O,4760,oe_ga_20261103_general,9045
+2026-11-03,2026,general,governor,,Randolph County,Josh McLaurin (Dem),DEM,D,2559,oe_ga_20261103_general,9047
+2026-11-03,2026,general,governor,,Randolph County,Rick Jackson (Rep),REP,R,2136,oe_ga_20261103_general,9046
+2026-11-03,2026,general,governor,,Randolph County,Total Votes,Unknown,O,4695,oe_ga_20261103_general,9044
+2026-11-03,2026,general,governor,,Richmond County,Ballots Cast,Unknown,O,134172,oe_ga_20261103_general,9115
+2026-11-03,2026,general,governor,,Richmond County,Josh McLaurin (Dem),DEM,D,97350,oe_ga_20261103_general,9117
+2026-11-03,2026,general,governor,,Richmond County,Rick Jackson (Rep),REP,R,35455,oe_ga_20261103_general,9116
+2026-11-03,2026,general,governor,,Richmond County,Total Votes,Unknown,O,132805,oe_ga_20261103_general,9114
+2026-11-03,2026,general,governor,,Rockdale County,Ballots Cast,Unknown,O,78166,oe_ga_20261103_general,9200
+2026-11-03,2026,general,governor,,Rockdale County,Josh McLaurin (Dem),DEM,D,62036,oe_ga_20261103_general,9202
+2026-11-03,2026,general,governor,,Rockdale County,Rick Jackson (Rep),REP,R,15425,oe_ga_20261103_general,9201
+2026-11-03,2026,general,governor,,Rockdale County,Total Votes,Unknown,O,77461,oe_ga_20261103_general,9199
+2026-11-03,2026,general,governor,,Schley County,Ballots Cast,Unknown,O,3534,oe_ga_20261103_general,9275
+2026-11-03,2026,general,governor,,Schley County,Josh McLaurin (Dem),DEM,D,733,oe_ga_20261103_general,9277
+2026-11-03,2026,general,governor,,Schley County,Rick Jackson (Rep),REP,R,2753,oe_ga_20261103_general,9276
+2026-11-03,2026,general,governor,,Schley County,Total Votes,Unknown,O,3486,oe_ga_20261103_general,9274
+2026-11-03,2026,general,governor,,Screven County,Ballots Cast,Unknown,O,10476,oe_ga_20261103_general,9344
+2026-11-03,2026,general,governor,,Screven County,Josh McLaurin (Dem),DEM,D,4253,oe_ga_20261103_general,9346
+2026-11-03,2026,general,governor,,Screven County,Rick Jackson (Rep),REP,R,6081,oe_ga_20261103_general,9345
+2026-11-03,2026,general,governor,,Screven County,Total Votes,Unknown,O,10334,oe_ga_20261103_general,9343
+2026-11-03,2026,general,governor,,Seminole County,Ballots Cast,Unknown,O,5822,oe_ga_20261103_general,9411
+2026-11-03,2026,general,governor,,Seminole County,Josh McLaurin (Dem),DEM,D,1895,oe_ga_20261103_general,9413
+2026-11-03,2026,general,governor,,Seminole County,Rick Jackson (Rep),REP,R,3858,oe_ga_20261103_general,9412
+2026-11-03,2026,general,governor,,Seminole County,Total Votes,Unknown,O,5753,oe_ga_20261103_general,9410
+2026-11-03,2026,general,governor,,Spalding County,Ballots Cast,Unknown,O,51674,oe_ga_20261103_general,9481
+2026-11-03,2026,general,governor,,Spalding County,Josh McLaurin (Dem),DEM,D,24649,oe_ga_20261103_general,9483
+2026-11-03,2026,general,governor,,Spalding County,Rick Jackson (Rep),REP,R,26541,oe_ga_20261103_general,9482
+2026-11-03,2026,general,governor,,Spalding County,Total Votes,Unknown,O,51190,oe_ga_20261103_general,9480
+2026-11-03,2026,general,governor,,Stephens County,Ballots Cast,Unknown,O,18744,oe_ga_20261103_general,9552
+2026-11-03,2026,general,governor,,Stephens County,Josh McLaurin (Dem),DEM,D,4147,oe_ga_20261103_general,9554
+2026-11-03,2026,general,governor,,Stephens County,Rick Jackson (Rep),REP,R,14422,oe_ga_20261103_general,9553
+2026-11-03,2026,general,governor,,Stephens County,Total Votes,Unknown,O,18569,oe_ga_20261103_general,9551
+2026-11-03,2026,general,governor,,Stewart County,Ballots Cast,Unknown,O,2910,oe_ga_20261103_general,9620
+2026-11-03,2026,general,governor,,Stewart County,Josh McLaurin (Dem),DEM,D,1718,oe_ga_20261103_general,9622
+2026-11-03,2026,general,governor,,Stewart County,Rick Jackson (Rep),REP,R,1106,oe_ga_20261103_general,9621
+2026-11-03,2026,general,governor,,Stewart County,Total Votes,Unknown,O,2824,oe_ga_20261103_general,9619
+2026-11-03,2026,general,governor,,Sumter County,Ballots Cast,Unknown,O,19396,oe_ga_20261103_general,9688
+2026-11-03,2026,general,governor,,Sumter County,Josh McLaurin (Dem),DEM,D,10477,oe_ga_20261103_general,9690
+2026-11-03,2026,general,governor,,Sumter County,Rick Jackson (Rep),REP,R,8693,oe_ga_20261103_general,9689
+2026-11-03,2026,general,governor,,Sumter County,Total Votes,Unknown,O,19170,oe_ga_20261103_general,9687
+2026-11-03,2026,general,governor,,Talbot County,Ballots Cast,Unknown,O,5494,oe_ga_20261103_general,9760
+2026-11-03,2026,general,governor,,Talbot County,Josh McLaurin (Dem),DEM,D,3165,oe_ga_20261103_general,9762
+2026-11-03,2026,general,governor,,Talbot County,Rick Jackson (Rep),REP,R,2257,oe_ga_20261103_general,9761
+2026-11-03,2026,general,governor,,Talbot County,Total Votes,Unknown,O,5422,oe_ga_20261103_general,9759
+2026-11-03,2026,general,governor,,Taliaferro County,Ballots Cast,Unknown,O,1614,oe_ga_20261103_general,9827
+2026-11-03,2026,general,governor,,Taliaferro County,Josh McLaurin (Dem),DEM,D,944,oe_ga_20261103_general,9829
+2026-11-03,2026,general,governor,,Taliaferro County,Rick Jackson (Rep),REP,R,636,oe_ga_20261103_general,9828
+2026-11-03,2026,general,governor,,Taliaferro County,Total Votes,Unknown,O,1580,oe_ga_20261103_general,9826
+2026-11-03,2026,general,governor,,Tattnall County,Ballots Cast,Unknown,O,12584,oe_ga_20261103_general,9895
+2026-11-03,2026,general,governor,,Tattnall County,Josh McLaurin (Dem),DEM,D,3459,oe_ga_20261103_general,9897
+2026-11-03,2026,general,governor,,Tattnall County,Rick Jackson (Rep),REP,R,8943,oe_ga_20261103_general,9896
+2026-11-03,2026,general,governor,,Tattnall County,Total Votes,Unknown,O,12402,oe_ga_20261103_general,9894
+2026-11-03,2026,general,governor,,Taylor County,Ballots Cast,Unknown,O,6038,oe_ga_20261103_general,9970
+2026-11-03,2026,general,governor,,Taylor County,Josh McLaurin (Dem),DEM,D,2257,oe_ga_20261103_general,9972
+2026-11-03,2026,general,governor,,Taylor County,Rick Jackson (Rep),REP,R,3717,oe_ga_20261103_general,9971
+2026-11-03,2026,general,governor,,Taylor County,Total Votes,Unknown,O,5974,oe_ga_20261103_general,9969
+2026-11-03,2026,general,governor,,Telfair County,Ballots Cast,Unknown,O,6374,oe_ga_20261103_general,10038
+2026-11-03,2026,general,governor,,Telfair County,Josh McLaurin (Dem),DEM,D,2121,oe_ga_20261103_general,10040
+2026-11-03,2026,general,governor,,Telfair County,Rick Jackson (Rep),REP,R,4172,oe_ga_20261103_general,10039
+2026-11-03,2026,general,governor,,Telfair County,Total Votes,Unknown,O,6293,oe_ga_20261103_general,10037
+2026-11-03,2026,general,governor,,Terrell County,Ballots Cast,Unknown,O,6928,oe_ga_20261103_general,10108
+2026-11-03,2026,general,governor,,Terrell County,Josh McLaurin (Dem),DEM,D,3688,oe_ga_20261103_general,10110
+2026-11-03,2026,general,governor,,Terrell County,Rick Jackson (Rep),REP,R,3157,oe_ga_20261103_general,10109
+2026-11-03,2026,general,governor,,Terrell County,Total Votes,Unknown,O,6845,oe_ga_20261103_general,10107
+2026-11-03,2026,general,governor,,Thomas County,Ballots Cast,Unknown,O,33990,oe_ga_20261103_general,10179
+2026-11-03,2026,general,governor,,Thomas County,Josh McLaurin (Dem),DEM,D,14001,oe_ga_20261103_general,10181
+2026-11-03,2026,general,governor,,Thomas County,Rick Jackson (Rep),REP,R,19682,oe_ga_20261103_general,10180
+2026-11-03,2026,general,governor,,Thomas County,Total Votes,Unknown,O,33683,oe_ga_20261103_general,10178
+2026-11-03,2026,general,governor,,Tift County,Ballots Cast,Unknown,O,26806,oe_ga_20261103_general,10249
+2026-11-03,2026,general,governor,,Tift County,Josh McLaurin (Dem),DEM,D,9786,oe_ga_20261103_general,10251
+2026-11-03,2026,general,governor,,Tift County,Rick Jackson (Rep),REP,R,16724,oe_ga_20261103_general,10250
+2026-11-03,2026,general,governor,,Tift County,Total Votes,Unknown,O,26510,oe_ga_20261103_general,10248
+2026-11-03,2026,general,governor,,Toombs County,Ballots Cast,Unknown,O,15622,oe_ga_20261103_general,10318
+2026-11-03,2026,general,governor,,Toombs County,Josh McLaurin (Dem),DEM,D,4670,oe_ga_20261103_general,10320
+2026-11-03,2026,general,governor,,Toombs County,Rick Jackson (Rep),REP,R,10793,oe_ga_20261103_general,10319
+2026-11-03,2026,general,governor,,Toombs County,Total Votes,Unknown,O,15463,oe_ga_20261103_general,10317
+2026-11-03,2026,general,governor,,Towns County,Ballots Cast,Unknown,O,14390,oe_ga_20261103_general,10385
+2026-11-03,2026,general,governor,,Towns County,Josh McLaurin (Dem),DEM,D,2803,oe_ga_20261103_general,10387
+2026-11-03,2026,general,governor,,Towns County,Rick Jackson (Rep),REP,R,11377,oe_ga_20261103_general,10386
+2026-11-03,2026,general,governor,,Towns County,Total Votes,Unknown,O,14180,oe_ga_20261103_general,10384
+2026-11-03,2026,general,governor,,Treutlen County,Ballots Cast,Unknown,O,4508,oe_ga_20261103_general,10456
+2026-11-03,2026,general,governor,,Treutlen County,Josh McLaurin (Dem),DEM,D,1433,oe_ga_20261103_general,10458
+2026-11-03,2026,general,governor,,Treutlen County,Rick Jackson (Rep),REP,R,3020,oe_ga_20261103_general,10457
+2026-11-03,2026,general,governor,,Treutlen County,Total Votes,Unknown,O,4453,oe_ga_20261103_general,10455
+2026-11-03,2026,general,governor,,Troup County,Ballots Cast,Unknown,O,46720,oe_ga_20261103_general,10522
+2026-11-03,2026,general,governor,,Troup County,Josh McLaurin (Dem),DEM,D,20364,oe_ga_20261103_general,10524
+2026-11-03,2026,general,governor,,Troup County,Rick Jackson (Rep),REP,R,25906,oe_ga_20261103_general,10523
+2026-11-03,2026,general,governor,,Troup County,Total Votes,Unknown,O,46270,oe_ga_20261103_general,10521
+2026-11-03,2026,general,governor,,Turner County,Ballots Cast,Unknown,O,6002,oe_ga_20261103_general,10599
+2026-11-03,2026,general,governor,,Turner County,Josh McLaurin (Dem),DEM,D,2430,oe_ga_20261103_general,10601
+2026-11-03,2026,general,governor,,Turner County,Rick Jackson (Rep),REP,R,3490,oe_ga_20261103_general,10600
+2026-11-03,2026,general,governor,,Turner County,Total Votes,Unknown,O,5920,oe_ga_20261103_general,10598
+2026-11-03,2026,general,governor,,Twiggs County,Ballots Cast,Unknown,O,6766,oe_ga_20261103_general,10665
+2026-11-03,2026,general,governor,,Twiggs County,Josh McLaurin (Dem),DEM,D,3264,oe_ga_20261103_general,10667
+2026-11-03,2026,general,governor,,Twiggs County,Rick Jackson (Rep),REP,R,3427,oe_ga_20261103_general,10666
+2026-11-03,2026,general,governor,,Twiggs County,Total Votes,Unknown,O,6691,oe_ga_20261103_general,10664
+2026-11-03,2026,general,governor,,Union County,Ballots Cast,Unknown,O,28854,oe_ga_20261103_general,10732
+2026-11-03,2026,general,governor,,Union County,Josh McLaurin (Dem),DEM,D,5559,oe_ga_20261103_general,10734
+2026-11-03,2026,general,governor,,Union County,Rick Jackson (Rep),REP,R,22965,oe_ga_20261103_general,10733
+2026-11-03,2026,general,governor,,Union County,Total Votes,Unknown,O,28524,oe_ga_20261103_general,10731
+2026-11-03,2026,general,governor,,Upson County,Ballots Cast,Unknown,O,19688,oe_ga_20261103_general,10803
+2026-11-03,2026,general,governor,,Upson County,Josh McLaurin (Dem),DEM,D,6692,oe_ga_20261103_general,10805
+2026-11-03,2026,general,governor,,Upson County,Rick Jackson (Rep),REP,R,12817,oe_ga_20261103_general,10804
+2026-11-03,2026,general,governor,,Upson County,Total Votes,Unknown,O,19509,oe_ga_20261103_general,10802
+2026-11-03,2026,general,governor,,Walker County,Ballots Cast,Unknown,O,43004,oe_ga_20261103_general,10869
+2026-11-03,2026,general,governor,,Walker County,Josh McLaurin (Dem),DEM,D,10717,oe_ga_20261103_general,10871
+2026-11-03,2026,general,governor,,Walker County,Rick Jackson (Rep),REP,R,31826,oe_ga_20261103_general,10870
+2026-11-03,2026,general,governor,,Walker County,Total Votes,Unknown,O,42543,oe_ga_20261103_general,10868
+2026-11-03,2026,general,governor,,Walton County,Ballots Cast,Unknown,O,89994,oe_ga_20261103_general,10941
+2026-11-03,2026,general,governor,,Walton County,Josh McLaurin (Dem),DEM,D,28764,oe_ga_20261103_general,10943
+2026-11-03,2026,general,governor,,Walton County,Rick Jackson (Rep),REP,R,60534,oe_ga_20261103_general,10942
+2026-11-03,2026,general,governor,,Walton County,Total Votes,Unknown,O,89298,oe_ga_20261103_general,10940
+2026-11-03,2026,general,governor,,Ware County,Ballots Cast,Unknown,O,20624,oe_ga_20261103_general,11021
+2026-11-03,2026,general,governor,,Ware County,Josh McLaurin (Dem),DEM,D,6684,oe_ga_20261103_general,11023
+2026-11-03,2026,general,governor,,Ware County,Rick Jackson (Rep),REP,R,13728,oe_ga_20261103_general,11022
+2026-11-03,2026,general,governor,,Ware County,Total Votes,Unknown,O,20412,oe_ga_20261103_general,11020
+2026-11-03,2026,general,governor,,Warren County,Ballots Cast,Unknown,O,4212,oe_ga_20261103_general,11095
+2026-11-03,2026,general,governor,,Warren County,Josh McLaurin (Dem),DEM,D,2287,oe_ga_20261103_general,11097
+2026-11-03,2026,general,governor,,Warren County,Rick Jackson (Rep),REP,R,1872,oe_ga_20261103_general,11096
+2026-11-03,2026,general,governor,,Warren County,Total Votes,Unknown,O,4159,oe_ga_20261103_general,11094
+2026-11-03,2026,general,governor,,Washington County,Ballots Cast,Unknown,O,16008,oe_ga_20261103_general,11163
+2026-11-03,2026,general,governor,,Washington County,Josh McLaurin (Dem),DEM,D,8109,oe_ga_20261103_general,11165
+2026-11-03,2026,general,governor,,Washington County,Rick Jackson (Rep),REP,R,7632,oe_ga_20261103_general,11164
+2026-11-03,2026,general,governor,,Washington County,Total Votes,Unknown,O,15741,oe_ga_20261103_general,11162
+2026-11-03,2026,general,governor,,Wayne County,Ballots Cast,Unknown,O,19700,oe_ga_20261103_general,11231
+2026-11-03,2026,general,governor,,Wayne County,Josh McLaurin (Dem),DEM,D,4882,oe_ga_20261103_general,11233
+2026-11-03,2026,general,governor,,Wayne County,Rick Jackson (Rep),REP,R,14671,oe_ga_20261103_general,11232
+2026-11-03,2026,general,governor,,Wayne County,Total Votes,Unknown,O,19553,oe_ga_20261103_general,11230
+2026-11-03,2026,general,governor,,Webster County,Ballots Cast,Unknown,O,2126,oe_ga_20261103_general,11303
+2026-11-03,2026,general,governor,,Webster County,Josh McLaurin (Dem),DEM,D,889,oe_ga_20261103_general,11305
+2026-11-03,2026,general,governor,,Webster County,Rick Jackson (Rep),REP,R,1208,oe_ga_20261103_general,11304
+2026-11-03,2026,general,governor,,Webster County,Total Votes,Unknown,O,2097,oe_ga_20261103_general,11302
+2026-11-03,2026,general,governor,,Wheeler County,Ballots Cast,Unknown,O,3634,oe_ga_20261103_general,11371
+2026-11-03,2026,general,governor,,Wheeler County,Josh McLaurin (Dem),DEM,D,1076,oe_ga_20261103_general,11373
+2026-11-03,2026,general,governor,,Wheeler County,Rick Jackson (Rep),REP,R,2501,oe_ga_20261103_general,11372
+2026-11-03,2026,general,governor,,Wheeler County,Total Votes,Unknown,O,3577,oe_ga_20261103_general,11370
+2026-11-03,2026,general,governor,,White County,Ballots Cast,Unknown,O,25334,oe_ga_20261103_general,11438
+2026-11-03,2026,general,governor,,White County,Josh McLaurin (Dem),DEM,D,4474,oe_ga_20261103_general,11440
+2026-11-03,2026,general,governor,,White County,Rick Jackson (Rep),REP,R,20671,oe_ga_20261103_general,11439
+2026-11-03,2026,general,governor,,White County,Total Votes,Unknown,O,25145,oe_ga_20261103_general,11437
+2026-11-03,2026,general,governor,,Whitfield County,Ballots Cast,Unknown,O,60232,oe_ga_20261103_general,11517
+2026-11-03,2026,general,governor,,Whitfield County,Josh McLaurin (Dem),DEM,D,23544,oe_ga_20261103_general,11519
+2026-11-03,2026,general,governor,,Whitfield County,Rick Jackson (Rep),REP,R,36119,oe_ga_20261103_general,11518
+2026-11-03,2026,general,governor,,Whitfield County,Total Votes,Unknown,O,59663,oe_ga_20261103_general,11516
+2026-11-03,2026,general,governor,,Wilcox County,Ballots Cast,Unknown,O,4982,oe_ga_20261103_general,11592
+2026-11-03,2026,general,governor,,Wilcox County,Josh McLaurin (Dem),DEM,D,1371,oe_ga_20261103_general,11594
+2026-11-03,2026,general,governor,,Wilcox County,Rick Jackson (Rep),REP,R,3560,oe_ga_20261103_general,11593
+2026-11-03,2026,general,governor,,Wilcox County,Total Votes,Unknown,O,4931,oe_ga_20261103_general,11591
+2026-11-03,2026,general,governor,,Wilkes County,Ballots Cast,Unknown,O,8252,oe_ga_20261103_general,11662
+2026-11-03,2026,general,governor,,Wilkes County,Josh McLaurin (Dem),DEM,D,3730,oe_ga_20261103_general,11664
+2026-11-03,2026,general,governor,,Wilkes County,Rick Jackson (Rep),REP,R,4418,oe_ga_20261103_general,11663
+2026-11-03,2026,general,governor,,Wilkes County,Total Votes,Unknown,O,8148,oe_ga_20261103_general,11661
+2026-11-03,2026,general,governor,,Wilkinson County,Ballots Cast,Unknown,O,7464,oe_ga_20261103_general,11734
+2026-11-03,2026,general,governor,,Wilkinson County,Josh McLaurin (Dem),DEM,D,3380,oe_ga_20261103_general,11736
+2026-11-03,2026,general,governor,,Wilkinson County,Rick Jackson (Rep),REP,R,3992,oe_ga_20261103_general,11735
+2026-11-03,2026,general,governor,,Wilkinson County,Total Votes,Unknown,O,7372,oe_ga_20261103_general,11733
+2026-11-03,2026,general,governor,,Worth County,Ballots Cast,Unknown,O,13676,oe_ga_20261103_general,11801
+2026-11-03,2026,general,governor,,Worth County,Josh McLaurin (Dem),DEM,D,3836,oe_ga_20261103_general,11803
+2026-11-03,2026,general,governor,,Worth County,Rick Jackson (Rep),REP,R,9680,oe_ga_20261103_general,11802
+2026-11-03,2026,general,governor,,Worth County,Total Votes,Unknown,O,13516,oe_ga_20261103_general,11800
+2026-11-03,2026,general,us_senate,,Appling County,Ballots Cast,Unknown,O,6224,oe_ga_20261103_general,1
+2026-11-03,2026,general,us_senate,,Appling County,Jon Ossoff (I) (Dem),DEM,D,1548,oe_ga_20261103_general,3
+2026-11-03,2026,general,us_senate,,Appling County,Mike Collins (Rep),REP,R,4628,oe_ga_20261103_general,2
+2026-11-03,2026,general,us_senate,,Appling County,Total Votes,Unknown,O,6176,oe_ga_20261103_general,0
+2026-11-03,2026,general,us_senate,,Atkinson County,Ballots Cast,Unknown,O,2249,oe_ga_20261103_general,73
+2026-11-03,2026,general,us_senate,,Atkinson County,Jon Ossoff (I) (Dem),DEM,D,762,oe_ga_20261103_general,75
+2026-11-03,2026,general,us_senate,,Atkinson County,Mike Collins (Rep),REP,R,1472,oe_ga_20261103_general,74
+2026-11-03,2026,general,us_senate,,Atkinson County,Total Votes,Unknown,O,2234,oe_ga_20261103_general,72
+2026-11-03,2026,general,us_senate,,Bacon County,Ballots Cast,Unknown,O,3546,oe_ga_20261103_general,140
+2026-11-03,2026,general,us_senate,,Bacon County,Jon Ossoff (I) (Dem),DEM,D,661,oe_ga_20261103_general,142
+2026-11-03,2026,general,us_senate,,Bacon County,Mike Collins (Rep),REP,R,2855,oe_ga_20261103_general,141
+2026-11-03,2026,general,us_senate,,Bacon County,Total Votes,Unknown,O,3516,oe_ga_20261103_general,139
+2026-11-03,2026,general,us_senate,,Baker County,Ballots Cast,Unknown,O,1146,oe_ga_20261103_general,208
+2026-11-03,2026,general,us_senate,,Baker County,Jon Ossoff (I) (Dem),DEM,D,516,oe_ga_20261103_general,210
+2026-11-03,2026,general,us_senate,,Baker County,Mike Collins (Rep),REP,R,623,oe_ga_20261103_general,209
+2026-11-03,2026,general,us_senate,,Baker County,Total Votes,Unknown,O,1139,oe_ga_20261103_general,207
+2026-11-03,2026,general,us_senate,,Baldwin County,Ballots Cast,Unknown,O,15205,oe_ga_20261103_general,275
+2026-11-03,2026,general,us_senate,,Baldwin County,Jon Ossoff (I) (Dem),DEM,D,8410,oe_ga_20261103_general,277
+2026-11-03,2026,general,us_senate,,Baldwin County,Mike Collins (Rep),REP,R,6660,oe_ga_20261103_general,276
+2026-11-03,2026,general,us_senate,,Baldwin County,Total Votes,Unknown,O,15070,oe_ga_20261103_general,274
+2026-11-03,2026,general,us_senate,,Banks County,Ballots Cast,Unknown,O,7336,oe_ga_20261103_general,346
+2026-11-03,2026,general,us_senate,,Banks County,Jon Ossoff (I) (Dem),DEM,D,1323,oe_ga_20261103_general,348
+2026-11-03,2026,general,us_senate,,Banks County,Mike Collins (Rep),REP,R,5927,oe_ga_20261103_general,347
+2026-11-03,2026,general,us_senate,,Banks County,Total Votes,Unknown,O,7250,oe_ga_20261103_general,345
+2026-11-03,2026,general,us_senate,,Barrow County,Ballots Cast,Unknown,O,33187,oe_ga_20261103_general,414
+2026-11-03,2026,general,us_senate,,Barrow County,Jon Ossoff (I) (Dem),DEM,D,14171,oe_ga_20261103_general,416
+2026-11-03,2026,general,us_senate,,Barrow County,Mike Collins (Rep),REP,R,18654,oe_ga_20261103_general,415
+2026-11-03,2026,general,us_senate,,Barrow County,Total Votes,Unknown,O,32825,oe_ga_20261103_general,413
+2026-11-03,2026,general,us_senate,,Bartow County,Ballots Cast,Unknown,O,42624,oe_ga_20261103_general,496
+2026-11-03,2026,general,us_senate,,Bartow County,Jon Ossoff (I) (Dem),DEM,D,14921,oe_ga_20261103_general,498
+2026-11-03,2026,general,us_senate,,Bartow County,Mike Collins (Rep),REP,R,27266,oe_ga_20261103_general,497
+2026-11-03,2026,general,us_senate,,Bartow County,Total Votes,Unknown,O,42187,oe_ga_20261103_general,495
+2026-11-03,2026,general,us_senate,,Ben Hill County,Ballots Cast,Unknown,O,4937,oe_ga_20261103_general,571
+2026-11-03,2026,general,us_senate,,Ben Hill County,Jon Ossoff (I) (Dem),DEM,D,2164,oe_ga_20261103_general,573
+2026-11-03,2026,general,us_senate,,Ben Hill County,Mike Collins (Rep),REP,R,2721,oe_ga_20261103_general,572
+2026-11-03,2026,general,us_senate,,Ben Hill County,Total Votes,Unknown,O,4885,oe_ga_20261103_general,570
+2026-11-03,2026,general,us_senate,,Berrien County,Ballots Cast,Unknown,O,5862,oe_ga_20261103_general,644
+2026-11-03,2026,general,us_senate,,Berrien County,Jon Ossoff (I) (Dem),DEM,D,1318,oe_ga_20261103_general,646
+2026-11-03,2026,general,us_senate,,Berrien County,Mike Collins (Rep),REP,R,4500,oe_ga_20261103_general,645
+2026-11-03,2026,general,us_senate,,Berrien County,Total Votes,Unknown,O,5818,oe_ga_20261103_general,643
+2026-11-03,2026,general,us_senate,,Bibb County,Ballots Cast,Unknown,O,55787,oe_ga_20261103_general,710
+2026-11-03,2026,general,us_senate,,Bibb County,Jon Ossoff (I) (Dem),DEM,D,37976,oe_ga_20261103_general,712
+2026-11-03,2026,general,us_senate,,Bibb County,Mike Collins (Rep),REP,R,17322,oe_ga_20261103_general,711
+2026-11-03,2026,general,us_senate,,Bibb County,Total Votes,Unknown,O,55298,oe_ga_20261103_general,709
+2026-11-03,2026,general,us_senate,,Bleckley County,Ballots Cast,Unknown,O,4681,oe_ga_20261103_general,802
+2026-11-03,2026,general,us_senate,,Bleckley County,Jon Ossoff (I) (Dem),DEM,D,1341,oe_ga_20261103_general,804
+2026-11-03,2026,general,us_senate,,Bleckley County,Mike Collins (Rep),REP,R,3300,oe_ga_20261103_general,803
+2026-11-03,2026,general,us_senate,,Bleckley County,Total Votes,Unknown,O,4641,oe_ga_20261103_general,801
+2026-11-03,2026,general,us_senate,,Brantley County,Ballots Cast,Unknown,O,5525,oe_ga_20261103_general,868
+2026-11-03,2026,general,us_senate,,Brantley County,Jon Ossoff (I) (Dem),DEM,D,771,oe_ga_20261103_general,870
+2026-11-03,2026,general,us_senate,,Brantley County,Mike Collins (Rep),REP,R,4718,oe_ga_20261103_general,869
+2026-11-03,2026,general,us_senate,,Brantley County,Total Votes,Unknown,O,5489,oe_ga_20261103_general,867
+2026-11-03,2026,general,us_senate,,Brooks County,Ballots Cast,Unknown,O,5499,oe_ga_20261103_general,935
+2026-11-03,2026,general,us_senate,,Brooks County,Jon Ossoff (I) (Dem),DEM,D,2366,oe_ga_20261103_general,937
+2026-11-03,2026,general,us_senate,,Brooks County,Mike Collins (Rep),REP,R,3085,oe_ga_20261103_general,936
+2026-11-03,2026,general,us_senate,,Brooks County,Total Votes,Unknown,O,5451,oe_ga_20261103_general,934
+2026-11-03,2026,general,us_senate,,Bryan County,Ballots Cast,Unknown,O,18145,oe_ga_20261103_general,1002
+2026-11-03,2026,general,us_senate,,Bryan County,Jon Ossoff (I) (Dem),DEM,D,7756,oe_ga_20261103_general,1004
+2026-11-03,2026,general,us_senate,,Bryan County,Mike Collins (Rep),REP,R,10266,oe_ga_20261103_general,1003
+2026-11-03,2026,general,us_senate,,Bryan County,Total Votes,Unknown,O,18022,oe_ga_20261103_general,1001
+2026-11-03,2026,general,us_senate,,Bulloch County,Ballots Cast,Unknown,O,24804,oe_ga_20261103_general,1081
+2026-11-03,2026,general,us_senate,,Bulloch County,Jon Ossoff (I) (Dem),DEM,D,11052,oe_ga_20261103_general,1083
+2026-11-03,2026,general,us_senate,,Bulloch County,Mike Collins (Rep),REP,R,13562,oe_ga_20261103_general,1082
+2026-11-03,2026,general,us_senate,,Bulloch County,Total Votes,Unknown,O,24614,oe_ga_20261103_general,1080
+2026-11-03,2026,general,us_senate,,Burke County,Ballots Cast,Unknown,O,8732,oe_ga_20261103_general,1153
+2026-11-03,2026,general,us_senate,,Burke County,Jon Ossoff (I) (Dem),DEM,D,4677,oe_ga_20261103_general,1155
+2026-11-03,2026,general,us_senate,,Burke County,Mike Collins (Rep),REP,R,3993,oe_ga_20261103_general,1154
+2026-11-03,2026,general,us_senate,,Burke County,Total Votes,Unknown,O,8670,oe_ga_20261103_general,1152
+2026-11-03,2026,general,us_senate,,Butts County,Ballots Cast,Unknown,O,9692,oe_ga_20261103_general,1221
+2026-11-03,2026,general,us_senate,,Butts County,Jon Ossoff (I) (Dem),DEM,D,3388,oe_ga_20261103_general,1223
+2026-11-03,2026,general,us_senate,,Butts County,Mike Collins (Rep),REP,R,6187,oe_ga_20261103_general,1222
+2026-11-03,2026,general,us_senate,,Butts County,Total Votes,Unknown,O,9575,oe_ga_20261103_general,1220
+2026-11-03,2026,general,us_senate,,Calhoun County,Ballots Cast,Unknown,O,1642,oe_ga_20261103_general,1288
+2026-11-03,2026,general,us_senate,,Calhoun County,Jon Ossoff (I) (Dem),DEM,D,1000,oe_ga_20261103_general,1290
+2026-11-03,2026,general,us_senate,,Calhoun County,Mike Collins (Rep),REP,R,636,oe_ga_20261103_general,1289
+2026-11-03,2026,general,us_senate,,Calhoun County,Total Votes,Unknown,O,1636,oe_ga_20261103_general,1287
+2026-11-03,2026,general,us_senate,,Camden County,Ballots Cast,Unknown,O,19130,oe_ga_20261103_general,1355
+2026-11-03,2026,general,us_senate,,Camden County,Jon Ossoff (I) (Dem),DEM,D,7581,oe_ga_20261103_general,1357
+2026-11-03,2026,general,us_senate,,Camden County,Mike Collins (Rep),REP,R,11434,oe_ga_20261103_general,1356
+2026-11-03,2026,general,us_senate,,Camden County,Total Votes,Unknown,O,19015,oe_ga_20261103_general,1354
+2026-11-03,2026,general,us_senate,,Candler County,Ballots Cast,Unknown,O,3420,oe_ga_20261103_general,1421
+2026-11-03,2026,general,us_senate,,Candler County,Jon Ossoff (I) (Dem),DEM,D,1176,oe_ga_20261103_general,1423
+2026-11-03,2026,general,us_senate,,Candler County,Mike Collins (Rep),REP,R,2216,oe_ga_20261103_general,1422
+2026-11-03,2026,general,us_senate,,Candler County,Total Votes,Unknown,O,3392,oe_ga_20261103_general,1420
+2026-11-03,2026,general,us_senate,,Carroll County,Ballots Cast,Unknown,O,45255,oe_ga_20261103_general,1487
+2026-11-03,2026,general,us_senate,,Carroll County,Jon Ossoff (I) (Dem),DEM,D,17808,oe_ga_20261103_general,1489
+2026-11-03,2026,general,us_senate,,Carroll County,Mike Collins (Rep),REP,R,27075,oe_ga_20261103_general,1488
+2026-11-03,2026,general,us_senate,,Carroll County,Total Votes,Unknown,O,44883,oe_ga_20261103_general,1486
+2026-11-03,2026,general,us_senate,,Catoosa County,Ballots Cast,Unknown,O,23868,oe_ga_20261103_general,1573
+2026-11-03,2026,general,us_senate,,Catoosa County,Jon Ossoff (I) (Dem),DEM,D,7513,oe_ga_20261103_general,1575
+2026-11-03,2026,general,us_senate,,Catoosa County,Mike Collins (Rep),REP,R,16202,oe_ga_20261103_general,1574
+2026-11-03,2026,general,us_senate,,Catoosa County,Total Votes,Unknown,O,23715,oe_ga_20261103_general,1572
+2026-11-03,2026,general,us_senate,,Charlton County,Ballots Cast,Unknown,O,3239,oe_ga_20261103_general,1645
+2026-11-03,2026,general,us_senate,,Charlton County,Jon Ossoff (I) (Dem),DEM,D,881,oe_ga_20261103_general,1647
+2026-11-03,2026,general,us_senate,,Charlton County,Mike Collins (Rep),REP,R,2323,oe_ga_20261103_general,1646
+2026-11-03,2026,general,us_senate,,Charlton County,Total Votes,Unknown,O,3204,oe_ga_20261103_general,1644
+2026-11-03,2026,general,us_senate,,Chatham County,Ballots Cast,Unknown,O,112536,oe_ga_20261103_general,1712
+2026-11-03,2026,general,us_senate,,Chatham County,Jon Ossoff (I) (Dem),DEM,D,75297,oe_ga_20261103_general,1714
+2026-11-03,2026,general,us_senate,,Chatham County,Mike Collins (Rep),REP,R,36616,oe_ga_20261103_general,1713
+2026-11-03,2026,general,us_senate,,Chatham County,Total Votes,Unknown,O,111913,oe_ga_20261103_general,1711
+2026-11-03,2026,general,us_senate,,Chattahoochee County,Ballots Cast,Unknown,O,1095,oe_ga_20261103_general,1803
+2026-11-03,2026,general,us_senate,,Chattahoochee County,Jon Ossoff (I) (Dem),DEM,D,575,oe_ga_20261103_general,1805
+2026-11-03,2026,general,us_senate,,Chattahoochee County,Mike Collins (Rep),REP,R,514,oe_ga_20261103_general,1804
+2026-11-03,2026,general,us_senate,,Chattahoochee County,Total Votes,Unknown,O,1089,oe_ga_20261103_general,1802
+2026-11-03,2026,general,us_senate,,Chattooga County,Ballots Cast,Unknown,O,7131,oe_ga_20261103_general,1872
+2026-11-03,2026,general,us_senate,,Chattooga County,Jon Ossoff (I) (Dem),DEM,D,1897,oe_ga_20261103_general,1874
+2026-11-03,2026,general,us_senate,,Chattooga County,Mike Collins (Rep),REP,R,5161,oe_ga_20261103_general,1873
+2026-11-03,2026,general,us_senate,,Chattooga County,Total Votes,Unknown,O,7058,oe_ga_20261103_general,1871
+2026-11-03,2026,general,us_senate,,Cherokee County,Ballots Cast,Unknown,O,127942,oe_ga_20261103_general,1940
+2026-11-03,2026,general,us_senate,,Cherokee County,Jon Ossoff (I) (Dem),DEM,D,50263,oe_ga_20261103_general,1942
+2026-11-03,2026,general,us_senate,,Cherokee County,Mike Collins (Rep),REP,R,76353,oe_ga_20261103_general,1941
+2026-11-03,2026,general,us_senate,,Cherokee County,Total Votes,Unknown,O,126616,oe_ga_20261103_general,1939
+2026-11-03,2026,general,us_senate,,Clarke County,Ballots Cast,Unknown,O,43076,oe_ga_20261103_general,2052
+2026-11-03,2026,general,us_senate,,Clarke County,Jon Ossoff (I) (Dem),DEM,D,33550,oe_ga_20261103_general,2054
+2026-11-03,2026,general,us_senate,,Clarke County,Mike Collins (Rep),REP,R,9173,oe_ga_20261103_general,2053
+2026-11-03,2026,general,us_senate,,Clarke County,Total Votes,Unknown,O,42723,oe_ga_20261103_general,2051
+2026-11-03,2026,general,us_senate,,Clay County,Ballots Cast,Unknown,O,1114,oe_ga_20261103_general,2135
+2026-11-03,2026,general,us_senate,,Clay County,Jon Ossoff (I) (Dem),DEM,D,636,oe_ga_20261103_general,2137
+2026-11-03,2026,general,us_senate,,Clay County,Mike Collins (Rep),REP,R,468,oe_ga_20261103_general,2136
+2026-11-03,2026,general,us_senate,,Clay County,Total Votes,Unknown,O,1104,oe_ga_20261103_general,2134
+2026-11-03,2026,general,us_senate,,Clayton County,Ballots Cast,Unknown,O,96561,oe_ga_20261103_general,2205
+2026-11-03,2026,general,us_senate,,Clayton County,Jon Ossoff (I) (Dem),DEM,D,87746,oe_ga_20261103_general,2207
+2026-11-03,2026,general,us_senate,,Clayton County,Mike Collins (Rep),REP,R,8131,oe_ga_20261103_general,2206
+2026-11-03,2026,general,us_senate,,Clayton County,Total Votes,Unknown,O,95877,oe_ga_20261103_general,2204
+2026-11-03,2026,general,us_senate,,Clinch County,Ballots Cast,Unknown,O,1990,oe_ga_20261103_general,2298
+2026-11-03,2026,general,us_senate,,Clinch County,Jon Ossoff (I) (Dem),DEM,D,579,oe_ga_20261103_general,2300
+2026-11-03,2026,general,us_senate,,Clinch County,Mike Collins (Rep),REP,R,1381,oe_ga_20261103_general,2299
+2026-11-03,2026,general,us_senate,,Clinch County,Total Votes,Unknown,O,1960,oe_ga_20261103_general,2297
+2026-11-03,2026,general,us_senate,,Cobb County,Ballots Cast,Unknown,O,339277,oe_ga_20261103_general,2365
+2026-11-03,2026,general,us_senate,,Cobb County,Jon Ossoff (I) (Dem),DEM,D,225517,oe_ga_20261103_general,2367
+2026-11-03,2026,general,us_senate,,Cobb County,Mike Collins (Rep),REP,R,110637,oe_ga_20261103_general,2366
+2026-11-03,2026,general,us_senate,,Cobb County,Total Votes,Unknown,O,336154,oe_ga_20261103_general,2364
+2026-11-03,2026,general,us_senate,,Coffee County,Ballots Cast,Unknown,O,11958,oe_ga_20261103_general,2512
+2026-11-03,2026,general,us_senate,,Coffee County,Jon Ossoff (I) (Dem),DEM,D,4502,oe_ga_20261103_general,2514
+2026-11-03,2026,general,us_senate,,Coffee County,Mike Collins (Rep),REP,R,7347,oe_ga_20261103_general,2513
+2026-11-03,2026,general,us_senate,,Coffee County,Total Votes,Unknown,O,11849,oe_ga_20261103_general,2511
+2026-11-03,2026,general,us_senate,,Colquitt County,Ballots Cast,Unknown,O,12511,oe_ga_20261103_general,2586
+2026-11-03,2026,general,us_senate,,Colquitt County,Jon Ossoff (I) (Dem),DEM,D,4215,oe_ga_20261103_general,2588
+2026-11-03,2026,general,us_senate,,Colquitt County,Mike Collins (Rep),REP,R,8210,oe_ga_20261103_general,2587
+2026-11-03,2026,general,us_senate,,Colquitt County,Total Votes,Unknown,O,12425,oe_ga_20261103_general,2585
+2026-11-03,2026,general,us_senate,,Columbia County,Ballots Cast,Unknown,O,68016,oe_ga_20261103_general,2652
+2026-11-03,2026,general,us_senate,,Columbia County,Jon Ossoff (I) (Dem),DEM,D,31415,oe_ga_20261103_general,2654
+2026-11-03,2026,general,us_senate,,Columbia County,Mike Collins (Rep),REP,R,36203,oe_ga_20261103_general,2653
+2026-11-03,2026,general,us_senate,,Columbia County,Total Votes,Unknown,O,67618,oe_ga_20261103_general,2651
+2026-11-03,2026,general,us_senate,,Cook County,Ballots Cast,Unknown,O,5502,oe_ga_20261103_general,2739
+2026-11-03,2026,general,us_senate,,Cook County,Jon Ossoff (I) (Dem),DEM,D,1959,oe_ga_20261103_general,2741
+2026-11-03,2026,general,us_senate,,Cook County,Mike Collins (Rep),REP,R,3498,oe_ga_20261103_general,2740
+2026-11-03,2026,general,us_senate,,Cook County,Total Votes,Unknown,O,5457,oe_ga_20261103_general,2738
+2026-11-03,2026,general,us_senate,,Coweta County,Ballots Cast,Unknown,O,67374,oe_ga_20261103_general,2808
+2026-11-03,2026,general,us_senate,,Coweta County,Jon Ossoff (I) (Dem),DEM,D,28101,oe_ga_20261103_general,2810
+2026-11-03,2026,general,us_senate,,Coweta County,Mike Collins (Rep),REP,R,38636,oe_ga_20261103_general,2809
+2026-11-03,2026,general,us_senate,,Coweta County,Total Votes,Unknown,O,66737,oe_ga_20261103_general,2807
+2026-11-03,2026,general,us_senate,,Crawford County,Ballots Cast,Unknown,O,4701,oe_ga_20261103_general,2891
+2026-11-03,2026,general,us_senate,,Crawford County,Jon Ossoff (I) (Dem),DEM,D,1491,oe_ga_20261103_general,2893
+2026-11-03,2026,general,us_senate,,Crawford County,Mike Collins (Rep),REP,R,3166,oe_ga_20261103_general,2892
+2026-11-03,2026,general,us_senate,,Crawford County,Total Votes,Unknown,O,4657,oe_ga_20261103_general,2890
+2026-11-03,2026,general,us_senate,,Crisp County,Ballots Cast,Unknown,O,6360,oe_ga_20261103_general,2957
+2026-11-03,2026,general,us_senate,,Crisp County,Jon Ossoff (I) (Dem),DEM,D,2669,oe_ga_20261103_general,2959
+2026-11-03,2026,general,us_senate,,Crisp County,Mike Collins (Rep),REP,R,3623,oe_ga_20261103_general,2958
+2026-11-03,2026,general,us_senate,,Crisp County,Total Votes,Unknown,O,6292,oe_ga_20261103_general,2956
+2026-11-03,2026,general,us_senate,,Dade County,Ballots Cast,Unknown,O,5446,oe_ga_20261103_general,3027
+2026-11-03,2026,general,us_senate,,Dade County,Jon Ossoff (I) (Dem),DEM,D,1385,oe_ga_20261103_general,3029
+2026-11-03,2026,general,us_senate,,Dade County,Mike Collins (Rep),REP,R,4004,oe_ga_20261103_general,3028
+2026-11-03,2026,general,us_senate,,Dade County,Total Votes,Unknown,O,5389,oe_ga_20261103_general,3026
+2026-11-03,2026,general,us_senate,,Dawson County,Ballots Cast,Unknown,O,14551,oe_ga_20261103_general,3095
+2026-11-03,2026,general,us_senate,,Dawson County,Jon Ossoff (I) (Dem),DEM,D,3620,oe_ga_20261103_general,3097
+2026-11-03,2026,general,us_senate,,Dawson County,Mike Collins (Rep),REP,R,10754,oe_ga_20261103_general,3096
+2026-11-03,2026,general,us_senate,,Dawson County,Total Votes,Unknown,O,14374,oe_ga_20261103_general,3094
+2026-11-03,2026,general,us_senate,,Decatur County,Ballots Cast,Unknown,O,8552,oe_ga_20261103_general,3169
+2026-11-03,2026,general,us_senate,,Decatur County,Jon Ossoff (I) (Dem),DEM,D,3842,oe_ga_20261103_general,3171
+2026-11-03,2026,general,us_senate,,Decatur County,Mike Collins (Rep),REP,R,4638,oe_ga_20261103_general,3170
+2026-11-03,2026,general,us_senate,,Decatur County,Total Votes,Unknown,O,8480,oe_ga_20261103_general,3168
+2026-11-03,2026,general,us_senate,,Dekalb County,Ballots Cast,Unknown,O,324529,oe_ga_20261103_general,3235
+2026-11-03,2026,general,us_senate,,Dekalb County,Jon Ossoff (I) (Dem),DEM,D,285794,oe_ga_20261103_general,3237
+2026-11-03,2026,general,us_senate,,Dekalb County,Mike Collins (Rep),REP,R,36280,oe_ga_20261103_general,3236
+2026-11-03,2026,general,us_senate,,Dekalb County,Total Votes,Unknown,O,322074,oe_ga_20261103_general,3234
+2026-11-03,2026,general,us_senate,,Dodge County,Ballots Cast,Unknown,O,6299,oe_ga_20261103_general,3387
+2026-11-03,2026,general,us_senate,,Dodge County,Jon Ossoff (I) (Dem),DEM,D,2003,oe_ga_20261103_general,3389
+2026-11-03,2026,general,us_senate,,Dodge County,Mike Collins (Rep),REP,R,4246,oe_ga_20261103_general,3388
+2026-11-03,2026,general,us_senate,,Dodge County,Total Votes,Unknown,O,6249,oe_ga_20261103_general,3386
+2026-11-03,2026,general,us_senate,,Dooly County,Ballots Cast,Unknown,O,3335,oe_ga_20261103_general,3453
+2026-11-03,2026,general,us_senate,,Dooly County,Jon Ossoff (I) (Dem),DEM,D,1704,oe_ga_20261103_general,3455
+2026-11-03,2026,general,us_senate,,Dooly County,Mike Collins (Rep),REP,R,1600,oe_ga_20261103_general,3454
+2026-11-03,2026,general,us_senate,,Dooly County,Total Votes,Unknown,O,3304,oe_ga_20261103_general,3452
+2026-11-03,2026,general,us_senate,,Dougherty County,Ballots Cast,Unknown,O,27423,oe_ga_20261103_general,3523
+2026-11-03,2026,general,us_senate,,Dougherty County,Jon Ossoff (I) (Dem),DEM,D,20845,oe_ga_20261103_general,3525
+2026-11-03,2026,general,us_senate,,Dougherty County,Mike Collins (Rep),REP,R,6402,oe_ga_20261103_general,3524
+2026-11-03,2026,general,us_senate,,Dougherty County,Total Votes,Unknown,O,27247,oe_ga_20261103_general,3522
+2026-11-03,2026,general,us_senate,,Douglas County,Ballots Cast,Unknown,O,59834,oe_ga_20261103_general,3602
+2026-11-03,2026,general,us_senate,,Douglas County,Jon Ossoff (I) (Dem),DEM,D,45500,oe_ga_20261103_general,3604
+2026-11-03,2026,general,us_senate,,Douglas County,Mike Collins (Rep),REP,R,13936,oe_ga_20261103_general,3603
+2026-11-03,2026,general,us_senate,,Douglas County,Total Votes,Unknown,O,59436,oe_ga_20261103_general,3601
+2026-11-03,2026,general,us_senate,,Early County,Ballots Cast,Unknown,O,3623,oe_ga_20261103_general,3684
+2026-11-03,2026,general,us_senate,,Early County,Jon Ossoff (I) (Dem),DEM,D,1735,oe_ga_20261103_general,3686
+2026-11-03,2026,general,us_senate,,Early County,Mike Collins (Rep),REP,R,1850,oe_ga_20261103_general,3685
+2026-11-03,2026,general,us_senate,,Early County,Total Votes,Unknown,O,3585,oe_ga_20261103_general,3683
+2026-11-03,2026,general,us_senate,,Echols County,Ballots Cast,Unknown,O,950,oe_ga_20261103_general,3754
+2026-11-03,2026,general,us_senate,,Echols County,Jon Ossoff (I) (Dem),DEM,D,158,oe_ga_20261103_general,3756
+2026-11-03,2026,general,us_senate,,Echols County,Mike Collins (Rep),REP,R,787,oe_ga_20261103_general,3755
+2026-11-03,2026,general,us_senate,,Echols County,Total Votes,Unknown,O,945,oe_ga_20261103_general,3753
+2026-11-03,2026,general,us_senate,,Effingham County,Ballots Cast,Unknown,O,25640,oe_ga_20261103_general,3821
+2026-11-03,2026,general,us_senate,,Effingham County,Jon Ossoff (I) (Dem),DEM,D,8948,oe_ga_20261103_general,3823
+2026-11-03,2026,general,us_senate,,Effingham County,Mike Collins (Rep),REP,R,16487,oe_ga_20261103_general,3822
+2026-11-03,2026,general,us_senate,,Effingham County,Total Votes,Unknown,O,25435,oe_ga_20261103_general,3820
+2026-11-03,2026,general,us_senate,,Elbert County,Ballots Cast,Unknown,O,7118,oe_ga_20261103_general,3895
+2026-11-03,2026,general,us_senate,,Elbert County,Jon Ossoff (I) (Dem),DEM,D,2496,oe_ga_20261103_general,3897
+2026-11-03,2026,general,us_senate,,Elbert County,Mike Collins (Rep),REP,R,4554,oe_ga_20261103_general,3896
+2026-11-03,2026,general,us_senate,,Elbert County,Total Votes,Unknown,O,7050,oe_ga_20261103_general,3894
+2026-11-03,2026,general,us_senate,,Emanuel County,Ballots Cast,Unknown,O,7364,oe_ga_20261103_general,3963
+2026-11-03,2026,general,us_senate,,Emanuel County,Jon Ossoff (I) (Dem),DEM,D,2525,oe_ga_20261103_general,3965
+2026-11-03,2026,general,us_senate,,Emanuel County,Mike Collins (Rep),REP,R,4774,oe_ga_20261103_general,3964
+2026-11-03,2026,general,us_senate,,Emanuel County,Total Votes,Unknown,O,7299,oe_ga_20261103_general,3962
+2026-11-03,2026,general,us_senate,,Evans County,Ballots Cast,Unknown,O,3143,oe_ga_20261103_general,4030
+2026-11-03,2026,general,us_senate,,Evans County,Jon Ossoff (I) (Dem),DEM,D,1110,oe_ga_20261103_general,4032
+2026-11-03,2026,general,us_senate,,Evans County,Mike Collins (Rep),REP,R,2002,oe_ga_20261103_general,4031
+2026-11-03,2026,general,us_senate,,Evans County,Total Votes,Unknown,O,3112,oe_ga_20261103_general,4029
+2026-11-03,2026,general,us_senate,,Fannin County,Ballots Cast,Unknown,O,11730,oe_ga_20261103_general,4101
+2026-11-03,2026,general,us_senate,,Fannin County,Jon Ossoff (I) (Dem),DEM,D,2781,oe_ga_20261103_general,4103
+2026-11-03,2026,general,us_senate,,Fannin County,Mike Collins (Rep),REP,R,8825,oe_ga_20261103_general,4102
+2026-11-03,2026,general,us_senate,,Fannin County,Total Votes,Unknown,O,11606,oe_ga_20261103_general,4100
+2026-11-03,2026,general,us_senate,,Fayette County,Ballots Cast,Unknown,O,62770,oe_ga_20261103_general,4168
+2026-11-03,2026,general,us_senate,,Fayette County,Jon Ossoff (I) (Dem),DEM,D,35435,oe_ga_20261103_general,4170
+2026-11-03,2026,general,us_senate,,Fayette County,Mike Collins (Rep),REP,R,26824,oe_ga_20261103_general,4169
+2026-11-03,2026,general,us_senate,,Fayette County,Total Votes,Unknown,O,62259,oe_ga_20261103_general,4167
+2026-11-03,2026,general,us_senate,,Floyd County,Ballots Cast,Unknown,O,32544,oe_ga_20261103_general,4253
+2026-11-03,2026,general,us_senate,,Floyd County,Jon Ossoff (I) (Dem),DEM,D,12837,oe_ga_20261103_general,4255
+2026-11-03,2026,general,us_senate,,Floyd County,Mike Collins (Rep),REP,R,19420,oe_ga_20261103_general,4254
+2026-11-03,2026,general,us_senate,,Floyd County,Total Votes,Unknown,O,32257,oe_ga_20261103_general,4252
+2026-11-03,2026,general,us_senate,,Forsyth County,Ballots Cast,Unknown,O,108027,oe_ga_20261103_general,4332
+2026-11-03,2026,general,us_senate,,Forsyth County,Jon Ossoff (I) (Dem),DEM,D,47495,oe_ga_20261103_general,4334
+2026-11-03,2026,general,us_senate,,Forsyth County,Mike Collins (Rep),REP,R,59620,oe_ga_20261103_general,4333
+2026-11-03,2026,general,us_senate,,Forsyth County,Total Votes,Unknown,O,107115,oe_ga_20261103_general,4331
+2026-11-03,2026,general,us_senate,,Franklin County,Ballots Cast,Unknown,O,8556,oe_ga_20261103_general,4424
+2026-11-03,2026,general,us_senate,,Franklin County,Jon Ossoff (I) (Dem),DEM,D,1651,oe_ga_20261103_general,4426
+2026-11-03,2026,general,us_senate,,Franklin County,Mike Collins (Rep),REP,R,6840,oe_ga_20261103_general,4425
+2026-11-03,2026,general,us_senate,,Franklin County,Total Votes,Unknown,O,8491,oe_ga_20261103_general,4423
+2026-11-03,2026,general,us_senate,,Fulton County,Ballots Cast,Unknown,O,461279,oe_ga_20261103_general,4491
+2026-11-03,2026,general,us_senate,,Fulton County,Jon Ossoff (I) (Dem),DEM,D,364474,oe_ga_20261103_general,4493
+2026-11-03,2026,general,us_senate,,Fulton County,Mike Collins (Rep),REP,R,93200,oe_ga_20261103_general,4492
+2026-11-03,2026,general,us_senate,,Fulton County,Total Votes,Unknown,O,457674,oe_ga_20261103_general,4490
+2026-11-03,2026,general,us_senate,,Gilmer County,Ballots Cast,Unknown,O,14134,oe_ga_20261103_general,4674
+2026-11-03,2026,general,us_senate,,Gilmer County,Jon Ossoff (I) (Dem),DEM,D,3640,oe_ga_20261103_general,4676
+2026-11-03,2026,general,us_senate,,Gilmer County,Mike Collins (Rep),REP,R,10343,oe_ga_20261103_general,4675
+2026-11-03,2026,general,us_senate,,Gilmer County,Total Votes,Unknown,O,13983,oe_ga_20261103_general,4673
+2026-11-03,2026,general,us_senate,,Glascock County,Ballots Cast,Unknown,O,1226,oe_ga_20261103_general,4741
+2026-11-03,2026,general,us_senate,,Glascock County,Jon Ossoff (I) (Dem),DEM,D,149,oe_ga_20261103_general,4743
+2026-11-03,2026,general,us_senate,,Glascock County,Mike Collins (Rep),REP,R,1066,oe_ga_20261103_general,4742
+2026-11-03,2026,general,us_senate,,Glascock County,Total Votes,Unknown,O,1215,oe_ga_20261103_general,4740
+2026-11-03,2026,general,us_senate,,Glynn County,Ballots Cast,Unknown,O,33731,oe_ga_20261103_general,4809
+2026-11-03,2026,general,us_senate,,Glynn County,Jon Ossoff (I) (Dem),DEM,D,14694,oe_ga_20261103_general,4811
+2026-11-03,2026,general,us_senate,,Glynn County,Mike Collins (Rep),REP,R,18789,oe_ga_20261103_general,4810
+2026-11-03,2026,general,us_senate,,Glynn County,Total Votes,Unknown,O,33483,oe_ga_20261103_general,4808
+2026-11-03,2026,general,us_senate,,Gordon County,Ballots Cast,Unknown,O,19053,oe_ga_20261103_general,4882
+2026-11-03,2026,general,us_senate,,Gordon County,Jon Ossoff (I) (Dem),DEM,D,5589,oe_ga_20261103_general,4884
+2026-11-03,2026,general,us_senate,,Gordon County,Mike Collins (Rep),REP,R,13294,oe_ga_20261103_general,4883
+2026-11-03,2026,general,us_senate,,Gordon County,Total Votes,Unknown,O,18883,oe_ga_20261103_general,4881
+2026-11-03,2026,general,us_senate,,Grady County,Ballots Cast,Unknown,O,8058,oe_ga_20261103_general,4956
+2026-11-03,2026,general,us_senate,,Grady County,Jon Ossoff (I) (Dem),DEM,D,3068,oe_ga_20261103_general,4958
+2026-11-03,2026,general,us_senate,,Grady County,Mike Collins (Rep),REP,R,4919,oe_ga_20261103_general,4957
+2026-11-03,2026,general,us_senate,,Grady County,Total Votes,Unknown,O,7987,oe_ga_20261103_general,4955
+2026-11-03,2026,general,us_senate,,Greene County,Ballots Cast,Unknown,O,11283,oe_ga_20261103_general,5026
+2026-11-03,2026,general,us_senate,,Greene County,Jon Ossoff (I) (Dem),DEM,D,4348,oe_ga_20261103_general,5028
+2026-11-03,2026,general,us_senate,,Greene County,Mike Collins (Rep),REP,R,6814,oe_ga_20261103_general,5027
+2026-11-03,2026,general,us_senate,,Greene County,Total Votes,Unknown,O,11162,oe_ga_20261103_general,5025
+2026-11-03,2026,general,us_senate,,Gwinnett County,Ballots Cast,Unknown,O,347060,oe_ga_20261103_general,5094
+2026-11-03,2026,general,us_senate,,Gwinnett County,Jon Ossoff (I) (Dem),DEM,D,245347,oe_ga_20261103_general,5096
+2026-11-03,2026,general,us_senate,,Gwinnett County,Mike Collins (Rep),REP,R,98761,oe_ga_20261103_general,5095
+2026-11-03,2026,general,us_senate,,Gwinnett County,Total Votes,Unknown,O,344108,oe_ga_20261103_general,5093
+2026-11-03,2026,general,us_senate,,Habersham County,Ballots Cast,Unknown,O,17596,oe_ga_20261103_general,5280
+2026-11-03,2026,general,us_senate,,Habersham County,Jon Ossoff (I) (Dem),DEM,D,4471,oe_ga_20261103_general,5282
+2026-11-03,2026,general,us_senate,,Habersham County,Mike Collins (Rep),REP,R,12949,oe_ga_20261103_general,5281
+2026-11-03,2026,general,us_senate,,Habersham County,Total Votes,Unknown,O,17420,oe_ga_20261103_general,5279
+2026-11-03,2026,general,us_senate,,Hall County,Ballots Cast,Unknown,O,79484,oe_ga_20261103_general,5352
+2026-11-03,2026,general,us_senate,,Hall County,Jon Ossoff (I) (Dem),DEM,D,31011,oe_ga_20261103_general,5354
+2026-11-03,2026,general,us_senate,,Hall County,Mike Collins (Rep),REP,R,47592,oe_ga_20261103_general,5353
+2026-11-03,2026,general,us_senate,,Hall County,Total Votes,Unknown,O,78603,oe_ga_20261103_general,5351
+2026-11-03,2026,general,us_senate,,Hancock County,Ballots Cast,Unknown,O,3430,oe_ga_20261103_general,5454
+2026-11-03,2026,general,us_senate,,Hancock County,Jon Ossoff (I) (Dem),DEM,D,2420,oe_ga_20261103_general,5456
+2026-11-03,2026,general,us_senate,,Hancock County,Mike Collins (Rep),REP,R,975,oe_ga_20261103_general,5455
+2026-11-03,2026,general,us_senate,,Hancock County,Total Votes,Unknown,O,3395,oe_ga_20261103_general,5453
+2026-11-03,2026,general,us_senate,,Haralson County,Ballots Cast,Unknown,O,11407,oe_ga_20261103_general,5522
+2026-11-03,2026,general,us_senate,,Haralson County,Jon Ossoff (I) (Dem),DEM,D,2216,oe_ga_20261103_general,5524
+2026-11-03,2026,general,us_senate,,Haralson County,Mike Collins (Rep),REP,R,9098,oe_ga_20261103_general,5523
+2026-11-03,2026,general,us_senate,,Haralson County,Total Votes,Unknown,O,11314,oe_ga_20261103_general,5521
+2026-11-03,2026,general,us_senate,,Harris County,Ballots Cast,Unknown,O,17278,oe_ga_20261103_general,5590
+2026-11-03,2026,general,us_senate,,Harris County,Jon Ossoff (I) (Dem),DEM,D,5871,oe_ga_20261103_general,5592
+2026-11-03,2026,general,us_senate,,Harris County,Mike Collins (Rep),REP,R,11311,oe_ga_20261103_general,5591
+2026-11-03,2026,general,us_senate,,Harris County,Total Votes,Unknown,O,17182,oe_ga_20261103_general,5589
+2026-11-03,2026,general,us_senate,,Hart County,Ballots Cast,Unknown,O,10891,oe_ga_20261103_general,5662
+2026-11-03,2026,general,us_senate,,Hart County,Jon Ossoff (I) (Dem),DEM,D,3071,oe_ga_20261103_general,5664
+2026-11-03,2026,general,us_senate,,Hart County,Mike Collins (Rep),REP,R,7708,oe_ga_20261103_general,5663
+2026-11-03,2026,general,us_senate,,Hart County,Total Votes,Unknown,O,10779,oe_ga_20261103_general,5661
+2026-11-03,2026,general,us_senate,,Heard County,Ballots Cast,Unknown,O,4450,oe_ga_20261103_general,5729
+2026-11-03,2026,general,us_senate,,Heard County,Jon Ossoff (I) (Dem),DEM,D,925,oe_ga_20261103_general,5731
+2026-11-03,2026,general,us_senate,,Heard County,Mike Collins (Rep),REP,R,3484,oe_ga_20261103_general,5730
+2026-11-03,2026,general,us_senate,,Heard County,Total Votes,Unknown,O,4409,oe_ga_20261103_general,5728
+2026-11-03,2026,general,us_senate,,Henry County,Ballots Cast,Unknown,O,110382,oe_ga_20261103_general,5799
+2026-11-03,2026,general,us_senate,,Henry County,Jon Ossoff (I) (Dem),DEM,D,83523,oe_ga_20261103_general,5801
+2026-11-03,2026,general,us_senate,,Henry County,Mike Collins (Rep),REP,R,26108,oe_ga_20261103_general,5800
+2026-11-03,2026,general,us_senate,,Henry County,Total Votes,Unknown,O,109631,oe_ga_20261103_general,5798
+2026-11-03,2026,general,us_senate,,Houston County,Ballots Cast,Unknown,O,65310,oe_ga_20261103_general,5902
+2026-11-03,2026,general,us_senate,,Houston County,Jon Ossoff (I) (Dem),DEM,D,35328,oe_ga_20261103_general,5904
+2026-11-03,2026,general,us_senate,,Houston County,Mike Collins (Rep),REP,R,29590,oe_ga_20261103_general,5903
+2026-11-03,2026,general,us_senate,,Houston County,Total Votes,Unknown,O,64918,oe_ga_20261103_general,5901
+2026-11-03,2026,general,us_senate,,Irwin County,Ballots Cast,Unknown,O,3310,oe_ga_20261103_general,5990
+2026-11-03,2026,general,us_senate,,Irwin County,Jon Ossoff (I) (Dem),DEM,D,975,oe_ga_20261103_general,5992
+2026-11-03,2026,general,us_senate,,Irwin County,Mike Collins (Rep),REP,R,2297,oe_ga_20261103_general,5991
+2026-11-03,2026,general,us_senate,,Irwin County,Total Votes,Unknown,O,3272,oe_ga_20261103_general,5989
+2026-11-03,2026,general,us_senate,,Jackson County,Ballots Cast,Unknown,O,36239,oe_ga_20261103_general,6056
+2026-11-03,2026,general,us_senate,,Jackson County,Jon Ossoff (I) (Dem),DEM,D,11780,oe_ga_20261103_general,6058
+2026-11-03,2026,general,us_senate,,Jackson County,Mike Collins (Rep),REP,R,24096,oe_ga_20261103_general,6057
+2026-11-03,2026,general,us_senate,,Jackson County,Total Votes,Unknown,O,35876,oe_ga_20261103_general,6055
+2026-11-03,2026,general,us_senate,,Jasper County,Ballots Cast,Unknown,O,6927,oe_ga_20261103_general,6138
+2026-11-03,2026,general,us_senate,,Jasper County,Jon Ossoff (I) (Dem),DEM,D,1864,oe_ga_20261103_general,6140
+2026-11-03,2026,general,us_senate,,Jasper County,Mike Collins (Rep),REP,R,5001,oe_ga_20261103_general,6139
+2026-11-03,2026,general,us_senate,,Jasper County,Total Votes,Unknown,O,6865,oe_ga_20261103_general,6137
+2026-11-03,2026,general,us_senate,,Jeff Davis County,Ballots Cast,Unknown,O,4180,oe_ga_20261103_general,6204
+2026-11-03,2026,general,us_senate,,Jeff Davis County,Jon Ossoff (I) (Dem),DEM,D,1013,oe_ga_20261103_general,6206
+2026-11-03,2026,general,us_senate,,Jeff Davis County,Mike Collins (Rep),REP,R,3114,oe_ga_20261103_general,6205
+2026-11-03,2026,general,us_senate,,Jeff Davis County,Total Votes,Unknown,O,4127,oe_ga_20261103_general,6203
+2026-11-03,2026,general,us_senate,,Jefferson County,Ballots Cast,Unknown,O,6035,oe_ga_20261103_general,6272
+2026-11-03,2026,general,us_senate,,Jefferson County,Jon Ossoff (I) (Dem),DEM,D,3287,oe_ga_20261103_general,6274
+2026-11-03,2026,general,us_senate,,Jefferson County,Mike Collins (Rep),REP,R,2672,oe_ga_20261103_general,6273
+2026-11-03,2026,general,us_senate,,Jefferson County,Total Votes,Unknown,O,5959,oe_ga_20261103_general,6271
+2026-11-03,2026,general,us_senate,,Jenkins County,Ballots Cast,Unknown,O,2549,oe_ga_20261103_general,6339
+2026-11-03,2026,general,us_senate,,Jenkins County,Jon Ossoff (I) (Dem),DEM,D,1058,oe_ga_20261103_general,6341
+2026-11-03,2026,general,us_senate,,Jenkins County,Mike Collins (Rep),REP,R,1441,oe_ga_20261103_general,6340
+2026-11-03,2026,general,us_senate,,Jenkins County,Total Votes,Unknown,O,2499,oe_ga_20261103_general,6338
+2026-11-03,2026,general,us_senate,,Johnson County,Ballots Cast,Unknown,O,3072,oe_ga_20261103_general,6407
+2026-11-03,2026,general,us_senate,,Johnson County,Jon Ossoff (I) (Dem),DEM,D,949,oe_ga_20261103_general,6409
+2026-11-03,2026,general,us_senate,,Johnson County,Mike Collins (Rep),REP,R,2107,oe_ga_20261103_general,6408
+2026-11-03,2026,general,us_senate,,Johnson County,Total Votes,Unknown,O,3056,oe_ga_20261103_general,6406
+2026-11-03,2026,general,us_senate,,Jones County,Ballots Cast,Unknown,O,12045,oe_ga_20261103_general,6475
+2026-11-03,2026,general,us_senate,,Jones County,Jon Ossoff (I) (Dem),DEM,D,4750,oe_ga_20261103_general,6477
+2026-11-03,2026,general,us_senate,,Jones County,Mike Collins (Rep),REP,R,7201,oe_ga_20261103_general,6476
+2026-11-03,2026,general,us_senate,,Jones County,Total Votes,Unknown,O,11951,oe_ga_20261103_general,6474
+2026-11-03,2026,general,us_senate,,Lamar County,Ballots Cast,Unknown,O,7931,oe_ga_20261103_general,6545
+2026-11-03,2026,general,us_senate,,Lamar County,Jon Ossoff (I) (Dem),DEM,D,2730,oe_ga_20261103_general,6547
+2026-11-03,2026,general,us_senate,,Lamar County,Mike Collins (Rep),REP,R,5116,oe_ga_20261103_general,6546
+2026-11-03,2026,general,us_senate,,Lamar County,Total Votes,Unknown,O,7846,oe_ga_20261103_general,6544
+2026-11-03,2026,general,us_senate,,Lanier County,Ballots Cast,Unknown,O,2677,oe_ga_20261103_general,6615
+2026-11-03,2026,general,us_senate,,Lanier County,Jon Ossoff (I) (Dem),DEM,D,933,oe_ga_20261103_general,6617
+2026-11-03,2026,general,us_senate,,Lanier County,Mike Collins (Rep),REP,R,1721,oe_ga_20261103_general,6616
+2026-11-03,2026,general,us_senate,,Lanier County,Total Votes,Unknown,O,2654,oe_ga_20261103_general,6614
+2026-11-03,2026,general,us_senate,,Laurens County,Ballots Cast,Unknown,O,18231,oe_ga_20261103_general,6682
+2026-11-03,2026,general,us_senate,,Laurens County,Jon Ossoff (I) (Dem),DEM,D,7333,oe_ga_20261103_general,6684
+2026-11-03,2026,general,us_senate,,Laurens County,Mike Collins (Rep),REP,R,10751,oe_ga_20261103_general,6683
+2026-11-03,2026,general,us_senate,,Laurens County,Total Votes,Unknown,O,18084,oe_ga_20261103_general,6681
+2026-11-03,2026,general,us_senate,,Lee County,Ballots Cast,Unknown,O,13358,oe_ga_20261103_general,6749
+2026-11-03,2026,general,us_senate,,Lee County,Jon Ossoff (I) (Dem),DEM,D,4962,oe_ga_20261103_general,6751
+2026-11-03,2026,general,us_senate,,Lee County,Mike Collins (Rep),REP,R,8319,oe_ga_20261103_general,6750
+2026-11-03,2026,general,us_senate,,Lee County,Total Votes,Unknown,O,13281,oe_ga_20261103_general,6748
+2026-11-03,2026,general,us_senate,,Liberty County,Ballots Cast,Unknown,O,17050,oe_ga_20261103_general,6816
+2026-11-03,2026,general,us_senate,,Liberty County,Jon Ossoff (I) (Dem),DEM,D,11800,oe_ga_20261103_general,6818
+2026-11-03,2026,general,us_senate,,Liberty County,Mike Collins (Rep),REP,R,5122,oe_ga_20261103_general,6817
+2026-11-03,2026,general,us_senate,,Liberty County,Total Votes,Unknown,O,16922,oe_ga_20261103_general,6815
+2026-11-03,2026,general,us_senate,,Lincoln County,Ballots Cast,Unknown,O,3897,oe_ga_20261103_general,6892
+2026-11-03,2026,general,us_senate,,Lincoln County,Jon Ossoff (I) (Dem),DEM,D,1278,oe_ga_20261103_general,6894
+2026-11-03,2026,general,us_senate,,Lincoln County,Mike Collins (Rep),REP,R,2581,oe_ga_20261103_general,6893
+2026-11-03,2026,general,us_senate,,Lincoln County,Total Votes,Unknown,O,3859,oe_ga_20261103_general,6891
+2026-11-03,2026,general,us_senate,,Long County,Ballots Cast,Unknown,O,5011,oe_ga_20261103_general,6960
+2026-11-03,2026,general,us_senate,,Long County,Jon Ossoff (I) (Dem),DEM,D,2453,oe_ga_20261103_general,6962
+2026-11-03,2026,general,us_senate,,Long County,Mike Collins (Rep),REP,R,2520,oe_ga_20261103_general,6961
+2026-11-03,2026,general,us_senate,,Long County,Total Votes,Unknown,O,4973,oe_ga_20261103_general,6959
+2026-11-03,2026,general,us_senate,,Lowndes County,Ballots Cast,Unknown,O,35860,oe_ga_20261103_general,7032
+2026-11-03,2026,general,us_senate,,Lowndes County,Jon Ossoff (I) (Dem),DEM,D,17864,oe_ga_20261103_general,7034
+2026-11-03,2026,general,us_senate,,Lowndes County,Mike Collins (Rep),REP,R,17767,oe_ga_20261103_general,7033
+2026-11-03,2026,general,us_senate,,Lowndes County,Total Votes,Unknown,O,35631,oe_ga_20261103_general,7031
+2026-11-03,2026,general,us_senate,,Lumpkin County,Ballots Cast,Unknown,O,13048,oe_ga_20261103_general,7110
+2026-11-03,2026,general,us_senate,,Lumpkin County,Jon Ossoff (I) (Dem),DEM,D,3429,oe_ga_20261103_general,7112
+2026-11-03,2026,general,us_senate,,Lumpkin County,Mike Collins (Rep),REP,R,9456,oe_ga_20261103_general,7111
+2026-11-03,2026,general,us_senate,,Lumpkin County,Total Votes,Unknown,O,12885,oe_ga_20261103_general,7109
+2026-11-03,2026,general,us_senate,,Macon County,Ballots Cast,Unknown,O,3771,oe_ga_20261103_general,7185
+2026-11-03,2026,general,us_senate,,Macon County,Jon Ossoff (I) (Dem),DEM,D,2388,oe_ga_20261103_general,7187
+2026-11-03,2026,general,us_senate,,Macon County,Mike Collins (Rep),REP,R,1342,oe_ga_20261103_general,7186
+2026-11-03,2026,general,us_senate,,Macon County,Total Votes,Unknown,O,3730,oe_ga_20261103_general,7184
+2026-11-03,2026,general,us_senate,,Madison County,Ballots Cast,Unknown,O,12590,oe_ga_20261103_general,7253
+2026-11-03,2026,general,us_senate,,Madison County,Jon Ossoff (I) (Dem),DEM,D,3947,oe_ga_20261103_general,7255
+2026-11-03,2026,general,us_senate,,Madison County,Mike Collins (Rep),REP,R,8495,oe_ga_20261103_general,7254
+2026-11-03,2026,general,us_senate,,Madison County,Total Votes,Unknown,O,12442,oe_ga_20261103_general,7252
+2026-11-03,2026,general,us_senate,,Marion County,Ballots Cast,Unknown,O,2783,oe_ga_20261103_general,7323
+2026-11-03,2026,general,us_senate,,Marion County,Jon Ossoff (I) (Dem),DEM,D,1194,oe_ga_20261103_general,7325
+2026-11-03,2026,general,us_senate,,Marion County,Mike Collins (Rep),REP,R,1558,oe_ga_20261103_general,7324
+2026-11-03,2026,general,us_senate,,Marion County,Total Votes,Unknown,O,2752,oe_ga_20261103_general,7322
+2026-11-03,2026,general,us_senate,,Mcduffie County,Ballots Cast,Unknown,O,8334,oe_ga_20261103_general,7392
+2026-11-03,2026,general,us_senate,,Mcduffie County,Jon Ossoff (I) (Dem),DEM,D,3754,oe_ga_20261103_general,7394
+2026-11-03,2026,general,us_senate,,Mcduffie County,Mike Collins (Rep),REP,R,4517,oe_ga_20261103_general,7393
+2026-11-03,2026,general,us_senate,,Mcduffie County,Total Votes,Unknown,O,8271,oe_ga_20261103_general,7391
+2026-11-03,2026,general,us_senate,,Mcintosh County,Ballots Cast,Unknown,O,5757,oe_ga_20261103_general,7464
+2026-11-03,2026,general,us_senate,,Mcintosh County,Jon Ossoff (I) (Dem),DEM,D,2391,oe_ga_20261103_general,7466
+2026-11-03,2026,general,us_senate,,Mcintosh County,Mike Collins (Rep),REP,R,3306,oe_ga_20261103_general,7465
+2026-11-03,2026,general,us_senate,,Mcintosh County,Total Votes,Unknown,O,5697,oe_ga_20261103_general,7463
+2026-11-03,2026,general,us_senate,,Meriwether County,Ballots Cast,Unknown,O,9074,oe_ga_20261103_general,7535
+2026-11-03,2026,general,us_senate,,Meriwether County,Jon Ossoff (I) (Dem),DEM,D,3916,oe_ga_20261103_general,7537
+2026-11-03,2026,general,us_senate,,Meriwether County,Mike Collins (Rep),REP,R,5075,oe_ga_20261103_general,7536
+2026-11-03,2026,general,us_senate,,Meriwether County,Total Votes,Unknown,O,8991,oe_ga_20261103_general,7534
+2026-11-03,2026,general,us_senate,,Miller County,Ballots Cast,Unknown,O,1973,oe_ga_20261103_general,7605
+2026-11-03,2026,general,us_senate,,Miller County,Jon Ossoff (I) (Dem),DEM,D,556,oe_ga_20261103_general,7607
+2026-11-03,2026,general,us_senate,,Miller County,Mike Collins (Rep),REP,R,1398,oe_ga_20261103_general,7606
+2026-11-03,2026,general,us_senate,,Miller County,Total Votes,Unknown,O,1954,oe_ga_20261103_general,7604
+2026-11-03,2026,general,us_senate,,Mitchell County,Ballots Cast,Unknown,O,6754,oe_ga_20261103_general,7675
+2026-11-03,2026,general,us_senate,,Mitchell County,Jon Ossoff (I) (Dem),DEM,D,3261,oe_ga_20261103_general,7677
+2026-11-03,2026,general,us_senate,,Mitchell County,Mike Collins (Rep),REP,R,3437,oe_ga_20261103_general,7676
+2026-11-03,2026,general,us_senate,,Mitchell County,Total Votes,Unknown,O,6698,oe_ga_20261103_general,7674
+2026-11-03,2026,general,us_senate,,Monroe County,Ballots Cast,Unknown,O,14204,oe_ga_20261103_general,7741
+2026-11-03,2026,general,us_senate,,Monroe County,Jon Ossoff (I) (Dem),DEM,D,4617,oe_ga_20261103_general,7743
+2026-11-03,2026,general,us_senate,,Monroe County,Mike Collins (Rep),REP,R,9463,oe_ga_20261103_general,7742
+2026-11-03,2026,general,us_senate,,Monroe County,Total Votes,Unknown,O,14080,oe_ga_20261103_general,7740
+2026-11-03,2026,general,us_senate,,Montgomery County,Ballots Cast,Unknown,O,2986,oe_ga_20261103_general,7815
+2026-11-03,2026,general,us_senate,,Montgomery County,Jon Ossoff (I) (Dem),DEM,D,918,oe_ga_20261103_general,7817
+2026-11-03,2026,general,us_senate,,Montgomery County,Mike Collins (Rep),REP,R,2032,oe_ga_20261103_general,7816
+2026-11-03,2026,general,us_senate,,Montgomery County,Total Votes,Unknown,O,2950,oe_ga_20261103_general,7814
+2026-11-03,2026,general,us_senate,,Morgan County,Ballots Cast,Unknown,O,10613,oe_ga_20261103_general,7882
+2026-11-03,2026,general,us_senate,,Morgan County,Jon Ossoff (I) (Dem),DEM,D,3509,oe_ga_20261103_general,7884
+2026-11-03,2026,general,us_senate,,Morgan County,Mike Collins (Rep),REP,R,6975,oe_ga_20261103_general,7883
+2026-11-03,2026,general,us_senate,,Morgan County,Total Votes,Unknown,O,10484,oe_ga_20261103_general,7881
+2026-11-03,2026,general,us_senate,,Murray County,Ballots Cast,Unknown,O,11422,oe_ga_20261103_general,7950
+2026-11-03,2026,general,us_senate,,Murray County,Jon Ossoff (I) (Dem),DEM,D,2836,oe_ga_20261103_general,7952
+2026-11-03,2026,general,us_senate,,Murray County,Mike Collins (Rep),REP,R,8486,oe_ga_20261103_general,7951
+2026-11-03,2026,general,us_senate,,Murray County,Total Votes,Unknown,O,11322,oe_ga_20261103_general,7949
+2026-11-03,2026,general,us_senate,,Muscogee County,Ballots Cast,Unknown,O,62672,oe_ga_20261103_general,8017
+2026-11-03,2026,general,us_senate,,Muscogee County,Jon Ossoff (I) (Dem),DEM,D,43674,oe_ga_20261103_general,8019
+2026-11-03,2026,general,us_senate,,Muscogee County,Mike Collins (Rep),REP,R,18670,oe_ga_20261103_general,8018
+2026-11-03,2026,general,us_senate,,Muscogee County,Total Votes,Unknown,O,62344,oe_ga_20261103_general,8016
+2026-11-03,2026,general,us_senate,,Newton County,Ballots Cast,Unknown,O,48150,oe_ga_20261103_general,8108
+2026-11-03,2026,general,us_senate,,Newton County,Jon Ossoff (I) (Dem),DEM,D,32654,oe_ga_20261103_general,8110
+2026-11-03,2026,general,us_senate,,Newton County,Mike Collins (Rep),REP,R,15061,oe_ga_20261103_general,8109
+2026-11-03,2026,general,us_senate,,Newton County,Total Votes,Unknown,O,47715,oe_ga_20261103_general,8107
+2026-11-03,2026,general,us_senate,,Oconee County,Ballots Cast,Unknown,O,22908,oe_ga_20261103_general,8191
+2026-11-03,2026,general,us_senate,,Oconee County,Jon Ossoff (I) (Dem),DEM,D,8794,oe_ga_20261103_general,8193
+2026-11-03,2026,general,us_senate,,Oconee County,Mike Collins (Rep),REP,R,13798,oe_ga_20261103_general,8192
+2026-11-03,2026,general,us_senate,,Oconee County,Total Votes,Unknown,O,22592,oe_ga_20261103_general,8190
+2026-11-03,2026,general,us_senate,,Oglethorpe County,Ballots Cast,Unknown,O,6885,oe_ga_20261103_general,8263
+2026-11-03,2026,general,us_senate,,Oglethorpe County,Jon Ossoff (I) (Dem),DEM,D,2572,oe_ga_20261103_general,8265
+2026-11-03,2026,general,us_senate,,Oglethorpe County,Mike Collins (Rep),REP,R,4233,oe_ga_20261103_general,8264
+2026-11-03,2026,general,us_senate,,Oglethorpe County,Total Votes,Unknown,O,6805,oe_ga_20261103_general,8262
+2026-11-03,2026,general,us_senate,,Paulding County,Ballots Cast,Unknown,O,75178,oe_ga_20261103_general,8331
+2026-11-03,2026,general,us_senate,,Paulding County,Jon Ossoff (I) (Dem),DEM,D,37157,oe_ga_20261103_general,8333
+2026-11-03,2026,general,us_senate,,Paulding County,Mike Collins (Rep),REP,R,37388,oe_ga_20261103_general,8332
+2026-11-03,2026,general,us_senate,,Paulding County,Total Votes,Unknown,O,74545,oe_ga_20261103_general,8330
+2026-11-03,2026,general,us_senate,,Peach County,Ballots Cast,Unknown,O,10718,oe_ga_20261103_general,8422
+2026-11-03,2026,general,us_senate,,Peach County,Jon Ossoff (I) (Dem),DEM,D,5981,oe_ga_20261103_general,8424
+2026-11-03,2026,general,us_senate,,Peach County,Mike Collins (Rep),REP,R,4656,oe_ga_20261103_general,8423
+2026-11-03,2026,general,us_senate,,Peach County,Total Votes,Unknown,O,10637,oe_ga_20261103_general,8421
+2026-11-03,2026,general,us_senate,,Pickens County,Ballots Cast,Unknown,O,15467,oe_ga_20261103_general,8496
+2026-11-03,2026,general,us_senate,,Pickens County,Jon Ossoff (I) (Dem),DEM,D,3717,oe_ga_20261103_general,8498
+2026-11-03,2026,general,us_senate,,Pickens County,Mike Collins (Rep),REP,R,11550,oe_ga_20261103_general,8497
+2026-11-03,2026,general,us_senate,,Pickens County,Total Votes,Unknown,O,15267,oe_ga_20261103_general,8495
+2026-11-03,2026,general,us_senate,,Pierce County,Ballots Cast,Unknown,O,7057,oe_ga_20261103_general,8564
+2026-11-03,2026,general,us_senate,,Pierce County,Jon Ossoff (I) (Dem),DEM,D,1074,oe_ga_20261103_general,8566
+2026-11-03,2026,general,us_senate,,Pierce County,Mike Collins (Rep),REP,R,5948,oe_ga_20261103_general,8565
+2026-11-03,2026,general,us_senate,,Pierce County,Total Votes,Unknown,O,7022,oe_ga_20261103_general,8563
+2026-11-03,2026,general,us_senate,,Pike County,Ballots Cast,Unknown,O,9175,oe_ga_20261103_general,8631
+2026-11-03,2026,general,us_senate,,Pike County,Jon Ossoff (I) (Dem),DEM,D,1703,oe_ga_20261103_general,8633
+2026-11-03,2026,general,us_senate,,Pike County,Mike Collins (Rep),REP,R,7381,oe_ga_20261103_general,8632
+2026-11-03,2026,general,us_senate,,Pike County,Total Votes,Unknown,O,9084,oe_ga_20261103_general,8630
+2026-11-03,2026,general,us_senate,,Polk County,Ballots Cast,Unknown,O,13373,oe_ga_20261103_general,8698
+2026-11-03,2026,general,us_senate,,Polk County,Jon Ossoff (I) (Dem),DEM,D,3914,oe_ga_20261103_general,8700
+2026-11-03,2026,general,us_senate,,Polk County,Mike Collins (Rep),REP,R,9354,oe_ga_20261103_general,8699
+2026-11-03,2026,general,us_senate,,Polk County,Total Votes,Unknown,O,13268,oe_ga_20261103_general,8697
+2026-11-03,2026,general,us_senate,,Pulaski County,Ballots Cast,Unknown,O,3372,oe_ga_20261103_general,8766
+2026-11-03,2026,general,us_senate,,Pulaski County,Jon Ossoff (I) (Dem),DEM,D,1131,oe_ga_20261103_general,8768
+2026-11-03,2026,general,us_senate,,Pulaski County,Mike Collins (Rep),REP,R,2202,oe_ga_20261103_general,8767
+2026-11-03,2026,general,us_senate,,Pulaski County,Total Votes,Unknown,O,3333,oe_ga_20261103_general,8765
+2026-11-03,2026,general,us_senate,,Putnam County,Ballots Cast,Unknown,O,10722,oe_ga_20261103_general,8833
+2026-11-03,2026,general,us_senate,,Putnam County,Jon Ossoff (I) (Dem),DEM,D,3631,oe_ga_20261103_general,8835
+2026-11-03,2026,general,us_senate,,Putnam County,Mike Collins (Rep),REP,R,6987,oe_ga_20261103_general,8834
+2026-11-03,2026,general,us_senate,,Putnam County,Total Votes,Unknown,O,10618,oe_ga_20261103_general,8832
+2026-11-03,2026,general,us_senate,,Quitman County,Ballots Cast,Unknown,O,884,oe_ga_20261103_general,8903
+2026-11-03,2026,general,us_senate,,Quitman County,Jon Ossoff (I) (Dem),DEM,D,398,oe_ga_20261103_general,8905
+2026-11-03,2026,general,us_senate,,Quitman County,Mike Collins (Rep),REP,R,470,oe_ga_20261103_general,8904
+2026-11-03,2026,general,us_senate,,Quitman County,Total Votes,Unknown,O,868,oe_ga_20261103_general,8902
+2026-11-03,2026,general,us_senate,,Rabun County,Ballots Cast,Unknown,O,7826,oe_ga_20261103_general,8973
+2026-11-03,2026,general,us_senate,,Rabun County,Jon Ossoff (I) (Dem),DEM,D,2250,oe_ga_20261103_general,8975
+2026-11-03,2026,general,us_senate,,Rabun County,Mike Collins (Rep),REP,R,5492,oe_ga_20261103_general,8974
+2026-11-03,2026,general,us_senate,,Rabun County,Total Votes,Unknown,O,7742,oe_ga_20261103_general,8972
+2026-11-03,2026,general,us_senate,,Randolph County,Ballots Cast,Unknown,O,2380,oe_ga_20261103_general,9041
+2026-11-03,2026,general,us_senate,,Randolph County,Jon Ossoff (I) (Dem),DEM,D,1356,oe_ga_20261103_general,9043
+2026-11-03,2026,general,us_senate,,Randolph County,Mike Collins (Rep),REP,R,998,oe_ga_20261103_general,9042
+2026-11-03,2026,general,us_senate,,Randolph County,Total Votes,Unknown,O,2354,oe_ga_20261103_general,9040
+2026-11-03,2026,general,us_senate,,Richmond County,Ballots Cast,Unknown,O,67090,oe_ga_20261103_general,9111
+2026-11-03,2026,general,us_senate,,Richmond County,Jon Ossoff (I) (Dem),DEM,D,50562,oe_ga_20261103_general,9113
+2026-11-03,2026,general,us_senate,,Richmond County,Mike Collins (Rep),REP,R,16066,oe_ga_20261103_general,9112
+2026-11-03,2026,general,us_senate,,Richmond County,Total Votes,Unknown,O,66628,oe_ga_20261103_general,9110
+2026-11-03,2026,general,us_senate,,Rockdale County,Ballots Cast,Unknown,O,39087,oe_ga_20261103_general,9196
+2026-11-03,2026,general,us_senate,,Rockdale County,Jon Ossoff (I) (Dem),DEM,D,32015,oe_ga_20261103_general,9198
+2026-11-03,2026,general,us_senate,,Rockdale County,Mike Collins (Rep),REP,R,6782,oe_ga_20261103_general,9197
+2026-11-03,2026,general,us_senate,,Rockdale County,Total Votes,Unknown,O,38797,oe_ga_20261103_general,9195
+2026-11-03,2026,general,us_senate,,Schley County,Ballots Cast,Unknown,O,1767,oe_ga_20261103_general,9271
+2026-11-03,2026,general,us_senate,,Schley County,Jon Ossoff (I) (Dem),DEM,D,423,oe_ga_20261103_general,9273
+2026-11-03,2026,general,us_senate,,Schley County,Mike Collins (Rep),REP,R,1329,oe_ga_20261103_general,9272
+2026-11-03,2026,general,us_senate,,Schley County,Total Votes,Unknown,O,1752,oe_ga_20261103_general,9270
+2026-11-03,2026,general,us_senate,,Screven County,Ballots Cast,Unknown,O,5238,oe_ga_20261103_general,9340
+2026-11-03,2026,general,us_senate,,Screven County,Jon Ossoff (I) (Dem),DEM,D,2325,oe_ga_20261103_general,9342
+2026-11-03,2026,general,us_senate,,Screven County,Mike Collins (Rep),REP,R,2879,oe_ga_20261103_general,9341
+2026-11-03,2026,general,us_senate,,Screven County,Total Votes,Unknown,O,5204,oe_ga_20261103_general,9339
+2026-11-03,2026,general,us_senate,,Seminole County,Ballots Cast,Unknown,O,2911,oe_ga_20261103_general,9407
+2026-11-03,2026,general,us_senate,,Seminole County,Jon Ossoff (I) (Dem),DEM,D,1021,oe_ga_20261103_general,9409
+2026-11-03,2026,general,us_senate,,Seminole County,Mike Collins (Rep),REP,R,1869,oe_ga_20261103_general,9408
+2026-11-03,2026,general,us_senate,,Seminole County,Total Votes,Unknown,O,2890,oe_ga_20261103_general,9406
+2026-11-03,2026,general,us_senate,,Spalding County,Ballots Cast,Unknown,O,25838,oe_ga_20261103_general,9477
+2026-11-03,2026,general,us_senate,,Spalding County,Jon Ossoff (I) (Dem),DEM,D,13217,oe_ga_20261103_general,9479
+2026-11-03,2026,general,us_senate,,Spalding County,Mike Collins (Rep),REP,R,12362,oe_ga_20261103_general,9478
+2026-11-03,2026,general,us_senate,,Spalding County,Total Votes,Unknown,O,25579,oe_ga_20261103_general,9476
+2026-11-03,2026,general,us_senate,,Stephens County,Ballots Cast,Unknown,O,9372,oe_ga_20261103_general,9548
+2026-11-03,2026,general,us_senate,,Stephens County,Jon Ossoff (I) (Dem),DEM,D,2429,oe_ga_20261103_general,9550
+2026-11-03,2026,general,us_senate,,Stephens County,Mike Collins (Rep),REP,R,6870,oe_ga_20261103_general,9549
+2026-11-03,2026,general,us_senate,,Stephens County,Total Votes,Unknown,O,9299,oe_ga_20261103_general,9547
+2026-11-03,2026,general,us_senate,,Stewart County,Ballots Cast,Unknown,O,1455,oe_ga_20261103_general,9616
+2026-11-03,2026,general,us_senate,,Stewart County,Jon Ossoff (I) (Dem),DEM,D,904,oe_ga_20261103_general,9618
+2026-11-03,2026,general,us_senate,,Stewart County,Mike Collins (Rep),REP,R,522,oe_ga_20261103_general,9617
+2026-11-03,2026,general,us_senate,,Stewart County,Total Votes,Unknown,O,1426,oe_ga_20261103_general,9615
+2026-11-03,2026,general,us_senate,,Sumter County,Ballots Cast,Unknown,O,9698,oe_ga_20261103_general,9684
+2026-11-03,2026,general,us_senate,,Sumter County,Jon Ossoff (I) (Dem),DEM,D,5505,oe_ga_20261103_general,9686
+2026-11-03,2026,general,us_senate,,Sumter County,Mike Collins (Rep),REP,R,4107,oe_ga_20261103_general,9685
+2026-11-03,2026,general,us_senate,,Sumter County,Total Votes,Unknown,O,9612,oe_ga_20261103_general,9683
+2026-11-03,2026,general,us_senate,,Talbot County,Ballots Cast,Unknown,O,2747,oe_ga_20261103_general,9756
+2026-11-03,2026,general,us_senate,,Talbot County,Jon Ossoff (I) (Dem),DEM,D,1646,oe_ga_20261103_general,9758
+2026-11-03,2026,general,us_senate,,Talbot County,Mike Collins (Rep),REP,R,1077,oe_ga_20261103_general,9757
+2026-11-03,2026,general,us_senate,,Talbot County,Total Votes,Unknown,O,2723,oe_ga_20261103_general,9755
+2026-11-03,2026,general,us_senate,,Taliaferro County,Ballots Cast,Unknown,O,807,oe_ga_20261103_general,9823
+2026-11-03,2026,general,us_senate,,Taliaferro County,Jon Ossoff (I) (Dem),DEM,D,493,oe_ga_20261103_general,9825
+2026-11-03,2026,general,us_senate,,Taliaferro County,Mike Collins (Rep),REP,R,306,oe_ga_20261103_general,9824
+2026-11-03,2026,general,us_senate,,Taliaferro County,Total Votes,Unknown,O,799,oe_ga_20261103_general,9822
+2026-11-03,2026,general,us_senate,,Tattnall County,Ballots Cast,Unknown,O,6292,oe_ga_20261103_general,9891
+2026-11-03,2026,general,us_senate,,Tattnall County,Jon Ossoff (I) (Dem),DEM,D,1994,oe_ga_20261103_general,9893
+2026-11-03,2026,general,us_senate,,Tattnall County,Mike Collins (Rep),REP,R,4224,oe_ga_20261103_general,9892
+2026-11-03,2026,general,us_senate,,Tattnall County,Total Votes,Unknown,O,6218,oe_ga_20261103_general,9890
+2026-11-03,2026,general,us_senate,,Taylor County,Ballots Cast,Unknown,O,3019,oe_ga_20261103_general,9966
+2026-11-03,2026,general,us_senate,,Taylor County,Jon Ossoff (I) (Dem),DEM,D,1216,oe_ga_20261103_general,9968
+2026-11-03,2026,general,us_senate,,Taylor County,Mike Collins (Rep),REP,R,1774,oe_ga_20261103_general,9967
+2026-11-03,2026,general,us_senate,,Taylor County,Total Votes,Unknown,O,2990,oe_ga_20261103_general,9965
+2026-11-03,2026,general,us_senate,,Telfair County,Ballots Cast,Unknown,O,3187,oe_ga_20261103_general,10034
+2026-11-03,2026,general,us_senate,,Telfair County,Jon Ossoff (I) (Dem),DEM,D,1146,oe_ga_20261103_general,10036
+2026-11-03,2026,general,us_senate,,Telfair County,Mike Collins (Rep),REP,R,2006,oe_ga_20261103_general,10035
+2026-11-03,2026,general,us_senate,,Telfair County,Total Votes,Unknown,O,3152,oe_ga_20261103_general,10033
+2026-11-03,2026,general,us_senate,,Terrell County,Ballots Cast,Unknown,O,3464,oe_ga_20261103_general,10104
+2026-11-03,2026,general,us_senate,,Terrell County,Jon Ossoff (I) (Dem),DEM,D,1935,oe_ga_20261103_general,10106
+2026-11-03,2026,general,us_senate,,Terrell County,Mike Collins (Rep),REP,R,1508,oe_ga_20261103_general,10105
+2026-11-03,2026,general,us_senate,,Terrell County,Total Votes,Unknown,O,3443,oe_ga_20261103_general,10103
+2026-11-03,2026,general,us_senate,,Thomas County,Ballots Cast,Unknown,O,16995,oe_ga_20261103_general,10175
+2026-11-03,2026,general,us_senate,,Thomas County,Jon Ossoff (I) (Dem),DEM,D,7534,oe_ga_20261103_general,10177
+2026-11-03,2026,general,us_senate,,Thomas County,Mike Collins (Rep),REP,R,9303,oe_ga_20261103_general,10176
+2026-11-03,2026,general,us_senate,,Thomas County,Total Votes,Unknown,O,16837,oe_ga_20261103_general,10174
+2026-11-03,2026,general,us_senate,,Tift County,Ballots Cast,Unknown,O,13403,oe_ga_20261103_general,10245
+2026-11-03,2026,general,us_senate,,Tift County,Jon Ossoff (I) (Dem),DEM,D,5520,oe_ga_20261103_general,10247
+2026-11-03,2026,general,us_senate,,Tift County,Mike Collins (Rep),REP,R,7758,oe_ga_20261103_general,10246
+2026-11-03,2026,general,us_senate,,Tift County,Total Votes,Unknown,O,13278,oe_ga_20261103_general,10244
+2026-11-03,2026,general,us_senate,,Toombs County,Ballots Cast,Unknown,O,7812,oe_ga_20261103_general,10314
+2026-11-03,2026,general,us_senate,,Toombs County,Jon Ossoff (I) (Dem),DEM,D,2593,oe_ga_20261103_general,10316
+2026-11-03,2026,general,us_senate,,Toombs County,Mike Collins (Rep),REP,R,5152,oe_ga_20261103_general,10315
+2026-11-03,2026,general,us_senate,,Toombs County,Total Votes,Unknown,O,7745,oe_ga_20261103_general,10313
+2026-11-03,2026,general,us_senate,,Towns County,Ballots Cast,Unknown,O,7196,oe_ga_20261103_general,10381
+2026-11-03,2026,general,us_senate,,Towns County,Jon Ossoff (I) (Dem),DEM,D,1741,oe_ga_20261103_general,10383
+2026-11-03,2026,general,us_senate,,Towns County,Mike Collins (Rep),REP,R,5366,oe_ga_20261103_general,10382
+2026-11-03,2026,general,us_senate,,Towns County,Total Votes,Unknown,O,7107,oe_ga_20261103_general,10380
+2026-11-03,2026,general,us_senate,,Treutlen County,Ballots Cast,Unknown,O,2254,oe_ga_20261103_general,10452
+2026-11-03,2026,general,us_senate,,Treutlen County,Jon Ossoff (I) (Dem),DEM,D,780,oe_ga_20261103_general,10454
+2026-11-03,2026,general,us_senate,,Treutlen County,Mike Collins (Rep),REP,R,1453,oe_ga_20261103_general,10453
+2026-11-03,2026,general,us_senate,,Treutlen County,Total Votes,Unknown,O,2233,oe_ga_20261103_general,10451
+2026-11-03,2026,general,us_senate,,Troup County,Ballots Cast,Unknown,O,23360,oe_ga_20261103_general,10518
+2026-11-03,2026,general,us_senate,,Troup County,Jon Ossoff (I) (Dem),DEM,D,10977,oe_ga_20261103_general,10520
+2026-11-03,2026,general,us_senate,,Troup County,Mike Collins (Rep),REP,R,12193,oe_ga_20261103_general,10519
+2026-11-03,2026,general,us_senate,,Troup County,Total Votes,Unknown,O,23170,oe_ga_20261103_general,10517
+2026-11-03,2026,general,us_senate,,Turner County,Ballots Cast,Unknown,O,3001,oe_ga_20261103_general,10595
+2026-11-03,2026,general,us_senate,,Turner County,Jon Ossoff (I) (Dem),DEM,D,1305,oe_ga_20261103_general,10597
+2026-11-03,2026,general,us_senate,,Turner County,Mike Collins (Rep),REP,R,1663,oe_ga_20261103_general,10596
+2026-11-03,2026,general,us_senate,,Turner County,Total Votes,Unknown,O,2968,oe_ga_20261103_general,10594
+2026-11-03,2026,general,us_senate,,Twiggs County,Ballots Cast,Unknown,O,3383,oe_ga_20261103_general,10661
+2026-11-03,2026,general,us_senate,,Twiggs County,Jon Ossoff (I) (Dem),DEM,D,1705,oe_ga_20261103_general,10663
+2026-11-03,2026,general,us_senate,,Twiggs County,Mike Collins (Rep),REP,R,1653,oe_ga_20261103_general,10662
+2026-11-03,2026,general,us_senate,,Twiggs County,Total Votes,Unknown,O,3358,oe_ga_20261103_general,10660
+2026-11-03,2026,general,us_senate,,Union County,Ballots Cast,Unknown,O,14427,oe_ga_20261103_general,10728
+2026-11-03,2026,general,us_senate,,Union County,Jon Ossoff (I) (Dem),DEM,D,3421,oe_ga_20261103_general,10730
+2026-11-03,2026,general,us_senate,,Union County,Mike Collins (Rep),REP,R,10837,oe_ga_20261103_general,10729
+2026-11-03,2026,general,us_senate,,Union County,Total Votes,Unknown,O,14258,oe_ga_20261103_general,10727
+2026-11-03,2026,general,us_senate,,Upson County,Ballots Cast,Unknown,O,9844,oe_ga_20261103_general,10799
+2026-11-03,2026,general,us_senate,,Upson County,Jon Ossoff (I) (Dem),DEM,D,3638,oe_ga_20261103_general,10801
+2026-11-03,2026,general,us_senate,,Upson County,Mike Collins (Rep),REP,R,6104,oe_ga_20261103_general,10800
+2026-11-03,2026,general,us_senate,,Upson County,Total Votes,Unknown,O,9742,oe_ga_20261103_general,10798
+2026-11-03,2026,general,us_senate,,Walker County,Ballots Cast,Unknown,O,21503,oe_ga_20261103_general,10865
+2026-11-03,2026,general,us_senate,,Walker County,Jon Ossoff (I) (Dem),DEM,D,6370,oe_ga_20261103_general,10867
+2026-11-03,2026,general,us_senate,,Walker County,Mike Collins (Rep),REP,R,14979,oe_ga_20261103_general,10866
+2026-11-03,2026,general,us_senate,,Walker County,Total Votes,Unknown,O,21349,oe_ga_20261103_general,10864
+2026-11-03,2026,general,us_senate,,Walton County,Ballots Cast,Unknown,O,44999,oe_ga_20261103_general,10937
+2026-11-03,2026,general,us_senate,,Walton County,Jon Ossoff (I) (Dem),DEM,D,16147,oe_ga_20261103_general,10939
+2026-11-03,2026,general,us_senate,,Walton County,Mike Collins (Rep),REP,R,28358,oe_ga_20261103_general,10938
+2026-11-03,2026,general,us_senate,,Walton County,Total Votes,Unknown,O,44505,oe_ga_20261103_general,10936
+2026-11-03,2026,general,us_senate,,Ware County,Ballots Cast,Unknown,O,10313,oe_ga_20261103_general,11017
+2026-11-03,2026,general,us_senate,,Ware County,Jon Ossoff (I) (Dem),DEM,D,3551,oe_ga_20261103_general,11019
+2026-11-03,2026,general,us_senate,,Ware County,Mike Collins (Rep),REP,R,6689,oe_ga_20261103_general,11018
+2026-11-03,2026,general,us_senate,,Ware County,Total Votes,Unknown,O,10240,oe_ga_20261103_general,11016
+2026-11-03,2026,general,us_senate,,Warren County,Ballots Cast,Unknown,O,2106,oe_ga_20261103_general,11091
+2026-11-03,2026,general,us_senate,,Warren County,Jon Ossoff (I) (Dem),DEM,D,1190,oe_ga_20261103_general,11093
+2026-11-03,2026,general,us_senate,,Warren County,Mike Collins (Rep),REP,R,888,oe_ga_20261103_general,11092
+2026-11-03,2026,general,us_senate,,Warren County,Total Votes,Unknown,O,2078,oe_ga_20261103_general,11090
+2026-11-03,2026,general,us_senate,,Washington County,Ballots Cast,Unknown,O,8004,oe_ga_20261103_general,11159
+2026-11-03,2026,general,us_senate,,Washington County,Jon Ossoff (I) (Dem),DEM,D,4261,oe_ga_20261103_general,11161
+2026-11-03,2026,general,us_senate,,Washington County,Mike Collins (Rep),REP,R,3626,oe_ga_20261103_general,11160
+2026-11-03,2026,general,us_senate,,Washington County,Total Votes,Unknown,O,7887,oe_ga_20261103_general,11158
+2026-11-03,2026,general,us_senate,,Wayne County,Ballots Cast,Unknown,O,9850,oe_ga_20261103_general,11227
+2026-11-03,2026,general,us_senate,,Wayne County,Jon Ossoff (I) (Dem),DEM,D,2718,oe_ga_20261103_general,11229
+2026-11-03,2026,general,us_senate,,Wayne County,Mike Collins (Rep),REP,R,7059,oe_ga_20261103_general,11228
+2026-11-03,2026,general,us_senate,,Wayne County,Total Votes,Unknown,O,9777,oe_ga_20261103_general,11226
+2026-11-03,2026,general,us_senate,,Webster County,Ballots Cast,Unknown,O,1063,oe_ga_20261103_general,11299
+2026-11-03,2026,general,us_senate,,Webster County,Jon Ossoff (I) (Dem),DEM,D,474,oe_ga_20261103_general,11301
+2026-11-03,2026,general,us_senate,,Webster County,Mike Collins (Rep),REP,R,576,oe_ga_20261103_general,11300
+2026-11-03,2026,general,us_senate,,Webster County,Total Votes,Unknown,O,1050,oe_ga_20261103_general,11298
+2026-11-03,2026,general,us_senate,,Wheeler County,Ballots Cast,Unknown,O,1817,oe_ga_20261103_general,11367
+2026-11-03,2026,general,us_senate,,Wheeler County,Jon Ossoff (I) (Dem),DEM,D,583,oe_ga_20261103_general,11369
+2026-11-03,2026,general,us_senate,,Wheeler County,Mike Collins (Rep),REP,R,1207,oe_ga_20261103_general,11368
+2026-11-03,2026,general,us_senate,,Wheeler County,Total Votes,Unknown,O,1790,oe_ga_20261103_general,11366
+2026-11-03,2026,general,us_senate,,White County,Ballots Cast,Unknown,O,12667,oe_ga_20261103_general,11434
+2026-11-03,2026,general,us_senate,,White County,Jon Ossoff (I) (Dem),DEM,D,2849,oe_ga_20261103_general,11436
+2026-11-03,2026,general,us_senate,,White County,Mike Collins (Rep),REP,R,9711,oe_ga_20261103_general,11435
+2026-11-03,2026,general,us_senate,,White County,Total Votes,Unknown,O,12560,oe_ga_20261103_general,11433
+2026-11-03,2026,general,us_senate,,Whitfield County,Ballots Cast,Unknown,O,30116,oe_ga_20261103_general,11513
+2026-11-03,2026,general,us_senate,,Whitfield County,Jon Ossoff (I) (Dem),DEM,D,12953,oe_ga_20261103_general,11515
+2026-11-03,2026,general,us_senate,,Whitfield County,Mike Collins (Rep),REP,R,16899,oe_ga_20261103_general,11514
+2026-11-03,2026,general,us_senate,,Whitfield County,Total Votes,Unknown,O,29852,oe_ga_20261103_general,11512
+2026-11-03,2026,general,us_senate,,Wilcox County,Ballots Cast,Unknown,O,2491,oe_ga_20261103_general,11588
+2026-11-03,2026,general,us_senate,,Wilcox County,Jon Ossoff (I) (Dem),DEM,D,731,oe_ga_20261103_general,11590
+2026-11-03,2026,general,us_senate,,Wilcox County,Mike Collins (Rep),REP,R,1733,oe_ga_20261103_general,11589
+2026-11-03,2026,general,us_senate,,Wilcox County,Total Votes,Unknown,O,2464,oe_ga_20261103_general,11587
+2026-11-03,2026,general,us_senate,,Wilkes County,Ballots Cast,Unknown,O,4126,oe_ga_20261103_general,11658
+2026-11-03,2026,general,us_senate,,Wilkes County,Jon Ossoff (I) (Dem),DEM,D,1968,oe_ga_20261103_general,11660
+2026-11-03,2026,general,us_senate,,Wilkes County,Mike Collins (Rep),REP,R,2115,oe_ga_20261103_general,11659
+2026-11-03,2026,general,us_senate,,Wilkes County,Total Votes,Unknown,O,4083,oe_ga_20261103_general,11657
+2026-11-03,2026,general,us_senate,,Wilkinson County,Ballots Cast,Unknown,O,3732,oe_ga_20261103_general,11730
+2026-11-03,2026,general,us_senate,,Wilkinson County,Jon Ossoff (I) (Dem),DEM,D,1809,oe_ga_20261103_general,11732
+2026-11-03,2026,general,us_senate,,Wilkinson County,Mike Collins (Rep),REP,R,1886,oe_ga_20261103_general,11731
+2026-11-03,2026,general,us_senate,,Wilkinson County,Total Votes,Unknown,O,3695,oe_ga_20261103_general,11729
+2026-11-03,2026,general,us_senate,,Worth County,Ballots Cast,Unknown,O,6839,oe_ga_20261103_general,11797
+2026-11-03,2026,general,us_senate,,Worth County,Jon Ossoff (I) (Dem),DEM,D,2136,oe_ga_20261103_general,11799
+2026-11-03,2026,general,us_senate,,Worth County,Mike Collins (Rep),REP,R,4635,oe_ga_20261103_general,11798
+2026-11-03,2026,general,us_senate,,Worth County,Total Votes,Unknown,O,6771,oe_ga_20261103_general,11796

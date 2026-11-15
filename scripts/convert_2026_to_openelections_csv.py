@@ -20,7 +20,7 @@ from typing import Optional
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT_FILE = ROOT / "requirements" / "ElectionVotResults-2026-Certified-v2.xlsx"
-OUTPUT_DIR = ROOT / "fdp" / "data" / "repos" / "main" / "openelections" / "2026"
+OUTPUT_DIR = ROOT / "fdp" / "data" / "raw" / "openelections" / "2026"
 OUTPUT_FILE = OUTPUT_DIR / "20261103__ga__general__county-level.csv"
 
 # Mapping of office names to OpenElections format
@@ -58,9 +58,11 @@ def normalize_office(office: str) -> Optional[str]:
             return val
     return office
 
-def normalize_party(party: str) -> str:
+def normalize_party(party) -> str:
     """Normalize party code."""
-    party_clean = party.strip().upper()
+    if pd.isna(party) or party is None:
+        return "Unknown"
+    party_clean = str(party).strip().upper()
     return PARTY_MAP.get(party_clean, party_clean)
 
 def convert_2026() -> None:
@@ -74,9 +76,11 @@ def convert_2026() -> None:
     # Read the County Results sheet
     df = pd.read_excel(INPUT_FILE, sheet_name="County Results")
     print(f"✓ Loaded {len(df)} rows from 'County Results'")
+    print(f"   Columns: {list(df.columns)}")
     
-    # Expected columns: County Name, Office Name, District, Candidate Name, Party, Votes
-    required_cols = ["County Name", "Office Name", "District", "Candidate Name", "Party", "Votes"]
+    # Map actual columns to OpenElections format
+    # Column mapping: County, Office Name, District (in 'Ballot Name'), Candidate (Ballot Name), Party, Total (votes)
+    required_cols = ["County", "Office Name", "Party", "Total", "Ballot Name"]
     missing = [c for c in required_cols if c not in df.columns]
     if missing:
         print(f"❌ Missing columns: {missing}")
@@ -89,13 +93,21 @@ def convert_2026() -> None:
         office = normalize_office(row["Office Name"])
         party = normalize_party(row["Party"])
         
+        # Extract district from Ballot Name (e.g., "House District 1" → "1")
+        ballot_name = str(row.get("Ballot Name", "")).strip()
+        district = ""
+        if "District" in ballot_name:
+            parts = ballot_name.split("District")
+            if len(parts) > 1:
+                district = parts[1].strip().split()[0]  # Get first word after "District"
+        
         record = {
-            "county": row["County Name"].strip(),
+            "county": row["County"].strip(),
             "office": office,
-            "district": row["District"] if pd.notna(row["District"]) else "",
-            "candidate": row["Candidate Name"].strip(),
+            "district": district,
+            "candidate": ballot_name.strip(),  # Use Ballot Name as candidate
             "party": party,
-            "votes": int(row["Votes"]) if pd.notna(row["Votes"]) else 0,
+            "votes": int(row["Total"]) if pd.notna(row["Total"]) else 0,
         }
         result.append(record)
     

@@ -152,7 +152,7 @@ SOURCES: dict[int, Source] = {
         source_id="oe_ga_20261103_general",
         election_date="2026-11-03", cycle_year=2026, election_type="general",
         patterns=("2026/20261103__ga__general__county-level.csv",),
-        votes_mode_columns=_MODES_STANDARD, grain="county",
+        votes_total_column="votes", grain="county",
         certified=False,
         note="⚠️ UNCERTIFIED: Pending Georgia Secretary of State certification. For development/testing only.",
     ),
