@@ -31,19 +31,20 @@ GitHub repository; `fgdp` holds git submodule pointers to all of them.
 
 ```
 ~/codebox/fgdp/                   ← monorepo root (github: evolvedHow/fgdp)
-├── fdp/           ← Shared data platform (Python package + canonical data + scoring scripts)
-├── fdensemble/    ← Ensemble benchmark app (FastAPI + Svelte 5, Railway)
-│   ├── main.py              ← FastAPI server + map library + scoring API
-│   ├── input_data/          ← Pre-computed scorecard JSONs (committed)
-│   ├── dataverse_files/     ← ALARM/Harvard CSV (committed)
-│   ├── data/                ← vtd_composite.parquet, vtd_muni.parquet (committed)
-│   ├── uploaded_maps/       ← Preloaded proposed maps (gitignored; Railway persistent volume)
-│   └── frontend/            ← Svelte 5 app (dist/ committed for Railway)
-├── fdex/          ← Georgia Explorer — public-facing district map
-├── fdga-chain/    ← Ensemble compute API (GerryChain / Modal)
-├── fdworkbench/   ← NLQ-to-SQL analytics workbench
-├── lrdb/          ← Local Redistricting Database (county/city/school boards)
-├── map-compare/   ← Plan comparison and metrics tool
+├── fdp/                ← Shared data platform (Python package + canonical data + scoring scripts)
+├── fdensemble/         ← Ensemble benchmark app (FastAPI + Svelte 5, Railway)
+│   ├── main.py                 ← FastAPI server + map library + scoring API
+│   ├── input_data/             ← Pre-computed scorecard JSONs (committed)
+│   ├── dataverse_files/        ← ALARM/Harvard CSV (committed)
+│   ├── data/                   ← vtd_composite.parquet, vtd_muni.parquet (committed)
+│   ├── uploaded_maps/          ← Preloaded proposed maps (gitignored; Railway persistent volume)
+│   └── frontend/               ← Svelte 5 app (dist/ committed for Railway)
+├── fdex/               ← Georgia Explorer — public-facing district map
+├── fdga-chain/         ← Ensemble compute API (GerryChain / Modal)
+├── fdworkbench/        ← NLQ-to-SQL analytics workbench
+├── fair-districts-xray/ ← Advanced election analytics & certification tracking ✨ NEW
+├── lrdb/               ← Local Redistricting Database (county/city/school boards)
+├── map-compare/        ← Plan comparison and metrics tool
 ├── scripts/
 │   └── push_cdm.sh   ← Sync updated CDM data into all apps
 ├── METRICS.md         ← All 17 metrics: formula, data source, grading method
@@ -51,8 +52,10 @@ GitHub repository; `fgdp` holds git submodule pointers to all of them.
 └── README.md
 ```
 
-All five apps depend on **fdp** for data. `fdworkbench` lives directly
-inside `fgdp` (no separate GitHub repo). All others are git submodules.
+All apps depend on **fdp** for data. `fdworkbench` lives directly
+inside `fgdp` (no separate GitHub repo). All others are separate git repositories
+with their own development histories. `fair-districts-xray` is the newest addition,
+providing election certification tracking and advanced analytics.
 
 ---
 
@@ -63,6 +66,7 @@ inside `fgdp` (no separate GitHub repo). All others are git submodules.
 | fgdp (wrapper) | evolvedHow/fgdp | — |
 | fdex | evolvedHow/fdex | https://evolvedhow.github.io/fdex/ |
 | fdga-chain | evolvedHow/fdga-chain | https://evolvedhow.github.io/fdga-chain/ |
+| fair-districts-xray | evolvedHow/fdga-xray *(rebranded)* | Integrated into fdex & other apps |
 | lrdb | evolvedHow/lrdb | https://evolvedhow.github.io/lrdb/ |
 | map-compare | evolvedHow/map-compare | https://evolvedhow.github.io/map-compare/ |
 
