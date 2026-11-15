@@ -106,8 +106,8 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
 
   // ---------------------------------------------------------------- figure 3
   const DW = 640;
-  const DH = 168;
-  const DM = { top: 22, right: 14, bottom: 30, left: 12 };
+  const DH = 200;
+  const DM = { top: 40, right: 14, bottom: 30, left: 12 };
   const dPlotW = DW - DM.left - DM.right;
   const dPlotH = DH - DM.top - DM.bottom;
   const slot = dPlotW / Math.max(1, moved.length);
@@ -449,17 +449,40 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
             y2={DM.top + dPlotH}
             className="axis-line"
           />
-          {worst.slice(0, 4).map((d, i) => (
-            <text
-              key={`lbl-${d.district}`}
-              x={DM.left + i * slot + slot / 2}
-              y={DM.top + dPlotH - (d.displacedPct / maxMove) * dPlotH - 3}
-              textAnchor="middle"
-              className="bar-value"
-            >
-              {d.district}
-            </text>
-          ))}
+          {worst.slice(0, 6).map((d, i) => {
+            const barIdx = moved.indexOf(d);
+            const barX = DM.left + barIdx * slot + slot / 2;
+            const barTopY = DM.top + dPlotH - (d.displacedPct / maxMove) * dPlotH;
+            // Alternate label position: above and below to avoid overlap
+            const isAbove = i % 2 === 0;
+            const labelY = isAbove ? barTopY - 14 : barTopY + 12;
+            return (
+              <g key={`lbl-${d.district}`}>
+                {isAbove && (
+                  <line
+                    x1={barX}
+                    x2={barX}
+                    y1={barTopY}
+                    y2={barTopY - 10}
+                    stroke="#d7d3e3"
+                    strokeWidth="0.5"
+                    opacity="0.6"
+                  />
+                )}
+                <text
+                  x={barX}
+                  y={labelY}
+                  textAnchor="middle"
+                  className="axis-label"
+                  fontSize="9"
+                  fontWeight="600"
+                  fill="#4c4863"
+                >
+                  {d.district}
+                </text>
+              </g>
+            );
+          })}
           <text x={DW - DM.right} y={DH - 10} textAnchor="end" className="axis-label">
             {moved.length} districts · dark bar above 30% moved
           </text>
