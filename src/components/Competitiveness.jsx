@@ -42,8 +42,9 @@ export default function Competitiveness({ contests, chamberLabel, year }) {
     );
   }
 
-  const W = 640;
-  const H = 190;
+  // Increased width for better readability of bar chart
+  const W = 980;
+  const H = 220;
   const M = { top: 18, right: 12, bottom: 34, left: 12 };
   const slot = (W - M.left - M.right) / (stats.bins.length + 1);
   const plotH = H - M.top - M.bottom;

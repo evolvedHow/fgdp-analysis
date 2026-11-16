@@ -1,7 +1,6 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useRef } from 'react';
 import Section from './Section';
 import FigureTools from './FigureTools';
-import { useSvgPanZoom } from '../lib/useSvgPanZoom';
 import {
   featureBounds,
   fmtInt,
@@ -77,11 +76,13 @@ export default function PrecinctXray({
     return countyVotes[countyName?.toUpperCase()] || null;
   }, [countyVotes, countyName, selectedCounty]);
 
-  const W = 700;
-  const H = 430;
+  // Increased dimensions for 2,698 precincts visibility
+  const W = 950;
+  const H = 650;
 
-  // Pan/zoom for precinct dot map
-  const { viewBox: precincViewBox, svgRef: precincRef } = useSvgPanZoom(W, H, 1, 10);
+  // Static viewBox (zoom removed for better UX)
+  const precincViewBox = `0 0 ${W} ${H}`;
+  const precincRef = useRef(null);
 
   const bounds = useMemo(() => {
     if (!selectedCounty) return featureBounds(countyFeats);
@@ -232,12 +233,12 @@ export default function PrecinctXray({
         <svg
           viewBox={precincViewBox}
           ref={precincRef}
-          style={{ cursor: 'grab', userSelect: 'none' }}
+          style={{ userSelect: 'none' }}
           role="img"
           aria-label={
             selectedCounty
-              ? `Precinct dot map for ${countyName} County. Use mouse wheel to zoom, drag to pan.`
-              : 'Statewide precinct dot map of Georgia. Use mouse wheel to zoom, drag to pan.'
+              ? `Precinct dot map for ${countyName} County`
+              : 'Statewide precinct dot map of Georgia'
           }
         >
           {countyPaths.map((c) => (

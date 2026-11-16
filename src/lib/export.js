@@ -252,6 +252,51 @@ export async function exportReportPng({ filename, background = '#e8e6ef' } = {})
   }
 }
 
+/**
+ * Export a single card (section) as PNG.
+ * @param {HTMLElement} cardEl the <section class="story-card">
+ * @param {string} filename output filename without extension
+ */
+export async function exportCardPng(cardEl, filename) {
+  const { toPng } = await import('html-to-image');
+  
+  if (!cardEl || !(cardEl instanceof Element)) {
+    throw new Error('No card element found');
+  }
+
+  document.body.classList.add('is-exporting');
+  try {
+    const dataUrl = await toPng(cardEl, {
+      pixelRatio: 2,
+      backgroundColor: '#ffffff',
+      cacheBust: true,
+      filter: (node) =>
+        !(
+          node instanceof Element &&
+          (node.classList?.contains('figure-tools') ||
+            node.classList?.contains('card-actions') ||
+            node.classList?.contains('map-tooltip') ||
+            node.classList?.contains('chart-tooltip'))
+        ),
+    });
+    
+    const img = await loadImage(dataUrl);
+    const blob = await new Promise((resolve) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      canvas.toBlob(resolve, 'image/png');
+    });
+    
+    if (!blob) throw new Error('PNG encoding failed');
+    downloadBlob(blob, `${filename}.png`);
+  } finally {
+    document.body.classList.remove('is-exporting');
+  }
+}
+
 /** Open the browser print dialog; the print stylesheet produces the PDF. */
 export function printReport() {
   window.print();

@@ -1,4 +1,5 @@
 import React from 'react';
+import CardExportButton from './CardExportButton';
 
 /**
  * One panel of the continuous data story.
@@ -14,6 +15,7 @@ export default function Section({ id, step, kicker, title, lede, children, foote
           <h2 id={`${id}-title`}>{title}</h2>
           {lede && <p className="lede">{lede}</p>}
         </div>
+        <CardExportButton filename={`fdga-xray-${id}-${new Date().toISOString().slice(0, 10)}`} />
       </div>
       <div className={`story-body ${aside ? 'with-aside' : ''}`}>
         <div className="story-main">{children}</div>

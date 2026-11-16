@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import Section from './Section';
 import FigureTools from './FigureTools';
+import CountyHeatmap from './CountyHeatmap';
 import {
   featureBounds,
   fmtInt,
@@ -14,7 +15,7 @@ import {
 /**
  * Section 3 — the county map. Choropleth of the selected chamber's county-level
  * two-party share (or the multi-election composite when a chamber result is not
- * available), clickable to drill into precincts.
+ * available), clickable to drill into precincts. Includes a heatmap grid alternative.
  */
 export default function CountyMap({
   counties,
@@ -27,6 +28,7 @@ export default function CountyMap({
 }) {
   const [hover, setHover] = useState(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [viewMode, setViewMode] = useState('auto');
 
   const W = 720;
   const H = 460;
@@ -67,6 +69,8 @@ export default function CountyMap({
   const ranked = useMemo(() => [...rows].sort((a, b) => b.pctD - a.pctD), [rows]);
   const usingChamber = rows.length > 0 && rows[0].source === 'chamber';
   const selected = selectedCounty ? byFips.get(selectedCounty) : null;
+  
+  const shouldUseHeatmap = viewMode === 'heatmap' || (viewMode === 'auto' && window.innerWidth < 900);
 
   return (
     <Section
@@ -113,70 +117,112 @@ export default function CountyMap({
         </>
       }
     >
-      <figure className="chart map-figure">
-        <FigureTools
-          name={`county-map-${chamberLabel}-${year}`}
-          title={usingChamber ? `${chamberLabel} ${year}: county result` : 'County lean, 2018-2024 composite'}
-          subtitle="Democratic share of the two-party vote by county"
-          background="#f7f6fb"
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '12px', fontSize: '13px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+          <input
+            type="radio"
+            name="county-view"
+            value="auto"
+            checked={viewMode === 'auto'}
+            onChange={(e) => setViewMode(e.target.value)}
+          />
+          Optimal view
+        </label>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+          <input
+            type="radio"
+            name="county-view"
+            value="map"
+            checked={viewMode === 'map'}
+            onChange={(e) => setViewMode(e.target.value)}
+          />
+          Map
+        </label>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
+          <input
+            type="radio"
+            name="county-view"
+            value="heatmap"
+            checked={viewMode === 'heatmap'}
+            onChange={(e) => setViewMode(e.target.value)}
+          />
+          Grid (margin)
+        </label>
+      </div>
+
+      {shouldUseHeatmap ? (
+        <CountyHeatmap
+          counties={counties}
+          countyVotes={countyVotes}
+          chamberLabel={chamberLabel}
+          year={year}
         />
-        <svg
-          viewBox={`0 0 ${W} ${H}`}
-          className="county-map"
-          role="img"
-          aria-label={`County choropleth of Democratic two-party share, ${usingChamber ? `${chamberLabel} ${year}` : '2018-2024 composite'}`}
-        >
-          {shapes.map(({ ft, d }) => {
-            const row = byFips.get(ft.properties.fips);
-            const isSel = selectedCounty === ft.properties.fips;
-            return (
-              <path
-                key={ft.properties.fips}
-                d={d}
-                fill={leanColor(row?.pctD ?? null)}
-                className={`county ${isSel ? 'is-selected' : ''}`}
-                tabIndex={0}
-                role="button"
-                aria-label={`${ft.properties.name} County: ${row ? fmtPct(row.pctD) : 'no data'} Democratic`}
-                onMouseMove={(e) => {
-                  setHover(row || null);
-                  const box = e.currentTarget.ownerSVGElement.getBoundingClientRect();
-                  setPos({ x: e.clientX - box.left, y: e.clientY - box.top });
-                }}
-                onMouseLeave={() => setHover(null)}
-                onFocus={() => setHover(row || null)}
-                onBlur={() => setHover(null)}
-                onClick={() => onSelectCounty(ft.properties.fips)}
-              />
-            );
-          })}
-        </svg>
+      ) : (
+        <figure className="chart map-figure">
+          <FigureTools
+            name={`county-map-${chamberLabel}-${year}`}
+            title={usingChamber ? `${chamberLabel} ${year}: county result` : 'County lean, 2018-2024 composite'}
+            subtitle="Democratic share of the two-party vote by county"
+            background="#f7f6fb"
+          />
+          <svg
+            viewBox={`0 0 ${W} ${H}`}
+            className="county-map"
+            role="img"
+            aria-label={`County choropleth of Democratic two-party share, ${usingChamber ? `${chamberLabel} ${year}` : '2018-2024 composite'}`}
+          >
+            {shapes.map(({ ft, d }) => {
+              const row = byFips.get(ft.properties.fips);
+              const isSel = selectedCounty === ft.properties.fips;
+              return (
+                <path
+                  key={ft.properties.fips}
+                  d={d}
+                  fill={leanColor(row?.pctD ?? null)}
+                  className={`county ${isSel ? 'is-selected' : ''}`}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`${ft.properties.name} County: ${row ? fmtPct(row.pctD) : 'no data'} Democratic`}
+                  onMouseMove={(e) => {
+                    setHover(row || null);
+                    const box = e.currentTarget.ownerSVGElement.getBoundingClientRect();
+                    setPos({ x: e.clientX - box.left, y: e.clientY - box.top });
+                  }}
+                  onMouseLeave={() => setHover(null)}
+                  onFocus={() => setHover(row || null)}
+                  onBlur={() => setHover(null)}
+                  onClick={() => onSelectCounty(ft.properties.fips)}
+                />
+              );
+            })}
+          </svg>
 
-        {hover && (
-          <div className="map-tooltip" style={{ left: pos.x + 12, top: pos.y + 12 }} role="status">
-            <strong>{hover.name} County</strong>
-            <span>D {fmtPct(hover.pctD)}</span>
-            <span>{fmtInt(hover.votes)} votes</span>
-            <em>{hover.source === 'chamber' ? `${chamberLabel} ${year}` : 'composite lean'}</em>
+          {hover && (
+            <div className="map-tooltip" style={{ left: pos.x + 12, top: pos.y + 12 }} role="status">
+              <strong>{hover.name} County</strong>
+              <span>D {fmtPct(hover.pctD)}</span>
+              <span>{fmtInt(hover.votes)} votes</span>
+              <em>{hover.source === 'chamber' ? `${chamberLabel} ${year}` : 'composite lean'}</em>
+            </div>
+          )}
+
+          <div className="map-legend" aria-hidden="true">
+            <span>R 75%</span>
+            <i className="legend-ramp" />
+            <span>75% D</span>
           </div>
-        )}
 
-        <div className="map-legend" aria-hidden="true">
-          <span>R 75%</span>
-          <i className="legend-ramp" />
-          <span>75% D</span>
-        </div>
-
-        {selected && (
-          <div className="map-selected">
-            <strong>{selected.name} County</strong>
-            <span>{fmtPct(selected.pctD)} Democratic · {fmtInt(selected.demVotes)} D votes</span>
-            <button type="button" className="primary-button" onClick={onExplore}>
-              Open {selected.name} precincts →
-            </button>
-          </div>
-        )}
-      </figure>
+          {selected && (
+            <div className="map-selected">
+              <strong>{selected.name} County</strong>
+              <span>{fmtPct(selected.pctD)} Democratic · {fmtInt(selected.demVotes)} D votes</span>
+              <button type="button" className="primary-button" onClick={onExplore}>
+                Open {selected.name} precincts →
+              </button>
+            </div>
+          )}
+        </figure>
+      )}
     </Section>
   );
 }

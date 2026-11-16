@@ -1,5 +1,4 @@
-import React, { useMemo } from 'react';
-import { useSvgPanZoom } from '../lib/useSvgPanZoom';
+import React, { useMemo, useRef } from 'react';
 import Section from './Section';
 import FigureTools from './FigureTools';
 import { fmtInt, fmtPct, fmtPts, PARTY } from '../lib/data';
@@ -78,8 +77,9 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
   const worst = moved.slice(0, 6);
 
   // ---------------------------------------------------------------- figure 1
-  const W = 640;
-  const rowH = 3.2;
+  // Increased dimensions for readability: now 100% width, 6px per district
+  const W = 980;
+  const rowH = 6;
   const M = { top: 24, right: 140, bottom: 26, left: 12 };
   const plotW = W - M.left - M.right;
   const H = M.top + districts.length * rowH + M.bottom;
@@ -90,11 +90,11 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
   };
 
   // ---------------------------------------------------------------- figure 2
-  const CW = 640;
-  const CH = 116;
+  const CW = 980;
+  const CH = 140;
   const CM = { top: 20, right: 74, bottom: 34, left: 66 };
   const cPlotW = CW - CM.left - CM.right;
-  const barH = 20;
+  const barH = 24;
   const buckets = MARGIN_BUCKETS.map((b) => ({
     ...b,
     prior: effect.districts.filter((d) => b.test(Math.abs(d.priorPct - 0.5) * 100)).length,
@@ -106,16 +106,17 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
   ];
 
   // ---------------------------------------------------------------- figure 3
-  const DW = 640;
-  const DH = 200;
+  const DW = 980;
+  const DH = 280;
   const DM = { top: 40, right: 14, bottom: 30, left: 12 };
   const dPlotW = DW - DM.left - DM.right;
   const dPlotH = DH - DM.top - DM.bottom;
   const slot = dPlotW / Math.max(1, moved.length);
   const maxMove = Math.max(0.05, ...moved.map((d) => d.displacedPct || 0));
 
-  // Pan/zoom for dumbbell chart
-  const { viewBox: dumbViewBox, svgRef: dumbRef } = useSvgPanZoom(W, H, 1, 10);
+  // Static viewBox (zoom removed for better UX)
+  const dumbViewBox = `0 0 ${W} ${H}`;
+  const dumbRef = useRef(null);
 
   return (
     <Section
@@ -223,9 +224,8 @@ export default function MapEffect({ effect, sources, chamberLabel, year }) {
         <svg
           viewBox={dumbViewBox}
           ref={dumbRef}
-          style={{ cursor: 'grab', userSelect: 'none' }}
           role="img"
-          aria-label={`Dumbbell chart: 2024 Democratic share in all ${effect.seats} districts under the 2021-23 lines and the 2024 lines. Use mouse wheel to zoom, drag to pan.`}
+          aria-label={`Dumbbell chart: 2024 Democratic share in all ${effect.seats} districts under the 2021-23 lines and the 2024 lines`}
         >
           <rect
             x={x(BAND[0])}
