@@ -17,7 +17,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-fdga-xray
   cancel-in-progress: true
 
 jobs:
